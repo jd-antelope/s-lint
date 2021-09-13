@@ -16,20 +16,20 @@ nrm use jd
 在`.eslintrc.js`文件中调用
 ```js
 module.exports = {
-  extends: ['@jd/selling-c/taro'],
+  extends: ['@jd/selling/taro'],
 };
 ```
 ## vue使用
 在`.eslintrc.js`文件中调用
 ```js
 module.exports = {
-  extends: ['@jd/selling-c/vue'],
+  extends: ['@jd/selling/vue'],
 };
 ```
 ## react使用
 在`.eslintrc.js`文件中调用
 ```js
 module.exports = {
-  extends: ['@jd/selling-c/react'],
+  extends: ['@jd/selling/react'],
 };
 ```
