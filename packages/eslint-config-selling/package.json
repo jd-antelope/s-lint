@@ -3,7 +3,9 @@
   "version": "1.0.1",
   "description": "ESLint config base version",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "clean": "rimraf dist"
+  },
   "keywords": [
     "taro",
     "react",

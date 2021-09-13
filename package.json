@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "description": "",
-  "private": false,
   "author": "",
   "license": "ISC",
   "scripts": {
