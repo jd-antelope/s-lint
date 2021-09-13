@@ -9,7 +9,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "lerna run clean",
-    "publish": "lerna publish from-package --yes"
+    "publish": "lerna publish from-git --yes"
   },
   "devDependencies": {
     "husky": "^7.0.2",
