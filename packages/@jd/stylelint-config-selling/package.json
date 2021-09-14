@@ -1,0 +1,29 @@
+{
+  "name": "@jd/stylelint-config-selling",
+  "version": "1.0.0",
+  "description": "@jd/stylelint-config-selling",
+  "keywords": [
+    "stylelint"
+  ],
+  "author": "zhengxiuyue <zhengxiuyue@jd.com>",
+  "homepage": "http://index.js",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.m.jd.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://coding.jd.com/selling-front/frontend-lint.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
