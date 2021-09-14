@@ -1,6 +1,6 @@
 {
   "packages": [
-    "packages/@jd/commitlint-config-selling"
+    "packages/@jd/stylelint-config-selling"
   ],
   "version": "independent"
 }
