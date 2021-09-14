@@ -19,7 +19,7 @@
     "url": "https://coding.jd.com/selling-front/frontend-lint.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "stylelint __tests__"
   },
   "dependencies": {
     "stylelint": "^13.13.1",

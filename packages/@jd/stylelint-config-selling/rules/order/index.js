@@ -44,7 +44,6 @@ module.exports = {
       "order",
 
       // Box
-
       "box-sizing",
       "width",
       "min-width",
@@ -99,7 +98,6 @@ module.exports = {
       "border-collapse",
 
       // 描边
-
       "outline",
       "outline-width",
       "outline-style",
