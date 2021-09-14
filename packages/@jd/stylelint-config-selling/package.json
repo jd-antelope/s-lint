@@ -1,6 +1,6 @@
 {
   "name": "@jd/stylelint-config-selling",
-  "version": "0.0.1.bate",
+  "version": "0.0.1-beta",
   "description": "@jd/stylelint-config-selling",
   "keywords": [
     "stylelint"
@@ -23,5 +23,6 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.21.0"
-  }
+  },
+  "gitHead": "65792a4d67fac3c3a907abd6840a0ad4e9a70ee6"
 }
