@@ -1,6 +1,6 @@
 {
   "packages": [
-    "packages/eslint-config-selling"
+    "packages/@jd/eslint-config-selling"
   ],
   "version": "independent"
 }
