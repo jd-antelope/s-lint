@@ -6,13 +6,8 @@
     "stylelint"
   ],
   "author": "zhengxiuyue <zhengxiuyue@jd.com>",
-  "homepage": "http://index.js",
   "license": "ISC",
-  "main": "lib/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "main": "index.js",
   "files": [
     "lib"
   ],
@@ -25,5 +20,11 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.21.0"
   }
 }
