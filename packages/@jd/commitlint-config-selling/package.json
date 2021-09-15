@@ -1,0 +1,20 @@
+{
+  "name": "@jd/commitlint-config-selling",
+  "version": "0.0.1",
+  "description": "commitlint config base version",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "commitlint"
+  ],
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "author": "hawleyHuo",
+  "license": "ISC",
+  "dependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0"
+  }
+}
