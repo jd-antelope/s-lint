@@ -12,6 +12,7 @@
     "jsx"
   ],
   "files": [
+    "rules",
     "base.js",
     "index.js",
     "taro.js",
