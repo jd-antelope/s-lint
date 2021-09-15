@@ -15,6 +15,7 @@
     "base.js",
     "index.js",
     "taro.js",
+    "next.js",
     "react.js",
     "vue.js",
     "package.json",
