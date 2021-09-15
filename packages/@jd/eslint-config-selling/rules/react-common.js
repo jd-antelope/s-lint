@@ -1,10 +1,13 @@
 module.exports = {
+  parserOptions: {
+    "ecmaVersion": 6,
+  },
+  parser: "@typescript-eslint/parser",
   plugins: [
     "@typescript-eslint",
     "react",
     "react-hooks"
   ],
-  parser: "@typescript-eslint/parser",
   rules: {
     eqeqeq: 2, // 全等
     "arrow-spacing": [2, { "before": true, "after": true }], // 在箭头函数中的箭头前后强制保持一致的间距
