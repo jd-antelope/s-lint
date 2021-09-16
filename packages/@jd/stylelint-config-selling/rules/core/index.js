@@ -7,13 +7,13 @@ const number = require("./number");
 const string = require("./string");
 const length = require("./length");
 const value = require("./value");
-const shorthandProperty = require("./shorthand-property");
+const shorthand = require("./shorthand");
 const property = require("./property");
 const declaration = require("./declaration");
 const block = require("./block");
 const selector = require("./selector");
 const rule = require("./rule");
-const mediaFeature = require("./media-feature");
+const media = require("./media");
 const atRule = require("./at-rule");
 const comment = require("./comment");
 const general = require("./general");
@@ -27,13 +27,13 @@ module.exports = Object.assign(
   string,
   length,
   value,
-  shorthandProperty,
+  shorthand,
   property,
   declaration,
   block,
   selector,
   rule,
-  mediaFeature,
+  media,
   atRule,
   comment,
   general
