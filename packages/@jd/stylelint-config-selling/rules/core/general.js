@@ -4,7 +4,7 @@ module.exports = {
   // 限制允许嵌套的深度
   "max-nesting-depth": [4, {"message": "限制允许嵌套的深度：4"}],
   // 限制选择器的优先级
-  "selector-max-specificity": ["0,5,2", {"message":"id,class,type 优先级为 0,5,2"}],
+  // "selector-max-specificity": ["0,5,2", {"message":"id,class,type 优先级为 0,5,2"}],
   // 不允许多余的分号
   "no-extra-semicolons": [true, {"message": "不允许多余的分号"}],
   // 禁止低优先级的选择器出现在高优先级的选择器之后

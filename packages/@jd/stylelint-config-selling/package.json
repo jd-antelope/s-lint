@@ -1,6 +1,6 @@
 {
   "name": "@jd/stylelint-config-selling",
-  "version": "1.0.0",
+  "version": "0.0.2-beta",
   "description": "@jd/stylelint-config-selling",
   "keywords": [
     "stylelint"
@@ -8,9 +8,6 @@
   "author": "zhengxiuyue <zhengxiuyue@jd.com>",
   "license": "ISC",
   "main": "index.js",
-  "files": [
-    "lib"
-  ],
   "publishConfig": {
     "registry": "http://registry.m.jd.com/"
   },
@@ -19,12 +16,12 @@
     "url": "https://coding.jd.com/selling-front/frontend-lint.git"
   },
   "scripts": {
-    "test": "stylelint __tests__"
+    "test": "stylelint test"
   },
   "dependencies": {
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.21.0"
-  }
+    "stylelint-order": "^4.1.0"
+  },
+  "gitHead": "65792a4d67fac3c3a907abd6840a0ad4e9a70ee6"
 }
