@@ -8,8 +8,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "lerna run clean",
-    "publish": "node scripts/publish.js",
-    "p": "npm run publish"
+    "publish:independent": "node scripts/publish.js",
+    "p": "lerna publish"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
