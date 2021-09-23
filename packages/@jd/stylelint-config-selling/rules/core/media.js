@@ -4,23 +4,37 @@ module.exports = {
   // 禁止 media 特性名称带有浏览器引擎前缀
   "media-feature-name-no-vendor-prefix": true,
   // 媒体查询，逗号放在上一行的后面
-  "media-query-list-comma-newline-before": "never-multi-line"
-  // 待定
-  // "media-feature-colon-space-after": "always",
-  // "media-feature-colon-space-before": "never",
-  // "media-feature-name-blacklist": [
-  //   "device-width",
-  //   "device-height",
-  //   "device-aspect-ratio"
-  // ],
-  // "media-feature-name-case": "lower",
-  // "media-feature-name-no-unknown": true,
-  // "media-feature-name-value-whitelist": null,
-  // "media-feature-name-whitelist": null,
-  // "media-feature-parentheses-space-inside": "never",
-  // "media-feature-range-operator-space-after": "always",
-  // "media-feature-range-operator-space-before": "always",
-  // "media-query-list-comma-newline-after": "always-multi-line",
-  // "media-query-list-comma-space-after": "always-single-line",
-  // "media-query-list-comma-space-before": "never"
+  "media-query-list-comma-newline-before": "never-multi-line",
+  // 要求在媒体功能的冒号之后必须有一个空格或不能有空白符（可自动修复）。
+  "media-feature-colon-space-after": "always",
+  // 要求在媒体功能的冒号之前必须有一个空格或不能有空白符（可自动修复）。
+  "media-feature-colon-space-before": "never",
+  // 指定禁用的媒体功能名的黑名单
+  "media-feature-name-blacklist": [
+    "device-width",
+    "device-height",
+    "device-aspect-ratio"
+  ],
+  // 指定媒体功能名的大小写（可自动修复）
+  "media-feature-name-case": "lower",
+  // 禁止未知的媒体功能名
+  "media-feature-name-no-unknown": true,
+  // 指定允许的媒体功能名和值对的白名单
+  "media-feature-name-value-whitelist": null,
+  // 指定允许的媒体功能名的白名单
+  "media-feature-name-whitelist": null,
+  // 要求在媒体功能的括号内侧必须有一个空格或不能有空白符（可自动修复）。
+  "media-feature-parentheses-space-inside": "never",
+  // 要求在媒体功能的范围运算符之后必须有一个空格或不能有空白符（可自动修复）。
+  "media-feature-range-operator-space-after": "always",
+  // 要求在媒体功能的范围运算符之前必须有一个空格或不能有空白符（可自动修复）。
+  "media-feature-range-operator-space-before": "always",
+  // 要求在媒体查询列表的逗号之后必须有换行符或不能有空白符（可自动修复）。
+  "media-query-list-comma-newline-after": "always-multi-line",
+  // 要求在媒体查询列表的逗号之前必须有换行符或不能有空白符。
+  "media-query-list-comma-newline-before": "never",
+  // 要求在媒体查询列表的逗号之后必须有一个空格或不能有空白符（可自动修复）。
+  "media-query-list-comma-space-after": "always-single-line",
+  // 要求在媒体查询列表的逗号之前必须有一个空格或不能有空白符（可自动修复）。
+  "media-query-list-comma-space-before": "never"
 };
