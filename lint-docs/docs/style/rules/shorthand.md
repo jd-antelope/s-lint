@@ -1,5 +1,5 @@
 # shorthand
- ```
+ ```js
 "use strict";
 
 module.exports = {

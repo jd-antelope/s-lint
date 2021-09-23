@@ -1,5 +1,5 @@
 # function
- ```
+ ```js
 "use strict";
 
 module.exports = {

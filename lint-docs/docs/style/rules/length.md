@@ -1,5 +1,5 @@
 # length
- ```
+ ```js
 "use strict";
 
 module.exports = {

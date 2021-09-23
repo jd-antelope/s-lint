@@ -1,5 +1,5 @@
 # media
- ```
+ ```js
 "use strict";
 
 module.exports = {

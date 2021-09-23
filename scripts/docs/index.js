@@ -50,7 +50,7 @@ const reWriteRules = (packagePath) => {
     )
     const content = fs.readFileSync(rulePath, 'utf-8')
 
-    const newContent = `# ${ruleName}\n \`\`\`\n${content}\`\`\``
+    const newContent = `# ${ruleName}\n \`\`\`js\n${content}\`\`\``
     fs.writeFileSync(docRulePath, newContent)
   }
 }

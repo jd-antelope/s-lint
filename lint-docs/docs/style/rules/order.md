@@ -1,5 +1,5 @@
 # order
- ```
+ ```js
 "use strict";
 
 module.exports = {

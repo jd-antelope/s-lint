@@ -1,5 +1,5 @@
 # rule
- ```
+ ```js
 "use strict";
 
 module.exports = {

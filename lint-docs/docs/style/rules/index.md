@@ -1,5 +1,5 @@
 # index
- ```
+ ```js
 "use strict";
 
 const color = require("./color");

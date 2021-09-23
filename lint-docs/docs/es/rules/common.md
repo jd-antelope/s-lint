@@ -1,5 +1,5 @@
 # common
- ```
+ ```js
 module.exports = {
   parserOptions: {
     "ecmaVersion": 6,

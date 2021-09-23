@@ -1,5 +1,5 @@
 # color
- ```
+ ```js
 "use strict";
 
 module.exports = {

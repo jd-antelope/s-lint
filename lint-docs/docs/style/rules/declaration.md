@@ -1,5 +1,5 @@
 # declaration
- ```
+ ```js
 "use strict";
 
 module.exports = {

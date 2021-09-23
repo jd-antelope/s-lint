@@ -1,5 +1,5 @@
 # string
- ```
+ ```js
 "use strict";
 
 module.exports = {

@@ -1,5 +1,5 @@
 # property
- ```
+ ```js
 "use strict";
 
 module.exports = {

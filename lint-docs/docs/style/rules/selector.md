@@ -1,5 +1,5 @@
 # selector
- ```
+ ```js
 "use strict";
 
 module.exports = {

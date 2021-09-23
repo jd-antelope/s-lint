@@ -1,5 +1,5 @@
 # general
- ```
+ ```js
 "use strict";
 
 module.exports = {

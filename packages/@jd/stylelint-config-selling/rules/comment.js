@@ -12,6 +12,7 @@ module.exports = {
       ignore: ["stylelint-commands", "after-comment"]
     }
   ],
+  
   // 禁止空评论
   "comment-no-empty": [true, {"message":"注释不能为空"}], 
 

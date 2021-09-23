@@ -1,5 +1,5 @@
 # react-common
- ```
+ ```js
 module.exports = {
   extends: ["./common.js", "./typescript-common.js"],
   parserOptions: {

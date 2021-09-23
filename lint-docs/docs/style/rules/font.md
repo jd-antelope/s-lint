@@ -1,5 +1,5 @@
 # font
- ```
+ ```js
 "use strict";
 
 module.exports = {

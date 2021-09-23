@@ -1,5 +1,5 @@
 # at-rule
- ```
+ ```js
 "use strict";
 
 module.exports = {

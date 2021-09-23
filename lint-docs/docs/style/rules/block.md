@@ -1,5 +1,5 @@
 # block
- ```
+ ```js
 "use strict";
 
 module.exports = {
