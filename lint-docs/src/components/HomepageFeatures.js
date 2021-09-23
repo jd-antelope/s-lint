@@ -8,8 +8,7 @@ const FeatureList = [
     Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        包括前端开发基础规范ESLint(Vue、React、Taro、Next、Nuxt)、StyleLint(Less、CSS)、CommitLint
       </>
     ),
   },
@@ -18,18 +17,16 @@ const FeatureList = [
     Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        提供三大基础包，安装即用；且提供轻量级命令行，一键为项目添加规范、升级规范
       </>
     ),
   },
   {
-    title: '升级维护',
+    title: '易于扩展',
     Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        lerna统一版本模式发包，便于基础包升级、扩展自定义paser、plugin等
       </>
     ),
   },

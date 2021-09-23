@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (module.exports = {
   title: 'selling-lint',
-  tagline: '一个覆盖全面且通用的前端Lint规范解决方案',
+  tagline: '一个全面、通用的前端Lint规范解决方案',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
