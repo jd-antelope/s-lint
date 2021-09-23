@@ -46,21 +46,25 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             to: 'docs/es/guide',
             position: 'left',
             label: 'ESLint',
+            activeBaseRegex: 'docs/es/'
           },
           {
             to: 'docs/style/guide',
             label: 'StyleLint', 
-            position: 'left'
+            position: 'left',
+            activeBaseRegex: 'docs/style/'
           },
           { 
             to: 'docs/commit/guide',
             label: 'CommitLint', 
-            position: 'left'
+            position: 'left',
+            activeBaseRegex: 'docs/commit/',
           },
           { 
             to: 'docs/cli/guide',
             label: 'CLI', 
-            position: 'left'
+            position: 'left',
+            activeBaseRegex: 'docs/stcliyle/',
           },
           {
             href: 'https://coding.jd.com/selling-front/frontend-lint/',

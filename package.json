@@ -9,7 +9,8 @@
     "bootstrap": "lerna bootstrap",
     "clean": "lerna run clean",
     "publish:independent": "node scripts/publish.js",
-    "p": "lerna publish"
+    "p": "lerna publish",
+    "docs": "node ./scripts/docs/index.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",

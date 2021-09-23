@@ -1,6 +1,6 @@
 "use strict";
 
-const coreRules = require("./rules/core");
+const coreRules = require("./rules");
 const orderRules = require("./rules/order");
 
 module.exports = {

@@ -4,10 +4,10 @@ const path = require('path')
 const fs = require('fs-extra')
 
 const packageToDocsObj = {
-    'commitlint-config-selling': 'commit',
-    'eslint-config-selling': 'es',
-    'selling-lint-cli': 'cli',
-    'stylelint-config-selling': 'style'
+  'commitlint-config-selling': 'commit',
+  'eslint-config-selling': 'es',
+  'selling-lint-cli': 'cli',
+  'stylelint-config-selling': 'style',
 }
 
 // 获取子包路径
@@ -20,23 +20,50 @@ const getPackagePath = () => {
   return packagePaths
 }
 
+const transReadMetoMd = (content) => {
+  return '---\nsidebar_position: 1\n---\n# 介绍\n' + content
+}
+
 // 读取子包/readme.md到docs/子包/guide.md
 const reWriteGuide = (packagePath) => {
   const content = fs.readFileSync(path.join(packagePath, 'README.md'), 'utf-8')
-  const newContent = '# 介绍' + '\n' + content
+  const newContent = transReadMetoMd(content)
   const packageName = packagePath.split('/').slice(-1).join('')
-  const docPath = path.join(cwd, `lint-docs/docs/${packageToDocsObj[packageName]}/guide.md`)
+  const docPath = path.join(
+    cwd,
+    `lint-docs/docs/${packageToDocsObj[packageName]}/guide.md`
+  )
   fs.writeFileSync(docPath, newContent)
+}
+
+const reWriteRules = (packagePath) => {
+  const packageName = packagePath.split('/').slice(-1).join('')
+  const rulePaths = globby.sync(path.join(packagePath, 'rules'), {
+    cwd: __dirname,
+    deep: 1,
+  })
+  for(const rulePath of rulePaths){
+    const ruleName = rulePath.split("/").splice(-1).join("").replace('.js', '')
+    const docRulePath = path.join(
+      cwd,
+      `lint-docs/docs/${packageToDocsObj[packageName]}/rules/${ruleName}.md`
+    )
+    const content = fs.readFileSync(rulePath, 'utf-8')
+
+    const newContent = `# ${ruleName}\n \`\`\`\n${content}\`\`\``
+    fs.writeFileSync(docRulePath, newContent)
+  }
 }
 
 const start = () => {
   const packagePaths = getPackagePath()
   for (const packagePath of packagePaths) {
     reWriteGuide(packagePath)
+    reWriteRules(packagePath)
   }
   // 读取根readme到docs/整体/guide.md
   const content = fs.readFileSync(path.join(cwd, 'README.md'), 'utf-8')
-  const newContent = '# 介绍' + '\n' + content
+  const newContent = transReadMetoMd(content)
   const docPath = path.join(cwd, `lint-docs/docs/total/guide.md`)
   fs.writeFileSync(docPath, newContent)
 }

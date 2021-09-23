@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 # 介绍
 ## commitlint-config-selling
 该包是商羚提交commit的规范化，使用方式如下：

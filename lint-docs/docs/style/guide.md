@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 # 介绍
 ## @jd/stylelint-config-selling
 **@jd/stylelint-config-selling**是商羚前端stylelint规范，支持`css|less`
