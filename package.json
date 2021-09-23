@@ -28,5 +28,8 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "dependencies": {
+    "@docusaurus/theme-search-algolia": "^2.0.0-beta.6"
   }
 }
