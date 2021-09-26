@@ -1,3 +1,7 @@
+/**
+ * @rulesName 字体
+ */
+
 "use strict";
 
 module.exports = {

@@ -57,7 +57,7 @@ const reWriteRules = (packagePath) => {
 
     const jsBody = content.match(/module.exports[\s\S]*/) ? content.match(/module.exports[\s\S]*/)[0] : ""
 
-    const newContent = `# ${ruleTitle}\n > ${docInfo.rulesdesc || ""} \n \n 具体规则如下：\n \`\`\`js\n${jsBody}\`\`\``
+    const newContent = `# ${ruleTitle}\n > ${docInfo.rulesDesc || ""} \n \n 具体规则如下：\n \`\`\`js\n${jsBody}\`\`\``
     fs.writeFileSync(docRulePath, newContent)
   }
 }

@@ -1,5 +1,6 @@
 /**
  * @rulesName 注释
+ * @rulesDesc
  */
 
 "use strict";

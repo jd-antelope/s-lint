@@ -1,5 +1,6 @@
 /**
  * @rulesName 颜色
+ * @rulesDesc
  */
 
 "use strict";
