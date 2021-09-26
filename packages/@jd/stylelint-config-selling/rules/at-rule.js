@@ -63,7 +63,7 @@ module.exports = {
   // "at-rule-property-required-list": "",
 
   // 已弃用：改为使用at-rule-property-required-list规则
-  'at-rule-property-requirelist': '',
+  // 'at-rule-property-requirelist': '',
 
   // 规则分号之后必须是新的行
   'at-rule-semicolon-newline-after': [
