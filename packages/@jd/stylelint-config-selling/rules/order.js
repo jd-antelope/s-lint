@@ -266,10 +266,6 @@ module.exports = {
       "page-break-inside",
       "widows"
     ],
-    {
-      unspecified: "ignore",
-      disableFix: true
-    }
   ],
   "order/properties-alphabetical-order": null
 };
