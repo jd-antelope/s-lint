@@ -3,8 +3,6 @@
 module.exports = {
   // 禁止 media 特性名称带有浏览器引擎前缀
   "media-feature-name-no-vendor-prefix": true,
-  // 媒体查询，逗号放在上一行的后面
-  "media-query-list-comma-newline-before": "never-multi-line",
   // 要求在媒体功能的冒号之后必须有一个空格或不能有空白符（可自动修复）。
   "media-feature-colon-space-after": "always",
   // 要求在媒体功能的冒号之前必须有一个空格或不能有空白符（可自动修复）。
