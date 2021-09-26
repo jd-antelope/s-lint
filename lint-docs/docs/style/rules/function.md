@@ -1,7 +1,8 @@
 # function
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
   // 要求或禁止 url 使用引号
   "function-url-quotes": ["never", {"message": "要求 url 不使用引号"}],

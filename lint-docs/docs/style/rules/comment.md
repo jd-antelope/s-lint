@@ -1,7 +1,8 @@
-# comment
+# 注释
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
   // 在评论中指定不允许使用的单词列表
   "comment-word-disallowed-list": ["/TODO|FIXME/i", {"severity": "warning", "message": "TODO和FIXME不要出现在注释中，希望你解决掉"}],

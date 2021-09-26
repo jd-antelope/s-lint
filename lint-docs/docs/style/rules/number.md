@@ -1,7 +1,8 @@
 # number
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
   // 小数时，不需要前面的 0
   "number-leading-zero": ["never", {"message":"禁止小数前面的 0"}]

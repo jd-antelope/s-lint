@@ -1,7 +1,8 @@
 # declaration
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
     // 指定一个在声明中允许使用的属性和单位的白名单
     "declaration-property-unit-whitelist": [{

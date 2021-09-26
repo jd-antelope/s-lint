@@ -1,4 +1,7 @@
 # typescript-common
+ >  
+ 
+ 具体规则如下：
  ```js
 module.exports = {
   parserOptions: {
@@ -20,7 +23,11 @@ module.exports = {
     /**
      * 消除阴影变量声明
      */
-    "@typescript-eslint/no-shadow": 0
+    "@typescript-eslint/no-shadow": 0,
+    /**
+     * 引用插件
+     */
+    '@typescript-eslint/no-unused-vars': ['off']
   }
 }
 ```

@@ -1,7 +1,8 @@
-# block
+# 块
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
   //在闭括号之后要求有一个换行符或禁止有空白
   "block-closing-brace-newline-after":["always",{

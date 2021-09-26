@@ -1,7 +1,8 @@
-# color
+# 颜色
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
   // 禁止使用颜色名称来定义颜色
   "color-named": ["never", {"message":"禁止使用颜色名称来定义颜色"}],

@@ -1,7 +1,8 @@
 # order
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
   "order/order": [
     "custom-properties",
@@ -268,10 +269,6 @@ module.exports = {
       "page-break-inside",
       "widows"
     ],
-    {
-      unspecified: "ignore",
-      disableFix: true
-    }
   ],
   "order/properties-alphabetical-order": null
 };

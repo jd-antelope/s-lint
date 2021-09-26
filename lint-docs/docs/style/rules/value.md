@@ -1,7 +1,8 @@
 # value
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
   // 禁止给值添加浏览器引擎前缀
   "value-no-vendor-prefix": true,

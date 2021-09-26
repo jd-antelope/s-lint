@@ -1,7 +1,8 @@
 # general
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
   // 限制允许嵌套的深度
   "max-nesting-depth": [4, {"message": "限制允许嵌套的深度：4"}],

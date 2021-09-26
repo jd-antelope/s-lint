@@ -3,6 +3,8 @@ const cwd = process.cwd()
 const path = require('path')
 const fs = require('fs-extra')
 
+const { parseComment } = require('./parse')
+
 const packageToDocsObj = {
   'commitlint-config-selling': 'commit',
   'eslint-config-selling': 'es',
@@ -42,7 +44,7 @@ const reWriteRules = (packagePath) => {
     cwd: __dirname,
     deep: 1,
   })
-  for(const rulePath of rulePaths){
+  for (const rulePath of rulePaths) {
     const ruleName = rulePath.split("/").splice(-1).join("").replace('.js', '')
     const docRulePath = path.join(
       cwd,
@@ -50,10 +52,17 @@ const reWriteRules = (packagePath) => {
     )
     const content = fs.readFileSync(rulePath, 'utf-8')
 
-    const newContent = `# ${ruleName}\n \`\`\`js\n${content}\`\`\``
+    const docInfo = parseComment(content)
+    const ruleTitle = docInfo.rulesName || ruleName
+
+    const jsBody = content.match(/module.exports[\s\S]*/) ? content.match(/module.exports[\s\S]*/)[0] : ""
+
+    const newContent = `# ${ruleTitle}\n > ${docInfo.rulesdesc || ""} \n \n 具体规则如下：\n \`\`\`js\n${jsBody}\`\`\``
     fs.writeFileSync(docRulePath, newContent)
   }
 }
+
+
 
 const start = () => {
   const packagePaths = getPackagePath()

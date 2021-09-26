@@ -1,3 +1,7 @@
+/**
+ * @rulesName 颜色
+ */
+
 "use strict";
 
 module.exports = {

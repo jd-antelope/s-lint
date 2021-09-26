@@ -1,5 +1,6 @@
 /**
- * @name 规则
+ * @rulesName at-rule
+ * @rulesdesc at指的是@keyframes、@import、@media...这些，使用前必须加空格、且必须小写
  */
 
 'use strict'

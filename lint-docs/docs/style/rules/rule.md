@@ -1,7 +1,8 @@
 # rule
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
   "rule-empty-line-before": [
     "always",

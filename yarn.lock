@@ -4833,6 +4833,13 @@
   dependencies:
     "buffer-indexof" "^1.0.0"
 
+"doctrine@^3.0.0":
+  "integrity" "sha1-rd6+rXKmV023g2OdyHoSF3OXOWE="
+  "resolved" "http://registry.m.jd.com/doctrine/download/doctrine-3.0.0.tgz"
+  "version" "3.0.0"
+  dependencies:
+    "esutils" "^2.0.2"
+
 "dom-converter@^0.2.0":
   "integrity" "sha1-ZyGp2u4uKTaClVtq/kFncWJ7t2g="
   "resolved" "http://registry.m.jd.com/dom-converter/download/dom-converter-0.2.0.tgz"

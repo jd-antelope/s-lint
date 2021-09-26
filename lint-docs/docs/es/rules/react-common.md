@@ -1,4 +1,7 @@
 # react-common
+ >  
+ 
+ 具体规则如下：
  ```js
 module.exports = {
   extends: ["./common.js", "./typescript-common.js"],
@@ -38,6 +41,7 @@ module.exports = {
      * 检查 effect 的依赖
      */
     "react-hooks/exhaustive-deps": "warn",
+    'react/no-deprecated': 0,
   }
 }
 ```

@@ -1,7 +1,8 @@
 # selector
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
   // 要求或禁止特性值使用引号
   "selector-attribute-quotes": "always",

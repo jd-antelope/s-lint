@@ -1,7 +1,8 @@
 # property
+ >  
+ 
+ 具体规则如下：
  ```js
-"use strict";
-
 module.exports = {
   // 禁止使用未知属性
   "property-no-unknown": [
