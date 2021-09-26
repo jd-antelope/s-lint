@@ -19,6 +19,9 @@ module.exports = {
      * 消除阴影变量声明
      */
     "@typescript-eslint/no-shadow": 0,
+    /**
+     * 引用插件
+     */
     '@typescript-eslint/no-unused-vars': ['off']
   }
 }
