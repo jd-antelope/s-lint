@@ -9,7 +9,7 @@
     "bootstrap": "lerna bootstrap",
     "clean": "lerna run clean",
     "publish:independent": "node scripts/publish.js",
-    "p": "lerna publish",
+    "p": "lerna publish from-git --yes",
     "docs": "node ./scripts/docs/index.js"
   },
   "devDependencies": {
