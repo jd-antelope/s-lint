@@ -36,5 +36,6 @@ module.exports = {
      * 检查 effect 的依赖
      */
     "react-hooks/exhaustive-deps": "warn",
+    'react/no-deprecated': 0,
   }
 }
