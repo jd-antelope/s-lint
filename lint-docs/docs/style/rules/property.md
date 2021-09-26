@@ -10,11 +10,14 @@ module.exports = {
     {
       ignoreProperties: ["composes","contain"]
     }
-  ]
-  // 待定
-  // "property-blacklist": null,
-  // "property-case": "lower",
-  // "property-no-vendor-prefix": true,
-  // "property-whitelist": null
+  ],
+  // 指定禁用的属性的黑名单
+  "property-blacklist": null,
+  // 指定属性的大小写（可自动修复）
+  "property-case": "lower",
+  // 禁止属性的浏览器引擎前缀。
+  "property-no-vendor-prefix": true,
+  // 指定允许的属性的白名单。
+  "property-whitelist": null
 };
 ```
