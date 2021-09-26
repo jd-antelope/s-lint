@@ -11,5 +11,5 @@ module.exports = {
   "color-hex-length": ["long", {"message":"颜色十六进制长度为长符号"}],
 
   // 禁止无效的十六进制颜色
-  "color-no-invalid-hex": true  
+  // "color-no-invalid-hex": true  
 };
