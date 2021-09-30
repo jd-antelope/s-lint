@@ -1,6 +1,6 @@
 {
   "name": "@jd/stylelint-config-selling",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "@jd/stylelint-config-selling",
   "keywords": [
     "stylelint"
@@ -24,4 +24,4 @@
     "stylelint-order": "^4.1.0"
   },
   "gitHead": "aaa6a644060ca2d8c27087528071b85de505a14b"
-} 
+}
