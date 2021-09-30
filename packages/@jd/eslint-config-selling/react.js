@@ -27,7 +27,7 @@
  *
  */
 
-const react = require("./rules/react-hooks-common.js");
+const react = require("./rules/react-common.js");
 const reactHooks = require("./rules/react-hooks-common.js");
 
 module.exports = {
