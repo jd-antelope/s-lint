@@ -2,7 +2,7 @@ const react = require("./rules/react-hooks-common.js");
 const reactHooks = require("./rules/react-hooks-common.js");
 
 module.exports = {
-  extends: ["./common.js", "./typescript.js"],
+  extends: ["./base.js", "./typescript.js"],
   parserOptions: {
     "ecmaVersion": 6,
   },
