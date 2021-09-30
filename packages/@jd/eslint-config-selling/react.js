@@ -1,13 +1,14 @@
+const react = require("./rules/react-hooks-common.js");
+const reactHooks = require("./rules/react-hooks-common.js");
+
 module.exports = {
-  "extends": "react-app",
-  "globals": {
-    "Promise": true,
-    "window": true,
-    "React": true,
+  extends: ["./common.js", "./typescript.js"],
+  parserOptions: {
+    "ecmaVersion": 6,
   },
-  "rules": {
-    "eqeqeq": 2, // 全等
-    "react/jsx-no-undef": 0,
-    "array-callback-return": "off"
-  }
+  plugins: [
+    "react",
+    "react-hooks"
+  ],
+  rules: Object.assign({}, react, reactHooks)
 }
