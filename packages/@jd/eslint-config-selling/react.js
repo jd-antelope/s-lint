@@ -26,6 +26,10 @@
   
  *
  */
+
+const react = require("./rules/react-hooks-common.js");
+const reactHooks = require("./rules/react-hooks-common.js");
+
 module.exports = {
   extends: ["./base.js", "./typescript.js"],
   parserOptions: {

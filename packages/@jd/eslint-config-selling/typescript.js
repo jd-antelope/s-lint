@@ -26,6 +26,10 @@
   
  *
  */
+
+
+const typescriptRule = require("./rules/typescript-common.js");
+
 module.exports = {
   parserOptions: {
     "ecmaVersion": 6,

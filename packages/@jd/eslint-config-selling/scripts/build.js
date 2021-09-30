@@ -21,8 +21,8 @@ function getTemplate (file) {
 
 function writeAllFile (file, content) {
   const defaultFile = getTemplate('./scripts/template.txt').replace('{$1}', content)
-  const temp = getTemplate(`./${file}.js`).split('module.exports')[1]
-  const info = `${defaultFile}\nmodule.exports${temp}`
+  const temp = getTemplate(`./${file}.js`).split('*/')[1]
+  const info = `${defaultFile}${temp}`
   fs.writeFile(`./${file}.js`, info, () => {
     console.log(`${file}文件打包成功`)
   })
