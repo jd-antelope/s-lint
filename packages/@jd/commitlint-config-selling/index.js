@@ -21,7 +21,7 @@ module.exports = {
     // header 最长72
     'header-max-length': [2, 'never', 72], 
     'type-enum': [
-      2,
+      2, 
       'always',
       [
         // 编译相关的修改，例如发布版本、对项目构建或者依赖的改动

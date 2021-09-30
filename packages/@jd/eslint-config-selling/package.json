@@ -48,5 +48,8 @@
     "eslint-plugin-vue": "^7.18.0",
     "rimraf": "^3.0.2"
   },
-  "gitHead": "aaa6a644060ca2d8c27087528071b85de505a14b"
+  "gitHead": "aaa6a644060ca2d8c27087528071b85de505a14b",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
 }

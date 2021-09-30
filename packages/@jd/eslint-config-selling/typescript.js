@@ -1,4 +1,4 @@
-const typescript = require("./rules/typescript-common.js");
+const typescriptRule = require("./rules/typescript-common.js");
 
 module.exports = {
   parserOptions: {
@@ -8,5 +8,5 @@ module.exports = {
   plugins: [
     "@typescript-eslint",
   ],
-  rules: Object.assign({}, typescript)
+  rules: Object.assign({}, typescriptRule)
 }

@@ -933,15 +933,15 @@ module.exports = {
   /**
    * 强制执行块前间距的一致性
    */
-  "space-before-blocks": "always",
+  "space-before-blocks": 2,
   /**
    * 在“function”定义的左括号前强制使用一致的间距
    */
-  "space-before-function-paren": "always",
+  "space-before-function-paren": 2,
   /**
    * 禁止或强制使用括号内的空格（括号中的空格）
    */
-  "space-in-parens": "never",
+  "space-in-parens": 0,
   /**
    * 需要在中缀运算符周围留出空格
    */
