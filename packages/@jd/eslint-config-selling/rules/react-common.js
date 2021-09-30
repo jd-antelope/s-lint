@@ -170,12 +170,15 @@ module.exports = {
   /**
    * 验证 JSX 左括号和右括号内和周围的空格
    */
-  "react/jsx-tag-spacing": {
-    "closingSlash": "never",
-    "beforeSelfClosing": "always",
-    "afterOpening": "never",
-    "beforeClosing": "allow"
-  },
+  "react/jsx-tag-spacing": [
+    'error',
+    {
+      "closingSlash": "never",
+      "beforeSelfClosing": "always",
+      "afterOpening": "never",
+      "beforeClosing": "allow"
+    },
+  ],
   /**
    * 禁止在 setState 中使用 this.state
    */
