@@ -1,0 +1,13 @@
+/**
+ * selling ESLint 规则
+ * https://coding.jd.com/selling-front/frontend-lint.git
+ *
+ * 贡献者：
+ *   huozhongyi <huozhongyi@jd.com>
+ *   zhengxiuyue <zhengxiuyue@jd.com>
+ *   chenlei736 <chenlei736@jd.com>
+ *
+ * 依赖版本：
+ *   {$1}
+ *
+ */

@@ -738,14 +738,7 @@ module.exports = {
   /**
    * 变量必须先定义后使用
    */
-  'no-use-before-define': [
-    'error',
-    {
-      variables: false,
-      functions: false,
-      classes: false,
-    },
-  ],
+  'no-use-before-define': 'off',
   /**
    * 禁止正则表达式中出现无用的回溯引用
    * @reason 某些回溯引用语法上没问题，但是会永远匹配到空字符串

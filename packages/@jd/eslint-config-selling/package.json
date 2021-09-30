@@ -4,6 +4,7 @@
   "description": "ESLint config base version",
   "main": "index.js",
   "scripts": {
+    "build:file": "node scripts/build.js",
     "clean": "rimraf dist"
   },
   "keywords": [
