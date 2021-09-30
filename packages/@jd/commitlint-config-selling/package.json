@@ -13,6 +13,13 @@
   ],
   "author": "hawleyHuo",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "http://registry.m.jd.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://coding.jd.com/selling-front/frontend-lint.git"
+  },
   "dependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0"
