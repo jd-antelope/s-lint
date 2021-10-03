@@ -20,18 +20,18 @@ const reWriteLicense = (v) => {
 }
 
 const start = () => {
+  const execaCallback = {
+    stdio: 'inherit',
+    cwd,
+  }
   const packageList = getPackagePath()
   packageList.map(v => {
     reWriteLicense(v)
   })
-  execa.commandSync('git add .', {
-    stdio: 'inherit',
-    cwd,
-  })
-  execa.commandSync(`git commit -m package`, {
-    stdio: 'inherit',
-    cwd,
-  })
+  execa.commandSync('git add .', execaCallback)
+  execa.commandSync(`git commit -m package`, execaCallback)
+  execa.commandSync('git push', execaCallback)
+  console.log('代码上传成功')
 } 
 
 start()
