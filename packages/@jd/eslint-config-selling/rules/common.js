@@ -191,9 +191,9 @@ module.exports = {
    */
   'max-nested-callbacks': ['error', 3],
   /**
-   * 函数的参数禁止超过 3 个
+   * 函数的参数禁止超过 6 个
    */
-  'max-params': ['error', 3],
+  'max-params': ['error', 6],
   /**
    * 限制函数块中的语句数量
    */

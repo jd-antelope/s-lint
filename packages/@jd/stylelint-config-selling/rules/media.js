@@ -30,7 +30,7 @@ module.exports = {
   // 要求在媒体查询列表的逗号之后必须有换行符或不能有空白符（可自动修复）。
   "media-query-list-comma-newline-after": "always-multi-line",
   // 要求在媒体查询列表的逗号之前必须有换行符或不能有空白符。
-  "media-query-list-comma-newline-before": "never",
+  "media-query-list-comma-newline-before": "never-multi-line",
   // 要求在媒体查询列表的逗号之后必须有一个空格或不能有空白符（可自动修复）。
   "media-query-list-comma-space-after": "always-single-line",
   // 要求在媒体查询列表的逗号之前必须有一个空格或不能有空白符（可自动修复）。

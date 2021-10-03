@@ -23,7 +23,8 @@
     "husky": "^7.0.2",
     "inquirer": "^8.1.5",
     "lerna": "^4.0.0",
-    "lint-staged": "^11.1.2"
+    "lint-staged": "^11.1.2",
+    "uuid": "^8.3.2"
   },
   "husky": {
     "hooks": {
