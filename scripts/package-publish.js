@@ -24,12 +24,11 @@ const start = () => {
   packageList.map(v => {
     reWriteLicense(v)
   })
-  console.log(cwd)
   execa.commandSync('git add .', {
     stdio: 'inherit',
     cwd,
   })
-  execa.commandSync('git commit -m "fix: change command"', {
+  execa.commandSync(`git commit -m package`, {
     stdio: 'inherit',
     cwd,
   })
