@@ -33,6 +33,7 @@ const start = () => {
   execa.commandSync('git push origin master', execaCallback)
   console.log('代码上传成功')
   execa.commandSync('yarn p', execaCallback)
+  console.log('代码发布成功')
 } 
 
 start()
