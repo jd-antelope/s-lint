@@ -1,40 +1,51 @@
 "use strict";
-
+const atRule = require("./at-rule");
+const block = require("./block");
 const color = require("./color");
+const comment = require("./comment");
+const custom = require("./custom")
+const declaration = require("./declaration")
 const font = require("./font");
 const functionRules = require("./function");
+const keyframe = require("./keyframe")
+const length = require("./length")
+const linebreaks = require("./linebreaks")
+const max = require("./max")
+const media = require("./media")
+const no = require("no")
 const number = require("./number");
-const string = require("./string");
-const length = require("./length");
-const value = require("./value");
-const shorthand = require("./shorthand");
 const property = require("./property");
-const declaration = require("./declaration");
-const block = require("./block");
-const selector = require("./selector");
 const rule = require("./rule");
-const media = require("./media");
-const atRule = require("./at-rule");
-const comment = require("./comment");
-const general = require("./general");
+const selector = require("./selector");
+const shorthand = require("./shorthand");
+const string = require("./string");
+const time = require("./time")
+const unit = require("./unit");
+const value = require("./value");
 
 module.exports = Object.assign(
   {},
+  atRule,
+  block,
   color,
+  comment,
+  custom,
+  declaration,
   font,
   functionRules,
-  number,
-  string,
+  keyframe,
   length,
-  value,
-  shorthand,
-  property,
-  declaration,
-  block,
-  selector,
-  rule,
+  linebreaks,
+  max,
   media,
-  atRule,
-  comment,
-  general
+  no,
+  number,
+  property,
+  rule,
+  selector,
+  shorthand,
+  string,
+  time,
+  unit,
+  value,
 );
