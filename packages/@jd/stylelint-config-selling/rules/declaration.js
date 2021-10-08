@@ -57,7 +57,7 @@ module.exports = {
       } 
     */
     "declaration-block-no-shorthand-property-overrides": [
-        "true",
+        true,
         {
             "message": "禁止覆盖相关普通属性的速记属性"
         }
@@ -97,7 +97,7 @@ module.exports = {
 
     // 单行模块中的属性数量最多为1
     "declaration-block-single-line-max-declarations": [
-        "1",
+        1,
         {
             "message": "单行模块中的属性数量最多为1"
         }
