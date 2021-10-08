@@ -32,4 +32,4 @@ module.exports = {
 module.exports = {
   extends: ['@jd/selling/react'],
 };
-```
+``` 
