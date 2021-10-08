@@ -1,5 +1,6 @@
 /**
  * @rulesName 声明
+ * @rulesDesc 对模块内属性及属性的值进行约束，是否空格、换行，属性黑白名单等
  */
 
 "use strict";
