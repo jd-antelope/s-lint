@@ -7,9 +7,6 @@ module.exports = {
   // 指定规则列表，默认全部
   'at-rule-allowed-list': '',
 
-  // 规则黑名单
-  // "at-rule-blacklist": null, // 已弃用
-
   // 规则禁止列表：无
   'at-rule-disallowed-list': null,
 
@@ -56,24 +53,30 @@ module.exports = {
   ],
 
   // 禁止在规则中使用浏览器前缀
-  'at-rule-no-vendor-prefix': [true, { message: '禁止规则使用浏览器引擎前缀' }],
+  'at-rule-no-vendor-prefix': [
+    true,
+    {
+      message: '禁止规则使用浏览器引擎前缀'
+    }
+  ],
 
   // 属性规则要求列表，暂无
   // "at-rule-property-required-list": "",
 
-  // 已弃用：改为使用at-rule-property-required-list规则
-  // 'at-rule-property-requirelist': '',
-
   // 规则分号之后必须是新的行
   'at-rule-semicolon-newline-after': [
     'always',
-    { message: '分号之后必须是新的行' },
+    {
+      message: '分号之后必须是新的行'
+    },
   ],
 
   // 在 at 规则的分号之前不允许有空格
   'at-rule-semicolon-space-before': [
     'never',
-    { message: '分号之前不要有空格' },
+    {
+      message: '分号之前不要有空格'
+    },
   ],
 
   // 规则白名单，暂无

@@ -38,9 +38,9 @@ module.exports = {
 
   // 在块的右大括号之前不允许有空格。
   "block-closing-brace-space-before": [
-    "never", {
-      "message":
-        "在块的右大括号之前不允许有空格。"
+    "never",
+    {
+      "message": "在块的右大括号之前不允许有空格。"
     }
   ],
 

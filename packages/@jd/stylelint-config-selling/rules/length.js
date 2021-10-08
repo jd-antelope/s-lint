@@ -1,5 +1,16 @@
+/**
+ * @rulesName 长度
+ * @rulesDesc 禁止零长度单位
+ */
+
 "use strict";
 
 module.exports = {
-  "length-zero-no-unit": [true, {"message":"禁止零值的单位"}]
+  // 禁止零长度单位
+  "length-zero-no-unit": [
+    true,
+    {
+      "message": "禁止零长度单位"
+    }
+  ]
 };

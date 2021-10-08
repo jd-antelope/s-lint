@@ -1,6 +1,9 @@
 - function
-    - // 要求或禁止 url 使用引号
-    "function-url-quotes": ["never", {"message": "要求 url 不使用引号"}],
+    - // 指定允许的URL方案列表
+    // "function-url-scheme-allowed-list": ["http", "https"],
+
+    - // 指定不允许的URL方案列表
+    // "function-url-scheme-disallowed-list": null,
 
 - color
     - // 禁止使用颜色名称来定义颜色
@@ -72,3 +75,19 @@
         "/transition/": ["/all/"],
         "/transition-property/": ["/all/"]
     },
+
+- font
+    - // 禁止在字体系列名称列表中缺少通用系列
+    "font-family-no-missing-generic-family-keyword": [
+        true,
+        {
+        "message": "禁止在字体系列名称列表中缺少通用系列"
+        }
+    ],
+    - // font-weight值必须始终是数字
+    "font-weight-notation": [
+        "numeric",
+        {
+        "message": "font-weight值必须始终是数字"
+        }
+    ],

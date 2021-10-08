@@ -46,23 +46,23 @@ const reWriteRules = (packagePath) => {
   })
   for (const rulePath of rulePaths) {
     const ruleName = rulePath.split("/").splice(-1).join("").replace('.js', '')
-    const docRulePath = path.join(
-      cwd,
-      `lint-docs/docs/${packageToDocsObj[packageName]}/rules/${ruleName}.md`
-    )
-    const content = fs.readFileSync(rulePath, 'utf-8')
+    if (ruleName !== 'index') {
+      const docRulePath = path.join(
+        cwd,
+        `lint-docs/docs/${packageToDocsObj[packageName]}/rules/${ruleName}.md`
+      )
+      const content = fs.readFileSync(rulePath, 'utf-8')
 
-    const docInfo = parseComment(content)
-    const ruleTitle = docInfo.rulesName || ruleName
+      const docInfo = parseComment(content)
+      const ruleTitle = docInfo.rulesName || ruleName
 
-    const jsBody = content.match(/module.exports[\s\S]*/) ? content.match(/module.exports[\s\S]*/)[0] : ""
+      const jsBody = content.match(/module.exports[\s\S]*/) ? content.match(/module.exports[\s\S]*/)[0] : ""
 
-    const newContent = `# ${ruleTitle}\n > ${docInfo.rulesDesc || ""} \n \n 具体规则如下：\n \`\`\`js\n${jsBody}\`\`\``
-    fs.writeFileSync(docRulePath, newContent)
+      const newContent = `# ${ruleTitle}\n > ${docInfo.rulesDesc || ""} \n \n 具体规则如下：\n \`\`\`js\n${jsBody}\`\`\``
+      fs.writeFileSync(docRulePath, newContent)
+    }
   }
 }
-
-
 
 const start = () => {
   const packagePaths = getPackagePath()

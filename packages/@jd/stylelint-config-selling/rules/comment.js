@@ -7,7 +7,13 @@
 
 module.exports = {
   // 在注释中指定不允许使用的单词列表
-  "comment-word-disallowed-list": ["/TODO|FIXME/i", { "severity": "warning", "message": "TODO和FIXME不要出现在注释中，希望你解决掉" }],
+  "comment-word-disallowed-list": [
+    "/TODO|FIXME/i",
+    {
+      "severity": "warning",
+      "message": "TODO和FIXME不要出现在注释中，希望你解决掉"
+    }
+  ],
 
   // 注释前要求空行
   "comment-empty-line-before": [

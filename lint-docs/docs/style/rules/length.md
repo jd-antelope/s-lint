@@ -1,9 +1,15 @@
-# length
- >  
+# 长度
+ > 禁止零长度单位 
  
  具体规则如下：
  ```js
 module.exports = {
-  "length-zero-no-unit": [true, {"message":"禁止零值的单位"}]
+  // 禁止零长度单位
+  "length-zero-no-unit": [
+    true,
+    {
+      "message": "禁止零长度单位"
+    }
+  ]
 };
 ```
