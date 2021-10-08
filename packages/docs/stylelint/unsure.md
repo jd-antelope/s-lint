@@ -49,3 +49,26 @@
 - value
     - // 禁止给值添加浏览器引擎前缀
     "value-no-vendor-prefix": true,
+     
+- declaration
+    - // 允许使用!important
+    "declaration-no-important": null,
+
+    - // 在模块中指定不允许的属性和单位对列表
+    // "declaration-property-unit-blacklist": null, 
+
+    - // 在模块中指定允许的属性和单位对列表
+    "declaration-property-unit-allowed-list":  [{
+        "font-size": [
+            "rem",
+            "px",
+            "%"
+        ]
+    }],
+
+    - // 在模块中指定不允许的属性和值对列表
+    "declaration-property-value-disallowed-list": {
+        "/border/": ["/thin/", "/medium/", "/thick/"],
+        "/transition/": ["/all/"],
+        "/transition-property/": ["/all/"]
+    },
