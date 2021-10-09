@@ -1,6 +1,6 @@
 /**
  * @rulesName typescript
- * @rulesdesc all
+ * @rulesDesc all
  */
 
 'use strict'

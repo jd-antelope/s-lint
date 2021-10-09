@@ -1,6 +1,6 @@
 /**
  * @rulesName common
- * @rulesdesc all
+ * @rulesDesc all
  */
 
 'use strict'

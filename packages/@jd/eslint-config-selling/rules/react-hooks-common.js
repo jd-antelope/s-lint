@@ -1,6 +1,6 @@
 /**
  * @rulesName react-hooks
- * @rulesdesc all
+ * @rulesDesc all
  */
 
 'use strict'

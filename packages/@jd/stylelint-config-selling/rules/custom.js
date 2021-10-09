@@ -1,6 +1,6 @@
 /**
  * @rulesName 自定义
- * @rulesDesc
+ * @rulesDesc 在自定义属性之前禁止空行
  */
 
 "use strict";

@@ -1,3 +1,8 @@
+/**
+ * @rulesName 排序
+ * @rulesDesc 著名的Web前端专家Andy Ford推荐过一种按照类型分组排序的方式，他把CSS属性分为7大类：显示与浮动（Diplay&Flow）、定位（Positioning）、尺寸（Dimensions）、边框相关属性（Margins、Padding、Borders、Outline）、字体样式（Typographic Styles）、背景（Backgrounds）、其他样式（Opacity、Cursors、Generated Content）；这种按照样式类型分组排列的方式不仅把功能相似的属性归类在一起，并且按照样式功能的重要性从上到下进行了排列。可以把影响元素页面布局的样式（如float、margin、padding、height、width等）排到前面，而把不影响布局的样式（如background、color、font等）放到后面。这种主次分明的排列方式，极大地提高了代码的可维护性，提高了渲染性能
+ */
+
 "use strict";
 
 module.exports = {

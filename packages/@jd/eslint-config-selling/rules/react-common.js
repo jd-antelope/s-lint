@@ -1,6 +1,6 @@
 /**
  * @rulesName react
- * @rulesdesc all
+ * @rulesDesc all
  */
 
 'use strict'

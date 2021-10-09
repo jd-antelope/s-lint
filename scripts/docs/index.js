@@ -12,6 +12,8 @@ const packageToDocsObj = {
   'stylelint-config-selling': 'style',
 }
 
+const doc_sidebar_position = '---\nsidebar_position: 1\n---\n'
+
 // 获取子包路径
 const getPackagePath = () => {
   const packagePaths = globby.sync(path.join(cwd, 'packages/@jd/'), {
@@ -23,7 +25,7 @@ const getPackagePath = () => {
 }
 
 const transReadMetoMd = (content) => {
-  return '---\nsidebar_position: 1\n---\n# 介绍\n' + content
+  return `${doc_sidebar_position}# 介绍\n` + content
 }
 
 // 读取子包/readme.md到docs/子包/guide.md
@@ -58,7 +60,10 @@ const reWriteRules = (packagePath) => {
 
       const jsBody = content.match(/module.exports[\s\S]*/) ? content.match(/module.exports[\s\S]*/)[0] : ""
 
-      const newContent = `# ${ruleTitle}\n > ${docInfo.rulesDesc || ""} \n \n 具体规则如下：\n \`\`\`js\n${jsBody}\`\`\``
+      let newContent = `# ${ruleTitle}\n **${docInfo.rulesDesc || ""}** \n \n 具体规则如下：\n \`\`\`js\n${jsBody}\`\`\``
+      if(ruleName === 'order'){
+        newContent = doc_sidebar_position + newContent
+      }
       fs.writeFileSync(docRulePath, newContent)
     }
   }
