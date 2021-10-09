@@ -13,7 +13,7 @@ module.exports = {
   "color-hex-case": [
     "upper",
     {
-      "message": "十六进制颜色指定大写"
+      message: "十六进制颜色指定大写"
     }
   ],
 
@@ -21,7 +21,7 @@ module.exports = {
   "color-hex-length": [
     "long",
     {
-      "message": "颜色十六进制长度为长符号"
+      message: "颜色十六进制长度为长符号"
     }
   ],
 
@@ -29,7 +29,7 @@ module.exports = {
   "color-named": [
     "never",
     {
-      "message": "禁止使用颜色名称来定义颜色"
+      message: "禁止使用颜色名称来定义颜色"
     }
   ],
 

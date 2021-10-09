@@ -108,3 +108,7 @@
 - shorthand
     - // 禁止覆盖相关普通属性的简写属性
     "declaration-block-no-shorthand-property-overrides": false
+
+- selector
+    - // 为内嵌规则的选择器指定规则
+    "selector-nested-pattern": "^&-(:hover|focus|active|visited|focus-within|focus-visible|target)?.*",

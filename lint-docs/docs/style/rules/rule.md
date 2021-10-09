@@ -9,7 +9,7 @@ module.exports = {
     {
       except: ["first-nested"],
       ignore: ["after-comment"],
-      "message": "规则前必须加空行"
+      message: "规则前必须加空行"
     }
   ]
 };

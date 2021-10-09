@@ -5,8 +5,6 @@
  ```js
 module.exports = {
   // 禁止在简写属性中使用冗余值
-  "shorthand-property-no-redundant-values": [true, {"message":"禁止在简写属性中使用冗余值"}],
-  // 禁止覆盖相关普通属性的简写属性
-  "declaration-block-no-shorthand-property-overrides": false
+  "shorthand-property-no-redundant-values": [true, {message:"禁止在简写属性中使用冗余值"}],
 };
 ```

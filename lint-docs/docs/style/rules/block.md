@@ -24,7 +24,7 @@ module.exports = {
   // "block-closing-brace-newline-before": [
   //   "always",
   //   {
-  //     "message": "在右大括号之前必须有一个换行符"
+  //     message: "在右大括号之前必须有一个换行符"
   //   }
   // ],
 
@@ -32,7 +32,7 @@ module.exports = {
   // "block-closing-brace-space-after": [
   //   "always",
   //   {
-  //     "message": "在块的右大括号之后需要一个空格"
+  //     message: "在块的右大括号之后需要一个空格"
   //   }
   // ],
 
@@ -40,7 +40,7 @@ module.exports = {
   // "block-closing-brace-space-before": [
   //   "always",
   //   {
-  //     "message": "在块的右大括号之前要求有空格"
+  //     message: "在块的右大括号之前要求有空格"
   //   }
   // ],
 
@@ -48,7 +48,7 @@ module.exports = {
   "block-no-empty": [
     true,
     {
-      "message": "不允许模块内为空"
+      message: "不允许模块内为空"
     }
   ],
 
@@ -56,7 +56,7 @@ module.exports = {
   // "block-opening-brace-newline-after": [
   //   "always",
   //   {
-  //     "message": "在块的开始大括号之后需要换行符"
+  //     message: "在块的开始大括号之后需要换行符"
   //   }
   // ],
 
@@ -64,7 +64,7 @@ module.exports = {
   // "block-opening-brace-newline-before": [
   //   "never-multi-line",
   //   {
-  //     "message": "在块的左大括号之前不需要换行符"
+  //     message: "在块的左大括号之前不需要换行符"
   //   }
   // ],
 
@@ -72,14 +72,14 @@ module.exports = {
   // "block-opening-brace-space-after": [
   //   "always",
   //   {
-  //     "message": "在块的左大括号后要求有空格"
+  //     message: "在块的左大括号后要求有空格"
   //   }
   // ],
 
   // 在块的左大括号之前需要一个空格
   // "block-opening-brace-space-before": [
   //   "always", {
-  //     "message": "在块的左大括号之前需要一个空格"
+  //     message: "在块的左大括号之前需要一个空格"
   //   }
   // ],
 };

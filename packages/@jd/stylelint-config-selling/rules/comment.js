@@ -11,7 +11,7 @@ module.exports = {
     "/TODO|FIXME/i",
     {
       "severity": "warning",
-      "message": "TODO和FIXME不要出现在注释中，希望你解决掉"
+      message: "TODO和FIXME不要出现在注释中，希望你解决掉"
     }
   ],
 
@@ -28,7 +28,7 @@ module.exports = {
   "comment-no-empty": [
     true,
     {
-      "message": "注释不能为空"
+      message: "注释不能为空"
     }
   ],
 
@@ -36,7 +36,7 @@ module.exports = {
   "comment-whitespace-inside": [
     "always",
     {
-      "message": "要求注释标记内部有空格"
+      message: "要求注释标记内部有空格"
     }
   ],
 };

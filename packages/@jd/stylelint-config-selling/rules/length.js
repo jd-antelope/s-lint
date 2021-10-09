@@ -10,7 +10,7 @@ module.exports = {
   "length-zero-no-unit": [
     true,
     {
-      "message": "禁止零长度单位"
+      message: "禁止零长度单位"
     }
   ]
 };

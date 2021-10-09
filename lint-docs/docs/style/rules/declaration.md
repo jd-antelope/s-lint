@@ -9,7 +9,7 @@ module.exports = {
     "declaration-bang-space-after": [
         "never",
         {
-            "message": "!important的!之后禁止空格"
+            message: "!important的!之后禁止空格"
         }
     ],
 
@@ -17,7 +17,7 @@ module.exports = {
     "declaration-bang-space-before": [
         "always",
         {
-            "message": "!important的!之前要求空格"
+            message: "!important的!之前要求空格"
         }
     ],
 
@@ -37,7 +37,7 @@ module.exports = {
     "declaration-block-no-redundant-longhand-properties": [
         true,
         {
-            "message": "属性应该为速写"
+            message: "属性应该为速写"
         }
     ],
 
@@ -57,7 +57,7 @@ module.exports = {
     "declaration-block-no-shorthand-property-overrides": [
         true,
         {
-            "message": "禁止覆盖相关普通属性的速记属性"
+            message: "禁止覆盖相关普通属性的速记属性"
         }
     ],
 
@@ -65,7 +65,7 @@ module.exports = {
     "declaration-block-semicolon-newline-after": [
         "always",
         {
-            "message": "内容必须以分号后分行进行显示"
+            message: "内容必须以分号后分行进行显示"
         }
     ],
 
@@ -73,7 +73,7 @@ module.exports = {
     "declaration-block-semicolon-newline-before": [
         "never-multi-line",
         {
-            "message": "在属性的分号之前禁止有空白"
+            message: "在属性的分号之前禁止有空白"
         }
     ],
 
@@ -81,7 +81,7 @@ module.exports = {
     "declaration-block-semicolon-space-after": [
         "always-single-line",
         {
-            "message": "单行属性分号后一个空格，多行分号后禁止空格"
+            message: "单行属性分号后一个空格，多行分号后禁止空格"
         }
     ],
 
@@ -89,7 +89,7 @@ module.exports = {
     "declaration-block-semicolon-space-before": [
         "never",
         {
-            "message": "在属性的分号之前禁止有空格"
+            message: "在属性的分号之前禁止有空格"
         }
     ],
 
@@ -97,14 +97,14 @@ module.exports = {
     "declaration-block-single-line-max-declarations": [
         1,
         {
-            "message": "单行模块中的属性数量最多为1"
+            message: "单行模块中的属性数量最多为1"
         }
     ],
 
     // 模块内最后一个属性必须有分号
     "declaration-block-trailing-semicolon": [
         "always", {
-            "message": "模块内最后一个属性必须有分号"
+            message: "模块内最后一个属性必须有分号"
         }
     ],
 
@@ -115,7 +115,7 @@ module.exports = {
     "declaration-colon-space-after": [
         "always",
         {
-            "message": " 在属性的冒号之后要求有一个空格"
+            message: " 在属性的冒号之后要求有一个空格"
         }
     ],
 
@@ -123,7 +123,7 @@ module.exports = {
     "declaration-colon-space-before": [
         "never",
         {
-            "message": " 在属性的冒号之前禁止空格"
+            message: " 在属性的冒号之前禁止空格"
         }
     ],
 
@@ -132,7 +132,7 @@ module.exports = {
         "never",
         {
             ignore: ["after-comment"],
-            "message": " 在属性前禁止空行"
+            message: " 在属性前禁止空行"
         }
     ],
 

@@ -7,10 +7,10 @@
 
 module.exports = {
   // 指定规则列表，默认全部
-  'at-rule-allowed-list': '',
+  // 'at-rule-allowed-list': '',
 
   // 规则禁止列表：无
-  'at-rule-disallowed-list': null,
+  // 'at-rule-disallowed-list': null,
 
   // 规则前必须加空行
   'at-rule-empty-line-before': [
