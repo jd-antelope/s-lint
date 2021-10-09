@@ -1,35 +1,36 @@
-# 商羚前端eslint安装
-`eslint-config-selling`是商羚前端eslint规范，目前支持`taro/vue/react`。使用如下
-```js
-npm install --save-dev @jd/eslint-config-selling-c
+## ESLint规范
+是商羚前端ESLint规范，目前支持`taro|vue|react`
+#### 安装
+```shell
+npm install @jd/eslint-config-selling -D
+# OR
+yarn add @jd/eslint-config-selling --dev
 ```
-或者
-```js
-yarn add @jd/eslint-config-selling-c --dev
-```
-目前只支持jd内网使用，如果引入不了，如下操作
-```js
-npm install -g nrm --registry=http://registry.m.jd.com
-nrm use jd
-```
-## taro使用
-在`.eslintrc.js`文件中调用
+#### 使用
+在你的工程根目录下创建一个`.eslintrc.js`配置文件
+
+配置如下:
+
+- **taro**
 ```js
 module.exports = {
   extends: ['@jd/selling/taro'],
 };
 ```
-## vue使用
-在`.eslintrc.js`文件中调用
+
+- **vue**
 ```js
 module.exports = {
   extends: ['@jd/selling/vue'],
 };
 ```
-## react使用
-在`.eslintrc.js`文件中调用
+
+- **react**
 ```js
 module.exports = {
   extends: ['@jd/selling/react'],
 };
 ```
+
+#### 规范
+见[ESLint规范](../es/rules/common)

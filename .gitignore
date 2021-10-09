@@ -1,3 +1,5 @@
 node_modules
 ./.vscode
 yarn.lock
+lerna-debug.log
+./lint-docs/yarn.lock
