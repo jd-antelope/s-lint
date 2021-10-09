@@ -1,5 +1,5 @@
 # common
- **all** 
+ **对于javascript的所有公共限制** 
  
  具体规则如下：
  ```js
