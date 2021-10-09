@@ -1,6 +1,6 @@
 /**
  * @rulesName typescript
- * @rulesDesc all
+ * @rulesDesc 对于typescript的所有公共限制
  */
 
 'use strict'

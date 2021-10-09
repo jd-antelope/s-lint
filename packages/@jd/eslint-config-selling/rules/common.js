@@ -1,6 +1,6 @@
 /**
  * @rulesName common
- * @rulesDesc all
+ * @rulesDesc 对于javascript的所有公共限制
  */
 
 'use strict'

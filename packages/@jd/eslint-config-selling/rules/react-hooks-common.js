@@ -1,6 +1,6 @@
 /**
  * @rulesName react-hooks
- * @rulesDesc all
+ * @rulesDesc 对于react-hooks的所有公共限制
  */
 
 'use strict'

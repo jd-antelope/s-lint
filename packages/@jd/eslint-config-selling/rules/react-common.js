@@ -1,6 +1,6 @@
 /**
  * @rulesName react
- * @rulesDesc all
+ * @rulesDesc 对于react的所有公共限制
  */
 
 'use strict'
