@@ -36,9 +36,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: '商羚前端lint规范',
+        title: '商羚前端Lint规范',
         logo: {
-          alt: '商羚前端lint规范 Logo',
+          alt: '商羚前端Lint规范 Logo',
           src: 'img/favicon.ico',
         },
         items: [

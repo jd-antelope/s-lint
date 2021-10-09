@@ -34,10 +34,10 @@ selling-lint是**一个全面、通用的前端Lint规范解决方案**
 > 提供两种使用方式，1、利用脚手架 2、在工程中安装相对的包。推荐方式1
 
 
-#### 使用脚手架
+#### 1、使用脚手架
 见[CLI介绍](http://lint-doc.selling.local/docs/cli/guide)
 
-#### 直接使用
+#### 2、直接使用
 - **ESLint**
 
     见[ESLint介绍](http://lint-doc.selling.local/docs/es/guide)
