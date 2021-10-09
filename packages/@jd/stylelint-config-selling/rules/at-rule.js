@@ -6,11 +6,11 @@
 'use strict'
 
 module.exports = {
-  // 指定规则列表，默认全部
-  // 'at-rule-allowed-list': '',
+  // 指定规则列表，默认全部，关闭
+  'at-rule-allowed-list': null,
 
-  // 规则禁止列表：无
-  // 'at-rule-disallowed-list': null,
+  // 规则禁止列表，关闭
+  'at-rule-disallowed-list': null,
 
   // 规则前必须加空行
   'at-rule-empty-line-before': [
@@ -62,8 +62,8 @@ module.exports = {
     }
   ],
 
-  // 属性规则要求列表，暂无
-  // "at-rule-property-required-list": "",
+  // 属性规则要求列表，关闭
+  "at-rule-property-required-list": null,
 
   // 规则分号之后必须是新的行
   'at-rule-semicolon-newline-after': [
@@ -81,6 +81,6 @@ module.exports = {
     },
   ],
 
-  // 规则白名单，暂无
-  // "at-rule-whitelist": null
+  // 规则白名单，关闭
+  "at-rule-whitelist": null
 }

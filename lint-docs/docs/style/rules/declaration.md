@@ -108,7 +108,7 @@ module.exports = {
         }
     ],
 
-    // 在属性的冒号后需要空格禁止换行
+    // 在属性的冒号后需要空格禁止换行，关闭
     "declaration-colon-newline-after": null,
 
     // 在属性的冒号之后要求有一个空格
@@ -136,8 +136,8 @@ module.exports = {
         }
     ],
 
-    // 允许使用!important
-    // "declaration-no-important": null,
+    // 禁止使用!important，关闭
+    "declaration-no-important": null,
 
     // 在模块中指定允许的属性和单位对列表
     "declaration-property-unit-allowed-list":  [{
@@ -148,14 +148,14 @@ module.exports = {
         ]
     }],
 
-    // 在模块中指定不允许的属性和单位对列表
-    // "declaration-property-unit-blacklist": null,
+    // 在模块中指定不允许的属性和单位对列表，关闭
+    "declaration-property-unit-blacklist": null,
 
-    // 在模块中指定不允许的属性和单位对列表
-    // "declaration-property-unit-disallowed-list": null,
+    // 在模块中指定不允许的属性和单位对列表，关闭
+    "declaration-property-unit-disallowed-list": null,
 
-    // 在声明中指定允许的属性和值对列表
-    // "declaration-property-value-allowed-list": null,
+    // 在声明中指定允许的属性和值对列表，关闭
+    "declaration-property-value-allowed-list": null,
 
     // 在模块中指定不允许的属性和值对列表
     "declaration-property-value-disallowed-list": {

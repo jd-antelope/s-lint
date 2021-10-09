@@ -5,8 +5,8 @@
  ```js
 module.exports = {
 
-  // 指定允许的函数列表
-  // "function-allowed-list": null,
+  // 指定允许的函数列表，关闭
+  "function-allowed-list": null,
 
   // 禁止在calc函数中使用无效表达式
   "function-calc-no-invalid": [
@@ -56,8 +56,8 @@ module.exports = {
     }
   ],
 
-  // 指定不允许的函数列表
-  // "function-disallowed-list": null,
+  // 指定不允许的函数列表，关闭
+  "function-disallowed-list": null,
 
   // 禁止在linear-gradient()根据标准语法无效的调用中使用方向值
   "function-linear-gradient-no-nonstandard-direction": [
@@ -118,8 +118,8 @@ module.exports = {
   // 指定允许的URL方案列表
   "function-url-scheme-allowed-list": ["http", "https"],
 
-  // 指定不允许的URL方案列表
-  // "function-url-scheme-disallowed-list": null,
+  // 指定不允许的URL方案列表，关闭
+  "function-url-scheme-disallowed-list": null,
 
   // 要求函数后有空格
   "function-whitespace-after": [

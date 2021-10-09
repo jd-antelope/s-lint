@@ -69,12 +69,12 @@ module.exports = {
   // 在属性选择器中的运算符之前需要一个空格。
   "selector-attribute-operator-space-before": "always",
 
-  // 指定允许的属性运算符列表(没必要)
+  // 指定允许的属性运算符列表，关闭
   "selector-attribute-operator-allowed-list": null,
 
   // 为类选择器指定一个规则
   "selector-class-pattern": [
-    "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
+    "^[a-z]+([a-z0-9-_]+)?$",
     {
       resolveNestedSelectors: true
     }
@@ -86,20 +86,20 @@ module.exports = {
   // 要求在选择符的组合符前使用单个空格
   "selector-combinator-space-before": "always",
 
-  // 指定不允许的组合器列表。
+  // 指定不允许的组合器列表，关闭
   "selector-combinator-disallowed-list": null,
 
-  // 指定允许的组合子列表
+  // 指定允许的组合子列表，关闭
   "selector-combinator-allowed-list": null,
 
   // 禁止选择器的后代组合符使用非空格字符
   // "selector-descendant-combinator-no-non-space": false,
 
   // 为ID选择器指定一个规则
-  "selector-id-pattern": "^[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
+  "selector-id-pattern": "^[a-z]+([a-z0-9-_]+)?$",
 
-  // 限制选择器中属性选择器的数量。
-  // "selector-max-attribute": null,
+  // 限制选择器中属性选择器的数量，关闭
+  "selector-max-attribute": null,
 
   // 限制选择器中类的数量
   "selector-max-class": 3,
@@ -117,16 +117,16 @@ module.exports = {
   "selector-max-pseudo-class": 1,
 
   // 限制选择器的特异性。
-  "selector-max-specificity": "0,2,0",
+  // "selector-max-specificity": "0,2,0",
 
   // 限制选择器中类型选择器的数量
   "selector-max-type": 2,
 
   // 为内嵌规则的选择器指定规则
-  "selector-nested-pattern": "^&-(:hover|focus|active|visited|focus-within|focus-visible|target)?.*",
+  "selector-nested-pattern": "^&(:hover|focus|active|visited|focus-within|focus-visible|target)?(-.*)?",
 
-  // 指定不允许的伪类选择器列表
-  // "selector-pseudo-class-disallowed-list": null,
+  // 指定不允许的伪类选择器列表，关闭
+  "selector-pseudo-class-disallowed-list": null,
 
   // 为伪类选择器指定小写或大写。
   "selector-pseudo-class-case": "lower",
@@ -146,10 +146,10 @@ module.exports = {
   // 禁止未知的伪元素选择器
   "selector-pseudo-element-no-unknown": true,
 
-  // 指定不允许的伪元素选择器列表
+  // 指定不允许的伪元素选择器列表，关闭
   "selector-pseudo-element-disallowed-list": null,
 
-  // 指定允许的伪元素选择器列表
+  // 指定允许的伪元素选择器列表，关闭
   "selector-pseudo-element-allowed-list": null,
 
   // 为类型选择器指定小写

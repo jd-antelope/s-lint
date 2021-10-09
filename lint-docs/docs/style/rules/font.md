@@ -7,12 +7,12 @@ module.exports = {
 
 
   // 在每个不是关键字的字体系列名称周围加上引号
-  // "font-family-name-quotes": [
-  //   "always-unless-keyword",
-  //   {
-  //     message: "在每个不是关键字的字体系列名称周围加上引号"
-  //   }
-  // ],
+  "font-family-name-quotes": [
+    "always-unless-keyword",
+    {
+      message: "在每个不是关键字的字体系列名称周围加上引号"
+    }
+  ],
 
   // 禁止重复的字体系列名称
   "font-family-no-duplicate-names": [
@@ -22,8 +22,8 @@ module.exports = {
     }
   ],
 
-  // 禁止在字体系列名称列表中缺少通用系列
-  // "font-family-no-missing-generic-family-keyword": null,
+  // 禁止在字体系列名称列表中缺少通用系列，关闭
+  "font-family-no-missing-generic-family-keyword": null,
 
   // font-weight值必须始终是数字
   "font-weight-notation": [

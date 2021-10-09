@@ -12,6 +12,6 @@ module.exports = {
         }
     ],
 
-    // 指定关键帧名称的模式
-    // "keyframes-name-pattern": null
+    // 指定关键帧名称的模式，关闭
+    "keyframes-name-pattern": null
 }```
