@@ -1,3 +1,8 @@
+/**
+ * @rulesName 数字
+ * @rulesDesc number是对于width、height等属性的数字进行小数点、尾随的限制
+ */
+
 "use strict";
 
 module.exports = {

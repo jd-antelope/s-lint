@@ -1,3 +1,8 @@
+/**
+ * @rulesName 限制数量
+ * @rulesDesc max指的是限制嵌套数量、相邻空行数量等
+ */
+
 "use strict";
 
 module.exports = {

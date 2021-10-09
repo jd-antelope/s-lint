@@ -1,3 +1,8 @@
+/**
+ * @rulesName 禁用
+ * @rulesDesc no指的是@import、注释、选择器、动画、空白符限制空行、优先级处理等
+ */
+
 "use strict";
 
 module.exports = {

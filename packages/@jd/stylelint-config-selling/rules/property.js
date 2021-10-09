@@ -1,3 +1,8 @@
+/**
+ * @rulesName 属性
+ * @rulesDesc property指的是在写css属性时禁止未知属性、对一些属性进行限制等
+ */
+
 "use strict";
 
 module.exports = {

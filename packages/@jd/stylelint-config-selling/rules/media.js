@@ -1,3 +1,8 @@
+/**
+ * @rulesName 媒体功能
+ * @rulesDesc media指的是@media 功能时限制名称、属性、空格等
+ */
+
 "use strict";
 
 module.exports = {
