@@ -91,3 +91,20 @@
         "message": "font-weight值必须始终是数字"
         }
     ],
+
+- selector
+    - // 指定允许的属性运算符列表
+    "selector-attribute-operator-allowed-list": null,
+    - // 限制选择器中类型选择器的数量
+    "selector-max-type": 2,
+    - // 禁止未知类型选择器
+    "selector-type-no-unknown": [
+    true,
+    {
+      ignoreTypes: ["noindex"]
+    }
+  ]
+
+- shorthand
+    - // 禁止覆盖相关普通属性的简写属性
+    "declaration-block-no-shorthand-property-overrides": false
