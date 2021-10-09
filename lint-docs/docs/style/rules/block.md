@@ -21,28 +21,28 @@ module.exports = {
     }],
 
   // 在右大括号之前必须有一个换行符
-  "block-closing-brace-newline-before": [
-    "always",
-    {
-      "message": "在右大括号之前必须有一个换行符"
-    }
-  ],
+  // "block-closing-brace-newline-before": [
+  //   "always",
+  //   {
+  //     "message": "在右大括号之前必须有一个换行符"
+  //   }
+  // ],
 
-  // 在块的右大括号之后需要一个空格
-  "block-closing-brace-space-after": [
-    "always",
-    {
-      "message": "在块的右大括号之后需要一个空格"
-    }
-  ],
+  // // 在块的右大括号之后需要一个空格
+  // "block-closing-brace-space-after": [
+  //   "always",
+  //   {
+  //     "message": "在块的右大括号之后需要一个空格"
+  //   }
+  // ],
 
-  // 在块的右大括号之前不允许有空格。
-  "block-closing-brace-space-before": [
-    "never",
-    {
-      "message": "在块的右大括号之前不允许有空格。"
-    }
-  ],
+  // // 在块的右大括号之前要求有空格
+  // "block-closing-brace-space-before": [
+  //   "always",
+  //   {
+  //     "message": "在块的右大括号之前要求有空格"
+  //   }
+  // ],
 
   // 不允许模块内为空
   "block-no-empty": [
@@ -53,34 +53,34 @@ module.exports = {
   ],
 
   // 在块的开始大括号之后需要换行
-  "block-opening-brace-newline-after": [
-    "always",
-    {
-      "message": "不允许模在块的开始大括号之后需要换行块内为空"
-    }
-  ],
+  // "block-opening-brace-newline-after": [
+  //   "always",
+  //   {
+  //     "message": "在块的开始大括号之后需要换行符"
+  //   }
+  // ],
 
-  // 在块的左大括号之前不需要换行符
-  "block-opening-brace-newline-before": [
-    "never-multi-line",
-    {
-      "message": "在块的左大括号之前不需要换行符"
-    }
-  ],
+  // // 在块的左大括号之前不需要换行符
+  // "block-opening-brace-newline-before": [
+  //   "never-multi-line",
+  //   {
+  //     "message": "在块的左大括号之前不需要换行符"
+  //   }
+  // ],
 
-  // 在块的左大括号后不允许有空格
-  "block-opening-brace-space-after": [
-    "never",
-    {
-      "message": "在块的左大括号后不允许有空格"
-    }
-  ],
+  // 在块的左大括号后要求有空格
+  // "block-opening-brace-space-after": [
+  //   "always",
+  //   {
+  //     "message": "在块的左大括号后要求有空格"
+  //   }
+  // ],
 
   // 在块的左大括号之前需要一个空格
-  "block-opening-brace-space-before": [
-    "always", {
-      "message": "在块的左大括号之前需要一个空格"
-    }
-  ],
+  // "block-opening-brace-space-before": [
+  //   "always", {
+  //     "message": "在块的左大括号之前需要一个空格"
+  //   }
+  // ],
 };
 ```

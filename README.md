@@ -32,17 +32,17 @@ selling-lint是**一个全面、通用的前端Lint规范解决方案**
 
 
 #### 使用脚手架
-见[cli介绍](../cli/guide.md)
+见[CLI介绍](http://lint-doc.selling.local/docs/cli/guide)
 
 #### 直接使用
-**eslint**
+**ESLint**
 
-见[eslint介绍](../es/guide.md)
+见[ESLint介绍](http://lint-doc.selling.local/docs/es/guide)
 
-**stylelint**
+**StyleLint**
 
-见[eslint介绍](../style/guide.md)
+见[StyleLint介绍](http://lint-doc.selling.local/docs/style/guide)
 
-**commitlint**
+**CommitLint**
 
-见[commit介绍](../commit/guide.md)
+见[CommitLint介绍](http://lint-doc.selling.local/docs/commit/guide)

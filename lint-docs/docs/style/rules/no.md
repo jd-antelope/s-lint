@@ -19,7 +19,12 @@ module.exports = {
   // 禁止未知的动画。
   "no-unknown-animations": true,
   //禁止行尾空白符（可自动修复）。
-  "no-eol-whitespace": ["empty-lines"],
+  "no-eol-whitespace": [
+    true,
+    {
+      ignore: ['empty-lines'],
+    }
+  ],
   //禁止缺少源码结尾换行符（可自动修复）。
   "no-missing-end-of-source-newline": true,
   //禁止空第一行（可自动修复）。
