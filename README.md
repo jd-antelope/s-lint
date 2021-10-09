@@ -17,8 +17,7 @@ selling-lint是**一个全面、通用的前端Lint规范解决方案**
     lerna统一版本模式发包，便于基础包升级、扩展自定义paser、plugin等
 
 ### 架构图
-![image.png](../../static/img/lint.jpg)
-
+![image.png](https://storage.360buyimg.com/hawley-common/lint.jpg)
 ### 基础包
 | 包名 | 功能 | 版本 
 |  ----  |  ----  |  ---- 
@@ -35,14 +34,14 @@ selling-lint是**一个全面、通用的前端Lint规范解决方案**
 见[CLI介绍](http://lint-doc.selling.local/docs/cli/guide)
 
 #### 直接使用
-**ESLint**
+- **ESLint**
 
-见[ESLint介绍](http://lint-doc.selling.local/docs/es/guide)
+    见[ESLint介绍](http://lint-doc.selling.local/docs/es/guide)
 
-**StyleLint**
+- **StyleLint**
 
-见[StyleLint介绍](http://lint-doc.selling.local/docs/style/guide)
+    见[StyleLint介绍](http://lint-doc.selling.local/docs/style/guide)
 
-**CommitLint**
+- **CommitLint**
 
-见[CommitLint介绍](http://lint-doc.selling.local/docs/commit/guide)
+    见[CommitLint介绍](http://lint-doc.selling.local/docs/commit/guide)
