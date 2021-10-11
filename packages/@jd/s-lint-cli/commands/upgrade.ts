@@ -1,7 +1,7 @@
 // 升级lint版本，三个lint版本一致，默认全部升级到最新，是否允许指定版本待定
 import * as path from 'path'
 import * as inquirer from 'inquirer'
-import * as chalk from 'chalk'
+import chalk from 'chalk'
 import * as fs from 'fs-extra'
 import * as execa from 'execa'
 import {
@@ -13,7 +13,7 @@ import {
   failSpinner,
   warn,
   info,
-} from '../lib/index.js'
+} from '../lib/index.js.js'
 import {
   eslintPackageName,
   commitlintPackageName,
@@ -116,19 +116,14 @@ export const updateGeneralRC = (srcFileName: string, targetFileName: string, tar
 
 const action = async (projectName, cmdArgs) => {
   try {
-    const targetDir = cwd
-    startSpinner(`upgrading eslint`)
-    checkAndUpgradeLint(eslintPackageName, targetDir);
-    succeedSpiner('eslint upgrade successed!')
-
-    startSpinner(`upgrading commitlint`)
-    checkAndUpgradeLint(commitlintPackageName, targetDir);
-    succeedSpiner('commitlint upgrade successed!')
-
-    startSpinner(`upgrading stylelint`)
-    checkAndUpgradeLint(stylelintPackageName, targetDir);
-    succeedSpiner('stylelint upgrade successed!')
-    info(chalk.green('upgrade successed!'))
+    const targetDir = path.join(
+      (cmdArgs && cmdArgs.context) || cwd,
+      projectName
+    )
+    
+    checkAndUpgradeLint(targetDir, eslintPackageName);
+    checkAndUpgradeLint(targetDir, commitlintPackageName);
+    checkAndUpgradeLint(targetDir, stylelintPackageName);
 
   } catch (err) {
     failSpinner(err)

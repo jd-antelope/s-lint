@@ -3,7 +3,7 @@
 import * as path from 'path'
 import * as handlebars from 'handlebars'
 import * as inquirer from 'inquirer'
-import * as chalk from 'chalk'
+import chalk from 'chalk'
 import * as fs from 'fs-extra'
 import * as execa from 'execa'
 import {
@@ -13,11 +13,9 @@ import {
   startSpinner,
   succeedSpiner,
   failSpinner,
-  spinner,
   warn,
   info,
-  hasPackage
-} from '../lib/index.js'
+} from '../lib/index.js.js'
 import {
   eslintPackageName,
   commitlintPackageName,
@@ -61,15 +59,12 @@ export const getQuestions = async () => {
 }
 
 export const initLint = (packageName: string, srcFileName: string, targetFileName: string, targetDir = cwd) => {
-  startSpinner(`resolving old package: ${packageName}`)
   checkAndRemoveOldPackage(targetDir, packageName)
-  succeedSpiner(`old package: ${packageName} resolved!`)
 
   if (fs.existsSync(`${targetDir}/${targetFileName}`)) {
     fs.removeSync(`${targetDir}/${targetFileName}`)
   }
 
-  startSpinner(`adding new package: ${packageName}`)
   execa.commandSync(`npm install ${ packageName } --save-dev`)
 
   const srcPath = path.join(__dirname, srcFileName)
@@ -78,30 +73,13 @@ export const initLint = (packageName: string, srcFileName: string, targetFileNam
   copyFile(srcPath, tarPath)
 }
 
-export const installHusky = (targetDir: string) => {
-  startSpinner(`installing husky`)
-  if (!hasPackage('husky', targetDir)) {
-    execa.commandSync(`npm install husky --save-dev`)
-  }
-
-  const jsonPath = `${targetDir}/package.json`
-  const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
-  const jsonResult = JSON.parse(jsonContent)
-  jsonResult.husky = {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  }
-  fs.writeFileSync(jsonPath, JSON.stringify(jsonResult, null, 2), 'utf8')
-}
-
 const action = async (projectName, cmdArgs) => {
   try {
     const targetDir = cwd
     const { targets } = await getQuestions()
-    let eslintTarget = { type: '' }
+    let eslintType = ''
     if (targets.includes('eslint')) {
-      eslintTarget = await inquirer.prompt([
+      eslintType = await inquirer.prompt([
         {
           type: 'list',
           name: 'type',
@@ -121,24 +99,16 @@ const action = async (projectName, cmdArgs) => {
     targets.forEach((target: string) => {
       switch (target) {
         case 'eslint':
-          startSpinner('init eslint')
-          initLint(eslintPackageName, `../../templates/.eslint-${eslintTarget.type}.js`, '.eslintrc.js', targetDir);
-          succeedSpiner('eslint init successed!')
+          initLint(eslintPackageName, `../../templates/.eslint-${eslintType}.js`, '.eslintrc.js', targetDir);
           break;
         case 'stylelint':
-          startSpinner(`init stylelint`)
           initLint(stylelintPackageName, `../../templates/.stylelintrc.js`, '.stylelintrc.js', targetDir);
-          succeedSpiner('stylelint init successed!')
           break;
         case 'commitlint':
-          startSpinner(`init commitlint`)
-          installHusky(targetDir)
           initLint(commitlintPackageName, `../../templates/.commitlintrc.js`, '.commitlintrc.js', targetDir);
-          succeedSpiner('commitlint init successed!')
           break;
       }
     })
-    info(chalk.green('init successed!'))
 
   } catch (err) {
     failSpinner(err)

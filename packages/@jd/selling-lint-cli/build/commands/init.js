@@ -1,36 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.initStylelint = exports.getQuestions = exports.checkLintInstall = void 0;
+exports.installHusky = exports.initLint = exports.getQuestions = exports.checkAndRemoveOldPackage = void 0;
 // 初始化eslint、stylelint、commitLint、三个lint（默认），对于eslint需要对版本类型询问（react、vue）
 // 包冲突时需要先移除旧包
 const path = require("path");
-const handlebars = require("handlebars");
 const inquirer = require("inquirer");
+const chalk = require("chalk");
 const fs = require("fs-extra");
+const execa = require("execa");
 const index_js_1 = require("../lib/index.js");
-// 检查是否已初始化最新lint规范
-const checkLintInstall = async (targetDir) => {
+const consts_1 = require("../lib/consts");
+// 检查并移除旧的lint包
+const checkAndRemoveOldPackage = async (targetDir, packageName) => {
     // handlebars模版引擎解析用户输入的信息存在package.json
     const jsonPath = `${targetDir}/package.json`;
     const jsonContent = fs.readFileSync(jsonPath, 'utf-8');
-    const jsonResult = handlebars.compile(jsonContent);
-    // if (fs.existsSync(targetDir)) {
-    //   const answer = await inquirer.prompt({
-    //     type: 'list',
-    //     name: 'checkExist',
-    //     message: `\n仓库路径${targetDir}已存在，请选择`,
-    //     choices: ['覆盖', '取消'],
-    //   })
-    //   if (answer.checkExist === '覆盖') {
-    //     warn(`删除${targetDir}...`)
-    //     fs.removeSync(targetDir)
-    //   } else {
-    //     return true
-    //   }
-    // }
-    return false;
+    const jsonResult = JSON.parse(jsonContent);
+    if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
+        (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))) {
+        execa.commandSync(`npm uninstall ${packageName}`);
+    }
 };
-exports.checkLintInstall = checkLintInstall;
+exports.checkAndRemoveOldPackage = checkAndRemoveOldPackage;
 const getQuestions = async () => {
     return await inquirer.prompt([
         {
@@ -53,36 +44,83 @@ const getQuestions = async () => {
     ]);
 };
 exports.getQuestions = getQuestions;
-const initStylelint = async (targetDir = __dirname) => {
-    if (fs.existsSync(`${targetDir}/.stylelintrc.js`)) {
-        fs.removeSync(`${targetDir}/.stylelintrc.js`);
+const initLint = (packageName, srcFileName, targetFileName, targetDir = index_js_1.cwd) => {
+    (0, index_js_1.startSpinner)(`resolving old package: ${packageName}`);
+    (0, exports.checkAndRemoveOldPackage)(targetDir, packageName);
+    (0, index_js_1.succeedSpiner)(`old package: ${packageName} resolved!`);
+    if (fs.existsSync(`${targetDir}/${targetFileName}`)) {
+        fs.removeSync(`${targetDir}/${targetFileName}`);
     }
-    const srcPath = path.join(__dirname, '../lib/templates/.stylelintrc.js');
-    const tarPath = path.join(index_js_1.cwd, '.stylelintrc.js');
+    (0, index_js_1.startSpinner)(`adding new package: ${packageName}`);
+    execa.commandSync(`npm install ${packageName} --save-dev`);
+    const srcPath = path.join(__dirname, srcFileName);
+    const tarPath = path.join(targetDir, targetFileName);
     (0, index_js_1.copyFile)(srcPath, tarPath);
 };
-exports.initStylelint = initStylelint;
+exports.initLint = initLint;
+const installHusky = (targetDir) => {
+    (0, index_js_1.startSpinner)(`installing husky`);
+    if (!(0, index_js_1.hasPackage)('husky', targetDir)) {
+        execa.commandSync(`npm install husky --save-dev`);
+    }
+    const jsonPath = `${targetDir}/package.json`;
+    const jsonContent = fs.readFileSync(jsonPath, 'utf-8');
+    const jsonResult = JSON.parse(jsonContent);
+    jsonResult.husky = {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    };
+    fs.writeFileSync(jsonPath, JSON.stringify(jsonResult, null, 2), 'utf8');
+};
+exports.installHusky = installHusky;
 const action = async (projectName, cmdArgs) => {
     try {
-        // const targetDir = path.join(
-        //   (cmdArgs && cmdArgs.context) || cwd,
-        //   projectName
-        // )
+        const targetDir = index_js_1.cwd;
         const { targets } = await (0, exports.getQuestions)();
-        console.log(targets);
+        let eslintTarget = { type: '' };
+        if (targets.includes('eslint')) {
+            eslintTarget = await inquirer.prompt([
+                {
+                    type: 'list',
+                    name: 'type',
+                    message: `eslint type:`,
+                    choices: [
+                        {
+                            name: 'taro'
+                        }, {
+                            name: 'react'
+                        }, {
+                            name: 'vue'
+                        }
+                    ]
+                }
+            ]);
+        }
         targets.forEach((target) => {
             switch (target) {
                 case 'eslint':
+                    (0, index_js_1.startSpinner)('init eslint');
+                    (0, exports.initLint)(consts_1.eslintPackageName, `../../templates/.eslint-${eslintTarget.type}.js`, '.eslintrc.js', targetDir);
+                    (0, index_js_1.succeedSpiner)('eslint init successed!');
                     break;
                 case 'stylelint':
-                    (0, exports.initStylelint)();
+                    (0, index_js_1.startSpinner)(`init stylelint`);
+                    (0, exports.initLint)(consts_1.stylelintPackageName, `../../templates/.stylelintrc.js`, '.stylelintrc.js', targetDir);
+                    (0, index_js_1.succeedSpiner)('stylelint init successed!');
+                    break;
+                case 'commitlint':
+                    (0, index_js_1.startSpinner)(`init commitlint`);
+                    (0, exports.installHusky)(targetDir);
+                    (0, exports.initLint)(consts_1.commitlintPackageName, `../../templates/.commitlintrc.js`, '.commitlintrc.js', targetDir);
+                    (0, index_js_1.succeedSpiner)('commitlint init successed!');
                     break;
             }
         });
-        // await cloneProject(targetDir, projectName, projectInfo)
+        (0, index_js_1.info)(chalk.green('init successed!'));
     }
     catch (err) {
-        // failSpinner(err)
+        (0, index_js_1.failSpinner)(err);
         return;
     }
 };

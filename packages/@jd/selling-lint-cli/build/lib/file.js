@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.cloneProject = exports.copyFile = void 0;
+exports.hasPackage = exports.readPackageJson = exports.cloneProject = exports.copyFile = void 0;
 const fs = require("fs-extra");
 const execa = require("execa");
 const path = require("path");
 const handlebars = require("handlebars");
-const index_js_1 = require("../lib/index.js");
+const index_js_1 = require("./index.js");
 const copyFile = async (srcPath, tarPath, cb) => {
     const rs = fs.createReadStream(srcPath);
     rs.on('error', function (err) {
@@ -20,7 +20,7 @@ const copyFile = async (srcPath, tarPath, cb) => {
         }
     });
     ws.on('close', function (ex) {
-        cb();
+        cb && cb();
     });
     rs.pipe(ws);
 };
@@ -45,3 +45,17 @@ const cloneProject = async (targetDir, projectName, projectInfo) => {
     (0, index_js_1.info)(`$ cd ${projectName}\n$ sh start.sh\n`);
 };
 exports.cloneProject = cloneProject;
+const readPackageJson = async (targetDir = './') => {
+    const _packageJson = fs.readFileSync(path.join(targetDir, 'package.json'));
+    return JSON.parse(_packageJson);
+};
+exports.readPackageJson = readPackageJson;
+const hasPackage = (packageName, targetDir = index_js_1.cwd) => {
+    // handlebars模版引擎解析用户输入的信息存在package.json
+    const jsonPath = `${targetDir}/package.json`;
+    const jsonContent = fs.readFileSync(jsonPath, 'utf-8');
+    const jsonResult = JSON.parse(jsonContent);
+    return (jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
+        (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName));
+};
+exports.hasPackage = hasPackage;

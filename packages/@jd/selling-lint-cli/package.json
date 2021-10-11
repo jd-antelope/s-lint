@@ -8,10 +8,10 @@
     "build": "npm install && rimraf ./build && tsc --build ./tsconfig.json"
   },
   "bin": {
-    "selling-lint": "./build/bin.js"
+    "s-lint": "./build/bin.js"
   },
   "keywords": [
-    "selling-lint",
+    "s-lint",
     "command"
   ],
   "author": "liujie455",
@@ -33,6 +33,9 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
     "@babel/node": "^7.15.4",
+    "@jd/commitlint-config-selling": "^0.2.0",
+    "@jd/eslint-config-selling": "^0.2.2",
+    "@jd/stylelint-config-selling": "^0.2.2",
     "@types/node": "^16.10.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3"

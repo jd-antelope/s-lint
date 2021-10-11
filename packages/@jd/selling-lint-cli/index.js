@@ -3,6 +3,7 @@ import * as globby from 'globby'
 import * as commander from 'commander'
 import { error } from './lib/index.js'
 const { program } = commander
+import * as templateFiles from './templates';
 
 let commandsPath = []
 

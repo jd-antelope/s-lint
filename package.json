@@ -12,6 +12,9 @@
     "p": "lerna publish",
     "docs": "node ./scripts/docs/index.js"
   },
+  "bin": {
+    "s-lint": "./packages/@jd/selling-lint-cli/build/bin.js"
+  },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
