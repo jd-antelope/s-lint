@@ -1,5 +1,5 @@
 # react-hooks
- **对于react-hooks的所有公共限制** 
+ **为 ESLint 反应特定的 react-hooks 规则。具体规则：https://www.npmjs.com/package/eslint-plugin-react-hooks** 
  
  具体规则如下：
  ```js

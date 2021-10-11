@@ -1,5 +1,5 @@
 # common
- **对于javascript的所有公共限制** 
+ **用于识别和报告在 ECMAScript/JavaScript 代码中发现的模式的工具。在许多方面，它类似于 JSLint 和 JSHint。具体如下：https://eslint.bootcss.com/docs/rules/** 
  
  具体规则如下：
  ```js

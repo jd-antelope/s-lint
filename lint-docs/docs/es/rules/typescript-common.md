@@ -1,5 +1,5 @@
 # typescript
- **对于typescript的所有公共限制** 
+ **TypeScript 生成一种与 ESLint 需要工作的 AST 格式不同的 AST 格式。链接如下：https://github.com/typescript-eslint/typescript-eslint** 
  
  具体规则如下：
  ```js
