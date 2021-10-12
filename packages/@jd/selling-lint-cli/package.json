@@ -1,6 +1,6 @@
 {
   "name": "@jd/selling-lint-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "selling命令行",
   "main": "./build",
   "scripts": {
