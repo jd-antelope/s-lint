@@ -21,8 +21,7 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-vue": "^7.18.0",
-    "rimraf": "^3.0.2"
+    "eslint-plugin-vue": "^7.18.0"
   
  *
  */

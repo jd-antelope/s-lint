@@ -19,6 +19,10 @@ module.exports = {
     "extends": "@jd/commitlint-config-selling"
 }
 ```
+
+:::caution
+如果项目之前安装过CommitLint相关的包，建议卸载，避免引入不必要的包。如`@commitlint/cli`、`@commitlint/config-conventional`等，直接在package.json搜索**commitlint**，相关的包全部卸载
+:::
 #### 规范
 格式： `<type>[(scope)]: <description>`
 

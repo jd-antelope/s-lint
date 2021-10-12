@@ -3,14 +3,10 @@
   "version": "0.2.2",
   "description": "ESLint config base version",
   "main": "index.js",
-  "scripts": {
-    "build:file": "node scripts/build.js",
-    "clean": "rimraf dist"
-  },
   "keywords": [
-    "taro",
-    "react",
-    "jsx"
+    "eslint",
+    "eslint-react",
+    "eslint-vue"
   ],
   "files": [
     "rules",
@@ -46,11 +42,11 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-vue": "^7.18.0",
-    "rimraf": "^3.0.2"
+    "eslint-plugin-vue": "^7.18.0"
   },
   "gitHead": "aaa6a644060ca2d8c27087528071b85de505a14b",
   "devDependencies": {
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "rimraf": "^3.0.2"
   }
 }

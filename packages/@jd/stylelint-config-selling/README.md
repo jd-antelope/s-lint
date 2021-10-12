@@ -27,6 +27,9 @@ module.exports = {
     "less.validate": true,
     "stylelint.enable": true,
 ```
+:::caution
+如果项目之前安装过Stylelint相关的包，建议卸载，避免引入不必要的包。如`@stylelint`、`stylelint-config-standard`、`stylelint-order`等，直接在package.json搜索**stylelint**，相关的包全部卸载
+:::
 #### 规范
 
 使用`stylelint`官方代码风格`stylelint-config-standard`；该风格是 `stylelint`汲取了`GitHub`、`Google`、`Airbnb`等；使用`stylelint-order`强制按照某个顺序进行编码
