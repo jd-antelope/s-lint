@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.initLint = exports.installHusky = exports.checkAndRemoveOldPackage = void 0;
+exports.initLint = exports.installHusky = void 0;
 // commit的pre-commit检查
 const path = require("path");
 const chalk = require("chalk");
@@ -8,20 +8,7 @@ const fs = require("fs-extra");
 const execa = require("execa");
 const index_js_1 = require("../lib/index.js");
 const consts_1 = require("../lib/consts");
-// 检查并移除旧的lint包
-const checkAndRemoveOldPackage = async (targetDir, packageName) => {
-    // handlebars模版引擎解析用户输入的信息存在package.json
-    const jsonPath = `${targetDir}/package.json`;
-    const jsonContent = fs.readFileSync(jsonPath, 'utf-8');
-    const jsonResult = JSON.parse(jsonContent);
-    if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
-        (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))) {
-        (0, index_js_1.startSpinner)(`resolving old package: ${packageName}`);
-        execa.commandSync(`npm uninstall ${packageName}`);
-        (0, index_js_1.succeedSpiner)(`old package: ${packageName} resolved!`);
-    }
-};
-exports.checkAndRemoveOldPackage = checkAndRemoveOldPackage;
+const init_1 = require("./init");
 const installHusky = (targetDir) => {
     if (!(0, index_js_1.hasPackage)('husky', targetDir)) {
         execa.commandSync(`npm install husky --save-dev`);
@@ -38,7 +25,7 @@ const installHusky = (targetDir) => {
 };
 exports.installHusky = installHusky;
 const initLint = (packageName, srcFileName, targetFileName, targetDir = index_js_1.cwd) => {
-    (0, exports.checkAndRemoveOldPackage)(targetDir, packageName);
+    (0, init_1.checkAndRemoveOldPackage)(targetDir, packageName);
     if (fs.existsSync(`${targetDir}/${targetFileName}`)) {
         fs.removeSync(`${targetDir}/${targetFileName}`);
     }

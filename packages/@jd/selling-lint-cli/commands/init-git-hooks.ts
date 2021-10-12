@@ -20,22 +20,7 @@ import {
   commitlintPackageName,
 } from '../lib/consts'
 import { PackageJson } from '../lib/type'
-
-
-// 检查并移除旧的lint包
-export const checkAndRemoveOldPackage = async (targetDir: string, packageName: string) => {
-  // handlebars模版引擎解析用户输入的信息存在package.json
-  const jsonPath = `${targetDir}/package.json`
-  const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
-  const jsonResult: PackageJson = JSON.parse(jsonContent)
-  if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
-    (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))
-  ) {
-    startSpinner(`resolving old package: ${packageName}`)
-    execa.commandSync(`npm uninstall ${ packageName }`)
-    succeedSpiner(`old package: ${packageName} resolved!`)
-  }
-}
+import { checkAndRemoveOldPackage } from './init'
 
 export const installHusky = (targetDir: string) => {
   if (!hasPackage('husky', targetDir)) {

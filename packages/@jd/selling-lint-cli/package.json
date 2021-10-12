@@ -10,6 +10,13 @@
   "bin": {
     "s-lint": "./build/bin.js"
   },
+  "files": [
+    "build",
+    "templates",
+    "LICENSE.txt",
+    "package.json",
+    "README.md"
+  ],
   "keywords": [
     "s-lint",
     "command"

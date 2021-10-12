@@ -16,21 +16,74 @@ import {
   spinner,
   warn,
   info,
-  hasPackage
+  hasPackage,
+  folderName
 } from '../lib/index.js'
 import {
   eslintPackageName,
   commitlintPackageName,
-  stylelintPackageName
+  stylelintPackageName,
+  safeDependencies
 } from '../lib/consts'
 import { PackageJson } from '../lib/type'
+import * as globby from 'globby'
 
-// 检查并移除旧的lint包
-export const checkAndRemoveOldPackage = async (targetDir: string, packageName: string) => {
-  // handlebars模版引擎解析用户输入的信息存在package.json
+// 仅搜索包含eslint、commitlint、stylelint关键词的依赖包
+export const resolveSafeIndirectDependencies = (packageName: string) => {
+  function resolveSafeDepList (jsonResult: Object, key: string) {
+    if (jsonResult.hasOwnProperty(key)) {
+      return Object.keys(jsonResult[key]).filter((pkg: string) => {
+        return safeDependencies.some((sd: string) => {
+          return pkg.indexOf(sd) > -1
+        })
+      })
+    }
+
+    return []
+  }
+  const jsonPath = path.resolve(__dirname, `../../../${folderName[packageName]}/package.json`)
+  const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
+  const jsonResult: PackageJson = JSON.parse(jsonContent)
+
+  let dependicies = []
+  
+  dependicies = dependicies.concat(resolveSafeDepList(jsonResult, 'dependencies'))
+  dependicies = dependicies.concat(resolveSafeDepList(jsonResult, 'devDependencies'))
+
+  return dependicies
+}
+
+// 尝试移除当前项目内属于安全依赖列表的包
+export const tryToRemovePackage = (targetDir = cwd, safeDepList: Array<string>) => {
+  let deps = []
+
   const jsonPath = `${targetDir}/package.json`
   const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
   const jsonResult: PackageJson = JSON.parse(jsonContent)
+
+  if (jsonResult.hasOwnProperty('dependencies')) {
+    deps = deps.concat(Object.keys(jsonResult.dependencies))
+  }
+
+  if (jsonResult.hasOwnProperty('devDependencies')) {
+    deps = deps.concat(Object.keys(jsonResult.devDependencies))
+  }
+
+  deps.filter((dep) => {
+    return safeDepList.includes(dep)
+  }).forEach((dep) => {
+    execa.commandSync(`npm uninstall ${dep}`)
+  })
+}
+
+// 检查并移除旧的lint包
+export const checkAndRemoveOldPackage = async (targetDir: string, packageName: string) => {
+  const indirectDependicies = resolveSafeIndirectDependencies(packageName)
+
+  const jsonPath = `${targetDir}/package.json`
+  const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
+  const jsonResult: PackageJson = JSON.parse(jsonContent)
+  // 卸载旧版lint包
   if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
     (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))
   ) {
@@ -38,6 +91,9 @@ export const checkAndRemoveOldPackage = async (targetDir: string, packageName: s
     execa.commandSync(`npm uninstall ${ packageName }`)
     succeedSpiner(`old package: ${packageName} resolved!`)
   }
+
+  // 卸载lint已经包含的间接依赖
+  tryToRemovePackage(targetDir, indirectDependicies)
 }
 
 export const getQuestions = async () => {
@@ -62,7 +118,7 @@ export const getQuestions = async () => {
   ])
 }
 
-export const initLint = (packageName: string, srcFileName: string, targetFileName: string, targetDir = cwd) => {
+export const initLint = (packageName: string, srcFileName: string, targetFileName: string, targetDir = cwd, handlebarParams?: Object) => {
   checkAndRemoveOldPackage(targetDir, packageName)
 
   if (fs.existsSync(`${targetDir}/${targetFileName}`)) {
@@ -72,10 +128,16 @@ export const initLint = (packageName: string, srcFileName: string, targetFileNam
   startSpinner(`adding new package: ${packageName}`)
   execa.commandSync(`npm install ${ packageName } --save-dev`)
 
-  const srcPath = path.join(__dirname, srcFileName)
-  const tarPath = path.join(targetDir, targetFileName)
+  if (handlebarParams) {
+    const content = fs.readFileSync(`${__dirname}/${srcFileName}`, 'utf-8')
+    const contentResult = handlebars.compile(content)(handlebarParams)
+    fs.writeFileSync(targetFileName, contentResult)
+  } else {
+    const srcPath = path.join(__dirname, srcFileName)
+    const tarPath = path.join(targetDir, targetFileName)
 
-  copyFile(srcPath, tarPath)
+    copyFile(srcPath, tarPath)
+  }
 }
 
 export const installHusky = (targetDir: string) => {
@@ -101,20 +163,18 @@ const action = async (projectName, cmdArgs) => {
     const { targets } = await getQuestions()
     let eslintTarget = { type: '' }
     if (targets.includes('eslint')) {
+      let eslintTypeList = globby.sync(['*.js'], { cwd: path.resolve(__dirname, '../../../eslint-config-selling'), deep: 1 }) || []
+      eslintTypeList = eslintTypeList.filter((type: string) => {
+        return type !== 'base.js' && type !== 'index.js'
+      })
       eslintTarget = await inquirer.prompt([
         {
           type: 'list',
           name: 'type',
           message: `eslint type:`,
-          choices: [
-            {
-              name: 'taro'
-            }, {
-              name: 'react'
-            }, {
-              name: 'vue'
-            }
-          ]
+          choices: eslintTypeList.map((type: string) => {
+            return type.split('.')[0]
+          })
         }
       ])
     }
@@ -122,7 +182,7 @@ const action = async (projectName, cmdArgs) => {
       switch (target) {
         case 'eslint':
           startSpinner('init eslint')
-          initLint(eslintPackageName, `../../templates/.eslint-${eslintTarget.type}.js`, '.eslintrc.js', targetDir);
+          initLint(eslintPackageName, `../../templates/.eslintrc.js`, '.eslintrc.js', targetDir, { eslintType: eslintTarget.type });
           succeedSpiner('eslint init successed!')
           break;
         case 'stylelint':
