@@ -18,7 +18,9 @@ const checkAndRemoveOldPackage = async (targetDir, packageName) => {
     const jsonResult = JSON.parse(jsonContent);
     if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
         (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))) {
+        (0, index_js_1.startSpinner)(`resolving old package: ${packageName}`);
         execa.commandSync(`npm uninstall ${packageName}`);
+        (0, index_js_1.succeedSpiner)(`old package: ${packageName} resolved!`);
     }
 };
 exports.checkAndRemoveOldPackage = checkAndRemoveOldPackage;
@@ -45,9 +47,7 @@ const getQuestions = async () => {
 };
 exports.getQuestions = getQuestions;
 const initLint = (packageName, srcFileName, targetFileName, targetDir = index_js_1.cwd) => {
-    (0, index_js_1.startSpinner)(`resolving old package: ${packageName}`);
     (0, exports.checkAndRemoveOldPackage)(targetDir, packageName);
-    (0, index_js_1.succeedSpiner)(`old package: ${packageName} resolved!`);
     if (fs.existsSync(`${targetDir}/${targetFileName}`)) {
         fs.removeSync(`${targetDir}/${targetFileName}`);
     }

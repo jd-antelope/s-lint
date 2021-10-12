@@ -16,7 +16,9 @@ const checkAndRemoveOldPackage = async (targetDir, packageName) => {
     const jsonResult = JSON.parse(jsonContent);
     if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
         (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))) {
+        (0, index_js_1.startSpinner)(`resolving old package: ${packageName}`);
         execa.commandSync(`npm uninstall ${packageName}`);
+        (0, index_js_1.succeedSpiner)(`old package: ${packageName} resolved!`);
     }
 };
 exports.checkAndRemoveOldPackage = checkAndRemoveOldPackage;

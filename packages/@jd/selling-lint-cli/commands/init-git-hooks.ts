@@ -31,7 +31,9 @@ export const checkAndRemoveOldPackage = async (targetDir: string, packageName: s
   if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
     (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))
   ) {
+    startSpinner(`resolving old package: ${packageName}`)
     execa.commandSync(`npm uninstall ${ packageName }`)
+    succeedSpiner(`old package: ${packageName} resolved!`)
   }
 }
 
