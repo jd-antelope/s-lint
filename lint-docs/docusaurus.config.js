@@ -64,7 +64,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             to: 'docs/cli/guide',
             label: 'CLI', 
             position: 'left',
-            activeBaseRegex: 'docs/stcliyle/',
+            activeBaseRegex: 'docs/cli/',
           },
           {
             href: 'http://coding.jd.com/selling-front/frontend-lint/issues/',

@@ -48,4 +48,4 @@ selling-lint是**一个全面、通用的前端Lint规范解决方案**，
     见[CommitLint介绍](http://lint-doc.selling.local/docs/commit/guide)
 
 ### 参与贡献
-欢迎提交[issue](http://coding.jd.com/selling-front/frontend-lint/issues/)
+遇到任何问题，欢迎提交[issue](http://coding.jd.com/selling-front/frontend-lint/issues/)
