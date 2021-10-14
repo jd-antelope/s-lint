@@ -1,9 +1,8 @@
-#!/usr/bin/env node  
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const globby = require("globby");
 const commander = require("commander");
-const index_js_1 = require("./lib/index.js");
+const lib_1 = require("./lib");
 const { program } = commander;
 let commandsPath = [];
 // 获取命令
@@ -14,10 +13,11 @@ const getCommand = () => {
 };
 function start() {
     const commandsPath = getCommand();
-    program.version('0.0.1');
+    program.version('0.1.0');
     commandsPath.forEach((commandPath) => {
         const commandObj = require(`./${commandPath}`);
         const { command, description, optionList, action } = commandObj.default;
+        // console.log(optionList)
         const options = optionList &&
             optionList.map((option) => {
                 return `.option(${option[0]},${option[1]})`;
@@ -37,7 +37,7 @@ function start() {
             program.outputHelp();
             return;
         }
-        (0, index_js_1.error)(`未知的命令${cmd}`);
+        (0, lib_1.error)(`未知的命令${cmd}`);
         program.outputHelp();
     });
     program.parseAsync(process.argv);

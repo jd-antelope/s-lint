@@ -20,7 +20,7 @@ import {
   stylelintPackageName
 } from '../lib/consts'
 import { PackageJson } from '../lib/type'
-import { eslintType } from '../templates/eslintType' 
+import { eslintType } from '../lib/eslintType' 
 
 // 检查并更新包
 export const checkAndUpgradeLint = async (packageName: string, targetDir: string, version = 'latest') => {

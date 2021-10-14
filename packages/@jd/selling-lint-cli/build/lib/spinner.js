@@ -7,7 +7,6 @@ exports.spinner = ora();
 const startSpinner = (text) => {
     const msg = `${text}...\n`;
     exports.spinner.start(msg);
-    return exports.spinner;
     // spinner.stopAndPersist({
     //   symbol: '✨',
     //   text: msg,

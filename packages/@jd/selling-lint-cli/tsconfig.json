@@ -16,8 +16,7 @@
     "lib": ["es6"],
     "typeRoots": ["./node_modules/@types"],
     "outDir": "./build",
-    "rootDir": "./",
-    "allowJs": true,
+    "rootDir": "./src"
   },
   "exclude": ["node_modules", "build", "**/*.test.ts", "temp", "scripts", "./src/__tests__"],
   "esModuleInterop": true,

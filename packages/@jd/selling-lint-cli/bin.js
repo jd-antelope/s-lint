@@ -1,3 +1,5 @@
 #!/usr/bin/env node   
+require('./build')
+
 // require('ts-node/register')
-import './index.js';
+// require('./src/index.ts')

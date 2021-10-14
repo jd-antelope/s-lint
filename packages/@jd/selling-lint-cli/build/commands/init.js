@@ -11,8 +11,8 @@ const fs = require("fs-extra");
 const execa = require("execa");
 const index_js_1 = require("../lib/index.js");
 const consts_1 = require("../lib/consts");
-const allDeps = require("../templates/safeDeps");
-const eslintType_1 = require("../templates/eslintType");
+const allDeps = require("../lib/safeDeps");
+const eslintType_1 = require("../lib/eslintType");
 // 尝试移除当前项目内属于安全依赖列表的包
 const tryToRemovePackage = (targetDir = index_js_1.cwd, safeDepList) => {
     let deps = [];
@@ -41,9 +41,9 @@ const checkAndRemoveOldPackage = async (targetDir, packageName) => {
     // 卸载旧版lint包
     if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
         (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))) {
-        (0, index_js_1.startSpinner)(`resolving old package: ${packageName}`);
+        // startSpinner(`resolving old package: ${packageName}`)
         execa.commandSync(`npm uninstall ${packageName}`);
-        (0, index_js_1.succeedSpiner)(`old package: ${packageName} resolved!`);
+        // succeedSpiner(`old package: ${packageName} resolved!`)
     }
     // 卸载lint已经包含的间接依赖
     (0, exports.tryToRemovePackage)(targetDir, indirectDependicies);
@@ -76,7 +76,7 @@ const initLint = (packageName, srcFileName, targetFileName, targetDir = index_js
     if (fs.existsSync(`${targetDir}/${targetFileName}`)) {
         fs.removeSync(`${targetDir}/${targetFileName}`);
     }
-    (0, index_js_1.startSpinner)(`adding new package: ${packageName}`);
+    // startSpinner(`adding new package: ${packageName}`)
     execa.commandSync(`npm install ${packageName} --save-dev`);
     if (handlebarParams) {
         const content = fs.readFileSync(`${__dirname}/${srcFileName}`, 'utf-8');
@@ -91,7 +91,7 @@ const initLint = (packageName, srcFileName, targetFileName, targetDir = index_js
 };
 exports.initLint = initLint;
 const installHusky = (targetDir) => {
-    (0, index_js_1.startSpinner)(`installing husky`);
+    // startSpinner(`installing husky`)
     if (!(0, index_js_1.hasPackage)('husky', targetDir)) {
         execa.commandSync(`npm install husky --save-dev`);
     }

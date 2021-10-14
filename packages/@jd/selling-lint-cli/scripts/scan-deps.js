@@ -56,7 +56,7 @@ function resolveAllDependencies () {
   pkgs.forEach((packageName) => {
     resultContent += (`export const ${packageMap.depNames[packageName]} = ${JSON.stringify(resolveIndirectDependencies(packageName))}\n`)
   })
-  fs.writeFileSync(path.resolve(__dirname, '../templates/safeDeps.js'), resultContent)
+  fs.writeFileSync(path.resolve(__dirname, '../src/lib/safeDeps.ts'), resultContent)
 }
 
 resolveAllDependencies()

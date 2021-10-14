@@ -1,25 +1,25 @@
-#!/usr/bin/env node  
 import * as globby from 'globby'
 import * as commander from 'commander'
-import { error } from './lib/index.js'
+import { error } from './lib'
+
 const { program } = commander
-import * as templateFiles from './templates';
 
 let commandsPath = []
 
 // 获取命令
 const getCommand = () => {
   commandsPath =
-    globby.sync('./commands/*.*s', { cwd: __dirname, deep: 1 }) || []
+    (globby as any).sync('./commands/*.*s', { cwd: __dirname, deep: 1 }) || []
   return commandsPath
 }
 
-function start() {
+function start () {
   const commandsPath = getCommand()
-  program.version('0.0.1')
+  program.version('0.1.0')
   commandsPath.forEach((commandPath) => {
     const commandObj = require(`./${commandPath}`)
     const { command, description, optionList, action } = commandObj.default
+    // console.log(optionList)
     const options =
       optionList &&
       optionList.map((option) => {
@@ -32,7 +32,7 @@ function start() {
       .description(description)
       .action(action)
     optionList &&
-      optionList.map((option) => {
+      optionList.map((option: [string]) => {
         curp.option(...option)
       })
   })

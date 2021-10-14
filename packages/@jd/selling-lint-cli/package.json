@@ -5,12 +5,12 @@
   "main": "./build",
   "scripts": {
     "test": "test",
-    "scan-eslint-type": "node ./tools/scan-eslint-type.js",
-    "scan-deps": "node ./tools/scan-deps.js",
+    "scan-eslint-type": "node ./scripts/scan-eslint-type.js",
+    "scan-deps": "node ./scripts/scan-deps.js",
     "build": "npm install && rimraf ./build && npm run scan-eslint-type && npm run scan-deps && tsc --build ./tsconfig.json"
   },
   "bin": {
-    "s-lint": "./build/bin.js"
+    "s-lint": "./bin.js"
   },
   "files": [
     "build",
@@ -40,10 +40,17 @@
     "ora": "^5.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-0",
-    "@babel/node": "^7.15.4",
+    "@jd/eslint-config-selling": "^0.2.2",
+    "@jd/stylelint-config-selling": "^0.2.2",
     "@types/node": "^16.10.1",
+    "husky": "^7.0.2",
     "rimraf": "^3.0.2",
+    "ts-node": "^10.3.0",
     "typescript": "^4.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }

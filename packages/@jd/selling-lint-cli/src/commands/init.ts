@@ -13,7 +13,6 @@ import {
   startSpinner,
   succeedSpiner,
   failSpinner,
-  spinner,
   warn,
   info,
   hasPackage,
@@ -26,8 +25,8 @@ import {
   safeDependencies
 } from '../lib/consts'
 
-import * as allDeps from '../templates/safeDeps'
-import { eslintType } from '../templates/eslintType' 
+import * as allDeps from '../lib/safeDeps'
+import { eslintType } from '../lib/eslintType' 
 
 import { PackageJson } from '../lib/type'
 
@@ -65,9 +64,9 @@ export const checkAndRemoveOldPackage = async (targetDir: string, packageName: s
   if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
     (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))
   ) {
-    startSpinner(`resolving old package: ${packageName}`)
+    // startSpinner(`resolving old package: ${packageName}`)
     execa.commandSync(`npm uninstall ${ packageName }`)
-    succeedSpiner(`old package: ${packageName} resolved!`)
+    // succeedSpiner(`old package: ${packageName} resolved!`)
   }
 
   // 卸载lint已经包含的间接依赖
@@ -103,9 +102,8 @@ export const initLint = (packageName: string, srcFileName: string, targetFileNam
     fs.removeSync(`${targetDir}/${targetFileName}`)
   }
 
-  startSpinner(`adding new package: ${packageName}`)
+  chalk.green(`adding new package: ${packageName}`)
   execa.commandSync(`npm install ${ packageName } --save-dev`)
-
   if (handlebarParams) {
     const content = fs.readFileSync(`${__dirname}/${srcFileName}`, 'utf-8')
     const contentResult = handlebars.compile(content)(handlebarParams)
@@ -119,7 +117,7 @@ export const initLint = (packageName: string, srcFileName: string, targetFileNam
 }
 
 export const installHusky = (targetDir: string) => {
-  startSpinner(`installing husky`)
+  // startSpinner(`installing husky`)
   if (!hasPackage('husky', targetDir)) {
     execa.commandSync(`npm install husky --save-dev`)
   }

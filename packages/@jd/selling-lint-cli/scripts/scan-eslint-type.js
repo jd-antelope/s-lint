@@ -12,7 +12,7 @@ function scanEslintType () {
 
   let content = '// 本文件由scan-eslint-type命令自动扫描生成，执行npm run build时将自动更新，无需手动修改\n'
   content += `export const eslintType = ` + JSON.stringify(eslintTypeList)
-  fs.writeFileSync(path.resolve(__dirname, '../templates/eslintType.js'), content)
+  fs.writeFileSync(path.resolve(__dirname, '../src/lib//eslintType.ts'), content)
 }
 
 scanEslintType()

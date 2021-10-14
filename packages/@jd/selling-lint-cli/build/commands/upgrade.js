@@ -9,7 +9,7 @@ const fs = require("fs-extra");
 const execa = require("execa");
 const index_js_1 = require("../lib/index.js");
 const consts_1 = require("../lib/consts");
-const eslintType_1 = require("../templates/eslintType");
+const eslintType_1 = require("../lib/eslintType");
 // 检查并更新包
 const checkAndUpgradeLint = async (packageName, targetDir, version = 'latest') => {
     // handlebars模版引擎解析用户输入的信息存在package.json
