@@ -17,7 +17,7 @@ import {
   warn,
   info,
   hasPackage,
-  folderName
+  packageMap
 } from '../lib/index.js'
 import {
   eslintPackageName,
@@ -25,33 +25,11 @@ import {
   stylelintPackageName,
   safeDependencies
 } from '../lib/consts'
+
+import * as allDeps from '../templates/safeDeps'
+import { eslintType } from '../templates/eslintType' 
+
 import { PackageJson } from '../lib/type'
-import * as globby from 'globby'
-
-// 仅搜索包含eslint、commitlint、stylelint关键词的依赖包
-export const resolveSafeIndirectDependencies = (packageName: string) => {
-  function resolveSafeDepList (jsonResult: Object, key: string) {
-    if (jsonResult.hasOwnProperty(key)) {
-      return Object.keys(jsonResult[key]).filter((pkg: string) => {
-        return safeDependencies.some((sd: string) => {
-          return pkg.indexOf(sd) > -1
-        })
-      })
-    }
-
-    return []
-  }
-  const jsonPath = path.resolve(__dirname, `../../../${folderName[packageName]}/package.json`)
-  const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
-  const jsonResult: PackageJson = JSON.parse(jsonContent)
-
-  let dependicies = []
-  
-  dependicies = dependicies.concat(resolveSafeDepList(jsonResult, 'dependencies'))
-  dependicies = dependicies.concat(resolveSafeDepList(jsonResult, 'devDependencies'))
-
-  return dependicies
-}
 
 // 尝试移除当前项目内属于安全依赖列表的包
 export const tryToRemovePackage = (targetDir = cwd, safeDepList: Array<string>) => {
@@ -78,7 +56,7 @@ export const tryToRemovePackage = (targetDir = cwd, safeDepList: Array<string>) 
 
 // 检查并移除旧的lint包
 export const checkAndRemoveOldPackage = async (targetDir: string, packageName: string) => {
-  const indirectDependicies = resolveSafeIndirectDependencies(packageName)
+  const indirectDependicies = allDeps[packageMap.depsName[packageName]]
 
   const jsonPath = `${targetDir}/package.json`
   const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
@@ -163,18 +141,12 @@ const action = async (projectName, cmdArgs) => {
     const { targets } = await getQuestions()
     let eslintTarget = { type: '' }
     if (targets.includes('eslint')) {
-      let eslintTypeList = globby.sync(['*.js'], { cwd: path.resolve(__dirname, '../../../eslint-config-selling'), deep: 1 }) || []
-      eslintTypeList = eslintTypeList.filter((type: string) => {
-        return type !== 'base.js' && type !== 'index.js'
-      })
       eslintTarget = await inquirer.prompt([
         {
           type: 'list',
           name: 'type',
           message: `eslint type:`,
-          choices: eslintTypeList.map((type: string) => {
-            return type.split('.')[0]
-          })
+          choices: eslintType
         }
       ])
     }

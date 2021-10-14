@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.installHusky = exports.initLint = exports.getQuestions = exports.checkAndRemoveOldPackage = exports.tryToRemovePackage = exports.resolveSafeIndirectDependencies = void 0;
+exports.installHusky = exports.initLint = exports.getQuestions = exports.checkAndRemoveOldPackage = exports.tryToRemovePackage = void 0;
 // 初始化eslint、stylelint、commitLint、三个lint（默认），对于eslint需要对版本类型询问（react、vue）
 // 包冲突时需要先移除旧包
 const path = require("path");
@@ -11,28 +11,8 @@ const fs = require("fs-extra");
 const execa = require("execa");
 const index_js_1 = require("../lib/index.js");
 const consts_1 = require("../lib/consts");
-const globby = require("globby");
-// 仅搜索包含eslint、commitlint、stylelint关键词的依赖包
-const resolveSafeIndirectDependencies = (packageName) => {
-    function resolveSafeDepList(jsonResult, key) {
-        if (jsonResult.hasOwnProperty(key)) {
-            return Object.keys(jsonResult[key]).filter((pkg) => {
-                return consts_1.safeDependencies.some((sd) => {
-                    return pkg.indexOf(sd) > -1;
-                });
-            });
-        }
-        return [];
-    }
-    const jsonPath = path.resolve(__dirname, `../../../${index_js_1.folderName[packageName]}/package.json`);
-    const jsonContent = fs.readFileSync(jsonPath, 'utf-8');
-    const jsonResult = JSON.parse(jsonContent);
-    let dependicies = [];
-    dependicies = dependicies.concat(resolveSafeDepList(jsonResult, 'dependencies'));
-    dependicies = dependicies.concat(resolveSafeDepList(jsonResult, 'devDependencies'));
-    return dependicies;
-};
-exports.resolveSafeIndirectDependencies = resolveSafeIndirectDependencies;
+const allDeps = require("../templates/safeDeps");
+const eslintType_1 = require("../templates/eslintType");
 // 尝试移除当前项目内属于安全依赖列表的包
 const tryToRemovePackage = (targetDir = index_js_1.cwd, safeDepList) => {
     let deps = [];
@@ -54,7 +34,7 @@ const tryToRemovePackage = (targetDir = index_js_1.cwd, safeDepList) => {
 exports.tryToRemovePackage = tryToRemovePackage;
 // 检查并移除旧的lint包
 const checkAndRemoveOldPackage = async (targetDir, packageName) => {
-    const indirectDependicies = (0, exports.resolveSafeIndirectDependencies)(packageName);
+    const indirectDependicies = allDeps[index_js_1.packageMap.depsName[packageName]];
     const jsonPath = `${targetDir}/package.json`;
     const jsonContent = fs.readFileSync(jsonPath, 'utf-8');
     const jsonResult = JSON.parse(jsonContent);
@@ -132,18 +112,12 @@ const action = async (projectName, cmdArgs) => {
         const { targets } = await (0, exports.getQuestions)();
         let eslintTarget = { type: '' };
         if (targets.includes('eslint')) {
-            let eslintTypeList = globby.sync(['*.js'], { cwd: path.resolve(__dirname, '../../../eslint-config-selling'), deep: 1 }) || [];
-            eslintTypeList = eslintTypeList.filter((type) => {
-                return type !== 'base.js' && type !== 'index.js';
-            });
             eslintTarget = await inquirer.prompt([
                 {
                     type: 'list',
                     name: 'type',
                     message: `eslint type:`,
-                    choices: eslintTypeList.map((type) => {
-                        return type.split('.')[0];
-                    })
+                    choices: eslintType_1.eslintType
                 }
             ]);
         }

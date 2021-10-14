@@ -20,6 +20,7 @@ import {
   stylelintPackageName
 } from '../lib/consts'
 import { PackageJson } from '../lib/type'
+import { eslintType } from '../templates/eslintType' 
 
 // 检查并更新包
 export const checkAndUpgradeLint = async (packageName: string, targetDir: string, version = 'latest') => {
@@ -60,15 +61,7 @@ async function requireEslintType () {
       type: 'list',
       name: 'type',
       message: `cannot autocompile eslint type! please select one:`,
-      choices: [
-        {
-          name: 'taro'
-        }, {
-          name: 'react'
-        }, {
-          name: 'vue'
-        }
-      ]
+      choices: eslintType
     }
   ])
 }
