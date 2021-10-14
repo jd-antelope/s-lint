@@ -24,7 +24,11 @@ s-lint init
 ```
 随后命令行会列举可选的规范类型，目前包括eslint、stylelint及commitlint，默认全选，使用上下键切换目标选项，空格键可切换选中态，回车确认。
 
+![image.png](https://storage.360buyimg.com/hawley-common/init.jpg)
+
 如果选择的规范包含eslint，则会继续询问要初始化的eslint类型，如vue、react、taro等，该选项为单选，选择完毕后将开始进行初始化。
+
+![image.png](https://storage.360buyimg.com/hawley-common/eslintType.jpg)
 
 cli将按照所选的规范类型依次进行初始化，单个规范的初始化过程包括
 1. 检查并移除旧包，包括项目内的冗余依赖
