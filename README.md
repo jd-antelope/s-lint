@@ -16,12 +16,12 @@ selling-lint是**一个全面、通用的前端Lint规范解决方案**，
 ### 架构图
 ![image.png](https://storage.360buyimg.com/hawley-common/lint.jpg)
 ### 基础包
-| 包名 | 功能 | 版本 
-|  ----  |  ----  |  ---- 
-| @jd/eslint-config-selling | 提供eslint规范   |  1.0.0  
-| @jd/stylelint-config-selling | 提供stylelint规范 |  1.0.0  
-| @jd/commitlint-config-selling | 提供commitlint规范 | 1.0.0
-| @jd/selling-lint-cli | 命令行工具 | 1.0.0
+| 包名 | 功能 | jnpm
+|  ----  |  ----  | ---
+| @jd/eslint-config-selling | 提供eslint规范   | http://npm.jd.com/package/@jd/eslint-config-selling 
+| @jd/stylelint-config-selling | 提供stylelint规范 | http://npm.jd.com/package/@jd/stylelint-config-selling
+| @jd/commitlint-config-selling | 提供commitlint规范 |http://npm.jd.com/package/@jd/commitlint-config-selling
+| @jd/selling-lint-cli | 命令行工具 | http://npm.jd.com/package/@jd/selling-lint-cli
 
 ### 使用
 > 提供两种使用方式，1、利用脚手架 2、在工程中安装相对的包。推荐方式1
