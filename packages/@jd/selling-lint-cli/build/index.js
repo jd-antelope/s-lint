@@ -5,6 +5,8 @@ const globby = require("globby");
 const commander = require("commander");
 const index_js_1 = require("./lib/index.js");
 const { program } = commander;
+const fs = require("fs-extra");
+const path = require("path");
 let commandsPath = [];
 // 获取命令
 const getCommand = () => {
@@ -14,7 +16,10 @@ const getCommand = () => {
 };
 function start() {
     const commandsPath = getCommand();
-    program.version('0.0.1');
+    const jsonPath = path.join(__dirname, '../package.json');
+    const jsonContent = fs.readFileSync(jsonPath, 'utf-8');
+    const jsonResult = JSON.parse(jsonContent);
+    program.version(jsonResult.version);
     commandsPath.forEach((commandPath) => {
         const commandObj = require(`./${commandPath}`);
         const { command, description, optionList, action } = commandObj.default;

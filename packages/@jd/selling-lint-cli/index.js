@@ -4,6 +4,8 @@ import * as commander from 'commander'
 import { error } from './lib/index.js'
 const { program } = commander
 import * as templateFiles from './templates';
+import * as fs from 'fs-extra'
+import * as path from 'path'
 
 let commandsPath = []
 
@@ -16,7 +18,10 @@ const getCommand = () => {
 
 function start() {
   const commandsPath = getCommand()
-  program.version('0.0.1')
+  const jsonPath = path.join(__dirname, '../package.json')
+  const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
+  const jsonResult = JSON.parse(jsonContent)
+  program.version(jsonResult.version)
   commandsPath.forEach((commandPath) => {
     const commandObj = require(`./${commandPath}`)
     const { command, description, optionList, action } = commandObj.default
