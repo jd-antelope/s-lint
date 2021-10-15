@@ -1,6 +1,7 @@
 // 升级lint版本，三个lint版本一致，默认全部升级到最新，是否允许指定版本待定
 import * as path from 'path'
 import * as inquirer from 'inquirer'
+import * as handlebars from 'handlebars'
 import * as chalk from 'chalk'
 import * as fs from 'fs-extra'
 import * as execa from 'execa'
@@ -20,7 +21,7 @@ import {
   stylelintPackageName
 } from '../lib/consts'
 import { PackageJson } from '../lib/type'
-import { eslintType } from '../lib/eslintType' 
+import { eslintType as eslintTypeList } from '../lib/eslintType' 
 
 // 检查并更新包
 export const checkAndUpgradeLint = async (packageName: string, targetDir: string, version = 'latest') => {
@@ -38,13 +39,13 @@ export const checkAndUpgradeLint = async (packageName: string, targetDir: string
   }
 
   execa.commandSync(`npm install ${packageName}@${version} --save-dev`, {stdio: 'inherit'})
-  updateRC(packageName, targetDir);
+  await updateRC(packageName, targetDir);
 }
 
 export const updateRC = async (packageName: string, targetDir: string) => {
   switch (packageName) {
     case eslintPackageName:
-      updateEslintRC(targetDir)
+      await updateEslintRC(targetDir)
       break
     case commitlintPackageName:
       updateGeneralRC(`../../templates/.commitlintrc.js`, '.commitlintrc.js', targetDir)
@@ -55,26 +56,21 @@ export const updateRC = async (packageName: string, targetDir: string) => {
   }
 }
 
-async function requireEslintType () {
+const requireEslintType = async () => {
   return await inquirer.prompt([
     {
       type: 'list',
       name: 'type',
-      message: `cannot autocompile eslint type! please select one:`,
-      choices: eslintType
+      message: `自动查询eslint类型失败，请重新选择:`,
+      choices: eslintTypeList
     }
   ])
 }
 
 export const updateEslintRC = async (targetDir: string) => {
   if (fs.existsSync(`${targetDir}/.eslintrc.js`)) {
-    const eslintTypeMap = {
-      '@jd/selling/react': 'react',
-      '@jd/selling/taro': 'taro',
-      '@jd/selling/vue': 'vue'
-    }
     const eslintRCContent = fs.readFileSync(`${targetDir}/.eslintrc.js`, 'utf-8')
-    const pName = Object.keys(eslintTypeMap).find((item) => {
+    const pName = eslintTypeList.find((item) => {
       return eslintRCContent.indexOf(item) > -1
     })
 
@@ -82,21 +78,25 @@ export const updateEslintRC = async (targetDir: string) => {
     let eslintType;
 
     if (pName) {
-      eslintType = eslintTypeMap[pName]
+      eslintType = pName
     } else {
-      eslintType = await requireEslintType()
+      const eslintTypeTarget = await requireEslintType()
+      eslintType = eslintTypeTarget.type
     }
 
-    const srcPath = path.join(__dirname, `../../templates/.eslint-${eslintType}.js`)
+    const content = fs.readFileSync(`${__dirname}/../../templates/.eslintrc.js`, 'utf-8')
     const tarPath = path.join(targetDir, '.eslintrc.js')
 
-    copyFile(srcPath, tarPath)
+    const contentResult = handlebars.compile(content)({ eslintType: eslintType })
+    fs.writeFileSync(tarPath, contentResult)
   } else {
-    const eslintType = await requireEslintType()
-    const srcPath = path.join(__dirname, `../lib/templates/.eslint-${eslintType}.js`)
+    const eslintTypeTarget = await requireEslintType()
+    const eslintType = eslintTypeTarget.type
+    const content = fs.readFileSync(`${__dirname}/../../templates/.eslintrc.js`, 'utf-8')
     const tarPath = path.join(targetDir, '.eslintrc.js')
 
-    copyFile(srcPath, tarPath)
+    const contentResult = handlebars.compile(content)({ eslintType: eslintType })
+    fs.writeFileSync(tarPath, contentResult)
   }
 }
 
@@ -111,7 +111,7 @@ const action = async (projectName, cmdArgs) => {
   try {
     const targetDir = cwd
     startSpinner(`正在升级eslint`)
-    checkAndUpgradeLint(eslintPackageName, targetDir);
+    await checkAndUpgradeLint(eslintPackageName, targetDir);
     succeedSpiner('eslint升级成功!')
 
     startSpinner(`正在升级commitlint`)

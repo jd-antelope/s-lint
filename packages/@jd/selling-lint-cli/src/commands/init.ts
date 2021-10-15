@@ -142,6 +142,10 @@ export const addLintStaged = (targetDir: string, config: Object) => {
   fs.writeFileSync(jsonPath, JSON.stringify(jsonResult, null, 2), 'utf8')
 }
 
+export const addFile = (targetDir: string, filename: string, content: string) => {
+  fs.writeFileSync(`${targetDir}/${filename}`, content, 'utf8')
+}
+
 const action = async (projectName, cmdArgs) => {
   try {
     const targetDir = cwd
@@ -167,6 +171,7 @@ const action = async (projectName, cmdArgs) => {
               "git add"
             ]
           })
+          addFile(targetDir, '.eslintignore', '.eslintrc.js') // 解决.eslintrc.js报错
           initLint(eslintPackageName, `../../templates/.eslintrc.js`, '.eslintrc.js', targetDir, { eslintType: eslintTarget.type });
           succeedSpiner(chalk.green('eslint初始化成功!'))
           break;
