@@ -49,7 +49,7 @@ export const tryToRemovePackage = (targetDir = cwd, safeDepList: Array<string>) 
   deps.filter((dep) => {
     return safeDepList.includes(dep)
   }).forEach((dep) => {
-    execa.commandSync(`npm uninstall ${dep}`)
+    execa.commandSync(`npm uninstall ${dep}`, {stdio: 'inherit'})
   })
 }
 
@@ -65,7 +65,7 @@ export const checkAndRemoveOldPackage = async (targetDir: string, packageName: s
     (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))
   ) {
     // startSpinner(`resolving old package: ${packageName}`)
-    execa.commandSync(`npm uninstall ${ packageName }`)
+    execa.commandSync(`npm uninstall ${ packageName }`, {stdio: 'inherit'})
     // succeedSpiner(`old package: ${packageName} resolved!`)
   }
 
@@ -78,7 +78,7 @@ export const getQuestions = async () => {
     {
       type: 'checkbox',
       name: 'targets',
-      message: `select one or more to init (default all):`,
+      message: `请选择要初始化的规范 (默认全选，空格键切换选中态，回车确认):`,
       choices: [
         {
           name: 'eslint',
@@ -102,8 +102,9 @@ export const initLint = (packageName: string, srcFileName: string, targetFileNam
     fs.removeSync(`${targetDir}/${targetFileName}`)
   }
 
-  chalk.green(`adding new package: ${packageName}`)
-  execa.commandSync(`npm install ${ packageName } --save-dev`)
+  startSpinner(`正在安装依赖: ${packageName}`)
+  execa.commandSync(`npm install ${ packageName } --save-dev`, {stdio: 'inherit'})
+  succeedSpiner(`${packageName}安装完成`)
   if (handlebarParams) {
     const content = fs.readFileSync(`${__dirname}/${srcFileName}`, 'utf-8')
     const contentResult = handlebars.compile(content)(handlebarParams)
@@ -119,7 +120,7 @@ export const initLint = (packageName: string, srcFileName: string, targetFileNam
 export const installHusky = (targetDir: string) => {
   // startSpinner(`installing husky`)
   if (!hasPackage('husky', targetDir)) {
-    execa.commandSync(`npm install husky --save-dev`)
+    execa.commandSync(`npm install husky --save-dev`, {stdio: 'inherit'})
   }
 
   const jsonPath = `${targetDir}/package.json`
@@ -133,6 +134,14 @@ export const installHusky = (targetDir: string) => {
   fs.writeFileSync(jsonPath, JSON.stringify(jsonResult, null, 2), 'utf8')
 }
 
+export const addLintStaged = (targetDir: string, config: Object) => {
+  const jsonPath = `${targetDir}/package.json`
+  const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
+  const jsonResult = JSON.parse(jsonContent)
+  jsonResult['lint-staged'] = Object.assign(jsonResult['lint-staged'] || {}, config)
+  fs.writeFileSync(jsonPath, JSON.stringify(jsonResult, null, 2), 'utf8')
+}
+
 const action = async (projectName, cmdArgs) => {
   try {
     const targetDir = cwd
@@ -143,7 +152,7 @@ const action = async (projectName, cmdArgs) => {
         {
           type: 'list',
           name: 'type',
-          message: `eslint type:`,
+          message: `请选择eslint规范类型:`,
           choices: eslintType
         }
       ])
@@ -151,24 +160,36 @@ const action = async (projectName, cmdArgs) => {
     targets.forEach((target: string) => {
       switch (target) {
         case 'eslint':
-          startSpinner('init eslint')
+          startSpinner('开始初始化eslint')
+          addLintStaged(targetDir, {
+            "*.{js,jsx,json,ts,tsx,vue}": [
+              "eslint --fix",
+              "git add"
+            ]
+          })
           initLint(eslintPackageName, `../../templates/.eslintrc.js`, '.eslintrc.js', targetDir, { eslintType: eslintTarget.type });
-          succeedSpiner('eslint init successed!')
+          succeedSpiner(chalk.green('eslint初始化成功!'))
           break;
         case 'stylelint':
-          startSpinner(`init stylelint`)
+          startSpinner(`开始初始化stylelint`)
+          addLintStaged(targetDir, {
+            "src/**/*.less": [
+              "stylelint --config  ./.stylelintrc --fix",
+              "git add"
+            ]
+          })
           initLint(stylelintPackageName, `../../templates/.stylelintrc.js`, '.stylelintrc.js', targetDir);
-          succeedSpiner('stylelint init successed!')
+          succeedSpiner(chalk.green('stylelint初始化成功!'))
           break;
         case 'commitlint':
-          startSpinner(`init commitlint`)
+          startSpinner(`开始初始化commitlint`)
           installHusky(targetDir)
           initLint(commitlintPackageName, `../../templates/.commitlintrc.js`, '.commitlintrc.js', targetDir);
-          succeedSpiner('commitlint init successed!')
+          succeedSpiner(chalk.green('commitlint初始化成功!'))
           break;
       }
     })
-    info(chalk.green('init successed!'))
+    info(chalk.green('初始化成功!'))
 
   } catch (err) {
     failSpinner(err)

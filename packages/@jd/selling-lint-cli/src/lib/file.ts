@@ -10,7 +10,7 @@ import { PackageJson } from './type'
 
 export const copyFile = async (srcPath: string, tarPath: string, cb?: Function) => {
   const rs = fs.createReadStream(srcPath)
-  rs.on('error', function (err) {
+  rs.on('error', function (err: Object) {
     if (err) {
       console.log('read error', srcPath, err)
     }

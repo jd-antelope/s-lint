@@ -24,7 +24,7 @@ import { checkAndRemoveOldPackage } from './init'
 
 export const installHusky = (targetDir: string) => {
   if (!hasPackage('husky', targetDir)) {
-    execa.commandSync(`npm install husky --save-dev`)
+    execa.commandSync(`npm install husky --save-dev`, {stdio: 'inherit'})
   }
 
   const jsonPath = `${targetDir}/package.json`
@@ -45,7 +45,7 @@ export const initLint = (packageName: string, srcFileName: string, targetFileNam
     fs.removeSync(`${targetDir}/${targetFileName}`)
   }
 
-  execa.commandSync(`npm install ${ packageName } --save-dev`)
+  execa.commandSync(`npm install ${ packageName } --save-dev`, {stdio: 'inherit'})
 
   const srcPath = path.join(__dirname, srcFileName)
   const tarPath = path.join(targetDir, targetFileName)
@@ -57,13 +57,13 @@ const action = async (projectName, cmdArgs) => {
   try {
     const targetDir = cwd
 
-    startSpinner(`installing husky`)
+    startSpinner(`正在安装husky`)
     installHusky(targetDir)
-    succeedSpiner('husky installed!')
+    succeedSpiner('husky安装成功!')
 
-    startSpinner(`init commitlint`)
+    startSpinner(`正在安装git-hooks依赖`)
     initLint(commitlintPackageName, `../../templates/.commitlintrc.js`, '.commitlintrc.js', targetDir);
-    succeedSpiner(chalk.green('init git-hooks successed!'))
+    succeedSpiner(chalk.green('git-hooks初始化完成!'))
   } catch (err) {
     failSpinner(err)
     return

@@ -31,13 +31,13 @@ export const checkAndUpgradeLint = async (packageName: string, targetDir: string
   if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
     (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))
   ) {
-    execa.commandSync(`npm uninstall ${packageName}`)
+    execa.commandSync(`npm uninstall ${packageName}`, {stdio: 'inherit'})
   } else {
-    warn(`${packageName} does't exist, please use init to install first!`)
+    info(`${packageName} 暂未安装，已跳过!`)
     return
   }
 
-  execa.commandSync(`npm install ${packageName}@${version} --save-dev`)
+  execa.commandSync(`npm install ${packageName}@${version} --save-dev`, {stdio: 'inherit'})
   updateRC(packageName, targetDir);
 }
 
@@ -110,18 +110,18 @@ export const updateGeneralRC = (srcFileName: string, targetFileName: string, tar
 const action = async (projectName, cmdArgs) => {
   try {
     const targetDir = cwd
-    startSpinner(`upgrading eslint`)
+    startSpinner(`正在升级eslint`)
     checkAndUpgradeLint(eslintPackageName, targetDir);
-    succeedSpiner('eslint upgrade successed!')
+    succeedSpiner('eslint升级成功!')
 
-    startSpinner(`upgrading commitlint`)
+    startSpinner(`正在升级commitlint`)
     checkAndUpgradeLint(commitlintPackageName, targetDir);
-    succeedSpiner('commitlint upgrade successed!')
+    succeedSpiner('commitlint升级成功!')
 
-    startSpinner(`upgrading stylelint`)
+    startSpinner(`正在升级stylelint`)
     checkAndUpgradeLint(stylelintPackageName, targetDir);
-    succeedSpiner('stylelint upgrade successed!')
-    info(chalk.green('upgrade successed!'))
+    succeedSpiner('stylelint升级成功!')
+    info(chalk.green('lint升级成功!'))
 
   } catch (err) {
     failSpinner(err)
