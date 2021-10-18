@@ -1,6 +1,6 @@
 {
   "name": "@jd/commitlint-config-selling",
-  "version": "0.2.0",
+  "version": "0.9.2",
   "description": "commitlint config base version",
   "main": "index.js",
   "scripts": {},
@@ -24,5 +24,5 @@
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0"
   },
-  "gitHead": "aaa6a644060ca2d8c27087528071b85de505a14b"
+  "gitHead": "b10719d03022244b94f2d18f9d13a839acbf181a"
 }

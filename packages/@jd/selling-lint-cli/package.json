@@ -1,6 +1,6 @@
 {
   "name": "@jd/selling-lint-cli",
-  "version": "1.0.3",
+  "version": "0.9.2",
   "description": "selling命令行",
   "main": "./build",
   "scripts": {
@@ -40,8 +40,8 @@
     "ora": "^5.4.1"
   },
   "devDependencies": {
-    "@jd/eslint-config-selling": "^0.2.2",
-    "@jd/stylelint-config-selling": "^0.2.2",
+    "@jd/eslint-config-selling": "^0.9.2",
+    "@jd/stylelint-config-selling": "^0.9.2",
     "@types/node": "^16.10.1",
     "husky": "^7.0.2",
     "rimraf": "^3.0.2",
@@ -52,5 +52,6 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  }
+  },
+  "gitHead": "b10719d03022244b94f2d18f9d13a839acbf181a"
 }

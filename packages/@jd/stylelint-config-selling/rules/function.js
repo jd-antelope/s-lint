@@ -118,7 +118,7 @@ module.exports = {
   ],
 
   // 指定允许的URL方案列表
-  "function-url-scheme-allowed-list": ["http", "https"],
+  "function-url-scheme-allowed-list": null,
 
   // 指定不允许的URL方案列表，关闭
   "function-url-scheme-disallowed-list": null,
