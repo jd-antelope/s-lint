@@ -31,7 +31,7 @@ const start = () => {
   execa.commandSync(`git commit -m package`, execaCallback)
   execa.commandSync('git push origin master', execaCallback)
   console.log('代码上传成功')
-  execa.commandSync('yarn p', execaCallback)
+  execa.commandSync('lerna publish', execaCallback)
   console.log('代码发布成功')
 } 
 
