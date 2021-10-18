@@ -51,7 +51,7 @@ export const checkAndUpgradeLint = async (packageName: string, targetDir: string
   const versionStatus = await checkVersion(packageName, targetDir)
   switch (versionStatus) {
     case VERSION_ENUM.UNINSTALLED:
-      info(`${packageName} 暂未安装，已跳过!`)
+      info(`${packageName} 暂未安装，请先执行 s-lint init 进行初始化!`)
       return
     case VERSION_ENUM.NEW:
       info(`${packageName} 当前已是最新版本!`)
@@ -138,7 +138,7 @@ const action = async (projectName, cmdArgs) => {
     await checkAndUpgradeLint(commitlintPackageName, targetDir);
     await checkAndUpgradeLint(stylelintPackageName, targetDir);
 
-    info(chalk.green('lint升级成功!'))
+    info(chalk.green('执行成功!'))
 
   } catch (err) {
     failSpinner(err)
