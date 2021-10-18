@@ -26,9 +26,9 @@ import {
 import { PackageJson } from '../lib/type'
 import { eslintType as eslintTypeList } from '../lib/eslintType' 
 
-export const checkVersion = async (packageName: string, targetDir: string) => {
-  const manifest = await pacote.manifest('@jd/selling-lint-cli@latest', {registry: 'http://registry.m.jd.com/'})
-  const latestVersion = manifest.version
+export const checkVersion = async (packageName: string, targetDir: string, targetVersion) => {
+  const manifest = await pacote.manifest(`@jd/selling-lint-cli@${targetVersion || 'latest'}`, {registry: 'http://registry.m.jd.com/'})
+  const resultVersion = manifest.version
   let currentVersion = ''
 
   const jsonPath = `${targetDir}/package.json`
@@ -41,14 +41,20 @@ export const checkVersion = async (packageName: string, targetDir: string) => {
     currentVersion = jsonResult.devDependencies[packageName]
   }
 
-  return !currentVersion ? VERSION_ENUM.UNINSTALLED
-      // 当前目录的package.json可能带^或~等
-      : currentVersion.indexOf(latestVersion) > -1 ? VERSION_ENUM.NEW : VERSION_ENUM.OLD
+  return {
+    currentVersion,
+    resultVersion
+  }
 }
 
 // 检查并更新包
 export const checkAndUpgradeLint = async (packageName: string, targetDir: string, version = 'latest') => {
-  const versionStatus = await checkVersion(packageName, targetDir)
+  const versionResult = await checkVersion(packageName, targetDir, version)
+  const currentVersion = versionResult.currentVersion && versionResult.currentVersion.replace(/[\^~]/, '')
+  const versionStatus = !currentVersion ? VERSION_ENUM.UNINSTALLED
+    // 当前目录的package.json可能带^或~等
+    : currentVersion.indexOf(versionResult.resultVersion) > -1 ? VERSION_ENUM.NEW : VERSION_ENUM.OLD
+
   switch (versionStatus) {
     case VERSION_ENUM.UNINSTALLED:
       info(`${packageName} 暂未安装，请先执行 s-lint init 进行初始化!`)
@@ -60,7 +66,7 @@ export const checkAndUpgradeLint = async (packageName: string, targetDir: string
       startSpinner(`正在升级${packageMap.lintType[packageName]}`)
       execa.commandSync(`npm install ${packageName}@${version} --save-dev`, {stdio: 'inherit'})
       await updateRC(packageName, targetDir);
-      succeedSpiner(`${packageMap.lintType[packageName]}升级成功!`)
+      succeedSpiner(`${packageMap.lintType[packageName]}升级成功（${chalk.green(currentVersion)} ${chalk.green('->')} ${chalk.green(versionResult.resultVersion)}）!`)
       break;
   }
 }
