@@ -54,10 +54,10 @@ s-lint init-git-hooks
 s-lint upgrade
 ```
 cli会依次尝试对三个规范进行升级，单个规范的升级过程如下：
-1. 检查是否安装了当前规范，如未安装则不进行升级，如果安装了，则先卸载旧包
+1. 检查是否安装了当前规范以及当前是否为最新版本，如果是则直接跳过后续步骤
 2. 安装最新lint规范
 3. 更新rc文件
 
 更新rc文件时，如果是commitlint或stylelint规范，直接复制最新的模板文件到工程根路径下即可；如果是eslint规范，则先扫描原rc文件，判断eslint类型，再进行模板替换，如果扫描失败，则再次询问要升级的eslint类型。
 
-cli所支持的eslint类型和lint的相关安全依赖分别保存在tools/eslintType.js和tools/safeDeps.js中，文件的内容分别由npm run scan-eslint-type和npm run scan-deps命令自动扫描生成，无需手动维护。这两个命令已添加到npm run build操作流中，因此只需执行build命令即可。
+cli所支持的eslint类型和lint的相关安全依赖分别保存在scripts/eslintType.js和scripts/safeDeps.js中，文件的内容分别由npm run scan-eslint-type和npm run scan-deps命令自动扫描生成，无需手动维护。这两个命令已添加到npm run build操作流中，因此只需执行build命令即可。

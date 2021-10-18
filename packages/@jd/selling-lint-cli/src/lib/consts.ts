@@ -27,3 +27,9 @@ export const packageMap = {
 }
 
 export const safeDependencies = ['eslint', 'commitlint', 'stylelint']
+
+export const VERSION_ENUM = {
+  UNINSTALLED: Symbol(),
+  NEW: Symbol(),
+  OLD: Symbol()
+}

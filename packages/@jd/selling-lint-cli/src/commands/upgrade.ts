@@ -5,6 +5,7 @@ import * as handlebars from 'handlebars'
 import * as chalk from 'chalk'
 import * as fs from 'fs-extra'
 import * as execa from 'execa'
+import * as pacote from 'pacote'
 import {
   cwd,
   copyFile,
@@ -18,28 +19,50 @@ import {
 import {
   eslintPackageName,
   commitlintPackageName,
-  stylelintPackageName
+  stylelintPackageName,
+  packageMap,
+  VERSION_ENUM
 } from '../lib/consts'
 import { PackageJson } from '../lib/type'
 import { eslintType as eslintTypeList } from '../lib/eslintType' 
 
-// 检查并更新包
-export const checkAndUpgradeLint = async (packageName: string, targetDir: string, version = 'latest') => {
-  // handlebars模版引擎解析用户输入的信息存在package.json
+export const checkVersion = async (packageName: string, targetDir: string) => {
+  const manifest = await pacote.manifest('@jd/selling-lint-cli@latest', {registry: 'http://registry.m.jd.com/'})
+  const latestVersion = manifest.version
+  let currentVersion = ''
+
   const jsonPath = `${targetDir}/package.json`
   const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
   const jsonResult: PackageJson = JSON.parse(jsonContent)
-  if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName)) ||
-    (jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))
-  ) {
-    execa.commandSync(`npm uninstall ${packageName}`, {stdio: 'inherit'})
-  } else {
-    info(`${packageName} 暂未安装，已跳过!`)
-    return
+
+  if ((jsonResult.hasOwnProperty('dependencies') && jsonResult.dependencies.hasOwnProperty(packageName))) {
+    currentVersion = jsonResult.dependencies[packageName]
+  } else if ((jsonResult.hasOwnProperty('devDependencies') && jsonResult.devDependencies.hasOwnProperty(packageName))) {
+    currentVersion = jsonResult.devDependencies[packageName]
   }
 
-  execa.commandSync(`npm install ${packageName}@${version} --save-dev`, {stdio: 'inherit'})
-  await updateRC(packageName, targetDir);
+  return !currentVersion ? VERSION_ENUM.UNINSTALLED
+      // 当前目录的package.json可能带^或~等
+      : currentVersion.indexOf(latestVersion) > -1 ? VERSION_ENUM.NEW : VERSION_ENUM.OLD
+}
+
+// 检查并更新包
+export const checkAndUpgradeLint = async (packageName: string, targetDir: string, version = 'latest') => {
+  const versionStatus = await checkVersion(packageName, targetDir)
+  switch (versionStatus) {
+    case VERSION_ENUM.UNINSTALLED:
+      info(`${packageName} 暂未安装，已跳过!`)
+      return
+    case VERSION_ENUM.NEW:
+      info(`${packageName} 当前已是最新版本!`)
+      return
+    case VERSION_ENUM.OLD:
+      startSpinner(`正在升级${packageMap.lintType[packageName]}`)
+      execa.commandSync(`npm install ${packageName}@${version} --save-dev`, {stdio: 'inherit'})
+      await updateRC(packageName, targetDir);
+      succeedSpiner(`${packageMap.lintType[packageName]}升级成功!`)
+      break;
+  }
 }
 
 export const updateRC = async (packageName: string, targetDir: string) => {
@@ -110,17 +133,11 @@ export const updateGeneralRC = (srcFileName: string, targetFileName: string, tar
 const action = async (projectName, cmdArgs) => {
   try {
     const targetDir = cwd
-    startSpinner(`正在升级eslint`)
+    
     await checkAndUpgradeLint(eslintPackageName, targetDir);
-    succeedSpiner('eslint升级成功!')
+    await checkAndUpgradeLint(commitlintPackageName, targetDir);
+    await checkAndUpgradeLint(stylelintPackageName, targetDir);
 
-    startSpinner(`正在升级commitlint`)
-    checkAndUpgradeLint(commitlintPackageName, targetDir);
-    succeedSpiner('commitlint升级成功!')
-
-    startSpinner(`正在升级stylelint`)
-    checkAndUpgradeLint(stylelintPackageName, targetDir);
-    succeedSpiner('stylelint升级成功!')
     info(chalk.green('lint升级成功!'))
 
   } catch (err) {
