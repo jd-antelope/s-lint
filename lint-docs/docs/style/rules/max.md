@@ -14,12 +14,12 @@ module.exports = {
 
   // 限制相邻空行的数量
   "max-empty-lines": [
-    4,
+    2,
     {
-      message: "限制相邻空行的数量：4"
+      message: "限制相邻空行的数量：2"
     }
   ],
 
   // 限制行的长度
-  // "max-line-length": [50, {message: "限制行的长度：50"}]
+  "max-line-length": null
 };```

@@ -140,13 +140,7 @@ module.exports = {
     "declaration-no-important": null,
 
     // 在模块中指定允许的属性和单位对列表
-    "declaration-property-unit-allowed-list":  [{
-        "font-size": [
-            "rem",
-            "px",
-            "%"
-        ]
-    }],
+    "declaration-property-unit-allowed-list":  null,
 
     // 在模块中指定不允许的属性和单位对列表，关闭
     "declaration-property-unit-blacklist": null,
@@ -159,9 +153,7 @@ module.exports = {
 
     // 在模块中指定不允许的属性和值对列表
     "declaration-property-value-disallowed-list": {
-        "/border/": ["/thin/", "/medium/", "/thick/"],
-        "/transition/": ["/all/"],
-        "/transition-property/": ["/all/"]
+        "/border/": ["/thin/", "/medium/", "/thick/"]
     },
 };
 ```

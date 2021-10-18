@@ -25,13 +25,8 @@ module.exports = {
   // 禁止在字体系列名称列表中缺少通用系列，关闭
   "font-family-no-missing-generic-family-keyword": null,
 
-  // font-weight值必须始终是数字
-  "font-weight-notation": [
-    "numeric",
-    {
-      message: "font-weight值必须始终是数字"
-    }
-  ],
+  // 不限制font-weight值必须始终是数字
+  "font-weight-notation": null
 
 };
 ```
