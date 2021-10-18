@@ -40,5 +40,11 @@
     "@jd/selling-lint-cli": "^1.0.0",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,ts,tsx,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
