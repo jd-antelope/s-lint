@@ -10,6 +10,7 @@
     "clean": "lerna run clean",
     "publish:independent": "node scripts/publish.js",
     "p": "cd packages/@jd/selling-lint-cli && npm run build && cd ../../../ && node scripts/package-publish.js",
+    "publish": "lerna publish",
     "docs": "node ./scripts/docs/index.js"
   },
   "devDependencies": {
