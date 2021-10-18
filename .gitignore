@@ -3,3 +3,4 @@ node_modules
 yarn.lock
 lerna-debug.log
 ./lint-docs/yarn.lock
+packages/@jd/selling-lint-cli/package-lock.json
