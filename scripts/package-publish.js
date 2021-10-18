@@ -16,7 +16,6 @@ const getPackagePath = () => {
 
 const reWriteLicense = (v) => {
   fs.writeFileSync(`${v}/LICENSE.txt`, uuid.v4())
-  console.log('重写license成功')
 }
 
 const start = () => {
