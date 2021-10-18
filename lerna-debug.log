@@ -1,6 +1,0 @@
-50 error Error: Command failed with exit code 1: git push --follow-tags --no-verify --atomic origin master
-50 error fatal: 接收端不支持原子推送
-50 error fatal: 远端意外挂断了
-50 error error: 推送一些引用到 'https://coding.jd.com/selling-front/frontend-lint.git' 失败
-50 error     at makeError (/Users/huozhongyi/jd-pro/frontend-lint/node_modules/execa/lib/error.js:60:11)
-50 error     at handlePromise (/Users/huozhongyi/jd-pro/frontend-lint/node_modules/execa/index.js:118:26)

@@ -16,7 +16,6 @@ const getPackagePath = () => {
 
 const reWriteLicense = (v) => {
   fs.writeFileSync(`${v}/LICENSE.txt`, uuid.v4())
-  console.log('重写license成功')
 }
 
 const start = () => {
@@ -32,7 +31,7 @@ const start = () => {
   execa.commandSync(`git commit -m package`, execaCallback)
   execa.commandSync('git push origin master', execaCallback)
   console.log('代码上传成功')
-  execa.commandSync('yarn p', execaCallback)
+  execa.commandSync('npm run publish', execaCallback)
   console.log('代码发布成功')
 } 
 
