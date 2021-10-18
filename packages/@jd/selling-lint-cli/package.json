@@ -1,6 +1,6 @@
 {
   "name": "@jd/selling-lint-cli",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "selling命令行",
   "main": "./build",
   "scripts": {
@@ -40,8 +40,8 @@
     "ora": "^5.4.1"
   },
   "devDependencies": {
-    "@jd/eslint-config-selling": "^0.9.1",
-    "@jd/stylelint-config-selling": "^0.9.1",
+    "@jd/eslint-config-selling": "^0.9.2",
+    "@jd/stylelint-config-selling": "^0.9.2",
     "@types/node": "^16.10.1",
     "husky": "^7.0.2",
     "rimraf": "^3.0.2",
