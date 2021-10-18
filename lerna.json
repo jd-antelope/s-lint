@@ -1,0 +1,6 @@
+{
+  "packages": [
+    "packages/@jd/*"
+  ],
+  "version": "0.9.3"
+}

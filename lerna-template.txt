@@ -1,0 +1,12 @@
+{
+  "packages": [
+    {{#each packages}}
+      {{#if @last}}
+    "{{this}}"
+      {{else}}
+    "{{this}}",
+      {{/if}}
+    {{/each}}
+  ],
+  "version": "independent"
+}
