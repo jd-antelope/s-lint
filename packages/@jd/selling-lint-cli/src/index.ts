@@ -1,6 +1,7 @@
 import * as globby from 'globby'
 import * as commander from 'commander'
-import * as pacote from 'pacote'
+import * as fs from 'fs-extra'
+import * as path from 'path'
 import { error } from './lib'
 
 const { program } = commander
@@ -16,13 +17,12 @@ const getCommand = () => {
 
 async function start () {
   const commandsPath = getCommand()
-  try {
-    const manifest = await pacote.manifest('@jd/selling-lint-cli@latest', {registry: 'http://registry.m.jd.com/'})
-    program.version(manifest.version)
-  } catch (e) {
-    console.log(e)
-  }
-  // program.version('0.1.0')
+
+  const jsonPath = path.join(__dirname, '../package.json')
+  const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
+  const jsonResult = JSON.parse(jsonContent)
+  program.version(jsonResult.version)
+
   commandsPath.forEach((commandPath: string) => {
     const commandObj = require(`./${commandPath}`)
     const { command, description, optionList, action } = commandObj.default
