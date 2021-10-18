@@ -1,8 +1,5 @@
 - function
-    - // 指定允许的URL方案列表
-    // "function-url-scheme-allowed-list": ["http", "https"],
-
-    - // 指定不允许的URL方案列表
+    - // 不指定不允许的URL方案列表
     // "function-url-scheme-disallowed-list": null,
 
 - color
@@ -19,10 +16,10 @@
     "color-no-invalid-hex": true
 
 - comment
-    - // 在评论中指定不允许使用的单词列表
+    - // 在注释中指定不允许使用的单词列表
     "comment-word-disallowed-list": ["/TODO|FIXME/i", {"severity": "warning", "message": "TODO 和 FIXME 不要出现在注释中，希望你解决掉"}],
 
-    - // 评论前要求或禁止空行。
+    - // 注释前要求空行。
     "comment-empty-line-before": [
     "always",
     {
@@ -31,20 +28,19 @@
     }
     ],
 
-    - // 禁止空评论
-    "comment-no-empty": [true, {"message":"注释不能为空"}],
-
-    - // 要求或禁止评论标记内部有空格
-    "comment-whitespace-inside": ["always", {"message":"要求评论标记内部有空格"}],
+    - // 要求注释标记内部有空格
+    "comment-whitespace-inside": ["always", {"message":"要求注释标记内部有空格"}],
 
 - max
     - // 限制允许嵌套的深度
     "max-nesting-depth": [4, {"message": "限制允许嵌套的深度：4"}],
     - // 限制相邻空行的数量
-    "max-empty-lines": [4, {"message": "限制相邻空行的数量：4"}],
+    "max-empty-lines": [2, {"message": "限制相邻空行的数量：4"}],
+    - // 不限制行的长度
+    "max-line-length": null
 
 - media
-    - // 禁止 media 特性名称带有浏览器引擎前缀
+    - // 禁止media特性名称带有浏览器引擎前缀
     "media-feature-name-no-vendor-prefix": true,
 
 - value
@@ -56,39 +52,22 @@
     "declaration-no-important": null,
 
     - // 在模块中指定不允许的属性和单位对列表
-    // "declaration-property-unit-blacklist": null, 
+    "declaration-property-unit-blacklist": null, 
 
-    - // 在模块中指定允许的属性和单位对列表
-    "declaration-property-unit-allowed-list":  [{
-        "font-size": [
-            "rem",
-            "px",
-            "%"
-        ]
-    }],
+    - // 不限制在模块中指定允许的属性和单位对列表
+    "declaration-property-unit-allowed-list":  null,
 
     - // 在模块中指定不允许的属性和值对列表
     "declaration-property-value-disallowed-list": {
-        "/border/": ["/thin/", "/medium/", "/thick/"],
-        "/transition/": ["/all/"],
-        "/transition-property/": ["/all/"]
+        "/border/": ["/thin/", "/medium/", "/thick/"]
     },
 
 - font
     - // 禁止在字体系列名称列表中缺少通用系列
-    "font-family-no-missing-generic-family-keyword": [
-        true,
-        {
-        "message": "禁止在字体系列名称列表中缺少通用系列"
-        }
-    ],
+    "font-family-no-missing-generic-family-keyword": null
+
     - // font-weight值必须始终是数字
-    "font-weight-notation": [
-        "numeric",
-        {
-        "message": "font-weight值必须始终是数字"
-        }
-    ],
+    "font-weight-notation": null
 
 - selector
     - // 指定允许的属性运算符列表
@@ -98,15 +77,14 @@
     - // 禁止未知类型选择器
     "selector-type-no-unknown": [
     true,
-    {
-      ignoreTypes: ["noindex"]
-    }
   ]
 
 - shorthand
     - // 禁止覆盖相关普通属性的简写属性
-    "declaration-block-no-shorthand-property-overrides": false
+    "declaration-block-no-shorthand-property-overrides": true
 
 - selector
     - // 为内嵌规则的选择器指定规则
-    "selector-nested-pattern": "^&-(:hover|focus|active|visited|focus-within|focus-visible|target)?.*",
+    "selector-nested-pattern":"^&(:hover|focus|active|visited|focus-within|focus-visible|target)?(-.*)?"
+
+    

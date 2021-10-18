@@ -158,9 +158,6 @@ module.exports = {
   // 禁止未知类型选择器
   "selector-type-no-unknown": [
     true,
-    {
-      ignoreTypes: ["noindex"]
-    }
   ],
 
   // 在选择器列表的逗号之前需要换行符或不允许有空格
