@@ -24,5 +24,5 @@
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0"
   },
-  "gitHead": "edfdc1a74df8f4643a079b178a9faa5ca315acce"
+  "gitHead": "a0bcc280e4265e98326f4ae419486c3a416a0e03"
 }
