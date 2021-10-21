@@ -1,6 +1,6 @@
 {
   "name": "@jd/commitlint-config-selling",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "commitlint config base version",
   "main": "index.js",
   "scripts": {},
