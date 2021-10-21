@@ -1,6 +1,6 @@
 {
   "name": "@jd/eslint-config-selling",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "ESLint config base version",
   "main": "index.js",
   "keywords": [
