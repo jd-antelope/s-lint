@@ -50,5 +50,5 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "gitHead": "7a831ee3776c29b122256f96d54f1146221ac7a6"
+  "gitHead": "edfdc1a74df8f4643a079b178a9faa5ca315acce"
 }
