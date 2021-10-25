@@ -9,7 +9,7 @@ const packageToDocsObj = {
   'commitlint-config-selling': 'commit',
   'eslint-config-selling': 'es',
   'selling-lint-cli': 'cli',
-  'stylelint-config-selling': 'style',
+  'stylelint-config-selling': 'style'
 }
 
 const doc_sidebar_position = '---\nsidebar_position: 1\n---\n'
