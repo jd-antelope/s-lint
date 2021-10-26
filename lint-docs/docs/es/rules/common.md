@@ -83,7 +83,7 @@ module.exports = {
   /**
    * switch 语句中的 default 必须在最后
    */
-  'default-case-last': 'error',
+  'default-case-last': 'off',
   /**
    * 有默认值的参数必须放在函数参数的末尾
    */
@@ -482,7 +482,7 @@ module.exports = {
   /**
    * 禁止使用超出 js 精度范围的数字
    */
-  'no-loss-of-precision': 'error',
+  'no-loss-of-precision': 'off',
   /**
    * 禁止使用 magic numbers
    */
@@ -561,7 +561,7 @@ module.exports = {
   /**
    * 禁止在 Promise 的回调函数中直接 return
    */
-  'no-promise-executor-return': 'error',
+  'no-promise-executor-return': 'off',
   /**
    * 禁止使用 __proto__
    * @reason __proto__ 是已废弃的语法
@@ -691,7 +691,7 @@ module.exports = {
   /**
    * 禁止在第一轮循环时就一定会退出循环的情况出现
    */
-  'no-unreachable-loop': 'error',
+  'no-unreachable-loop': 'off',
   /**
    * 禁止在 finally 中出现 return, throw, break 或 continue
    * @reason finally 中的语句会在 try 之前执行
@@ -704,7 +704,7 @@ module.exports = {
   /**
    * 禁止使用不安全的 optional chaining
    */
-  'no-unsafe-optional-chaining': 'error',
+  'no-unsafe-optional-chaining': 'off',
   /**
    * 禁止无用的表达式
    */
@@ -741,7 +741,7 @@ module.exports = {
    * 禁止正则表达式中出现无用的回溯引用
    * @reason 某些回溯引用语法上没问题，但是会永远匹配到空字符串
    */
-  'no-useless-backreference': 'error',
+  'no-useless-backreference': 'off',
   /**
    * 禁止出现没必要的 call 或 apply
    */
