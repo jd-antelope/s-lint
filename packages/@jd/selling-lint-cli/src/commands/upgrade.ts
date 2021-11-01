@@ -100,7 +100,7 @@ export const updateEslintRC = async (targetDir: string) => {
   if (fs.existsSync(`${targetDir}/.eslintrc.js`)) {
     const eslintRCContent = fs.readFileSync(`${targetDir}/.eslintrc.js`, 'utf-8')
     const pName = eslintTypeList.find((item) => {
-      return eslintRCContent.indexOf(item) > -1
+      return eslintRCContent.indexOf('@jd/selling/' + item) > -1
     })
 
     fs.removeSync(`${targetDir}/.eslintrc.js`)
