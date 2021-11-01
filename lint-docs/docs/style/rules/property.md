@@ -18,8 +18,8 @@ module.exports = {
   // 指定属性的大小写（可自动修复）
   "property-case": "lower",
   
-  // 禁止属性的浏览器引擎前缀
-  "property-no-vendor-prefix": true,
+  // 禁止属性的浏览器引擎前缀，多行文本溢出省略等需要
+  "property-no-vendor-prefix": null,
   
   // 指定允许的属性的白名单，关闭
   "property-whitelist": null
