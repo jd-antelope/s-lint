@@ -6,8 +6,8 @@
 "use strict";
 
 module.exports = {
-  // 禁止给值添加浏览器引擎前缀
-  "value-no-vendor-prefix": true,
+  // 禁止给值添加浏览器引擎前缀，多行文本溢出省略等需要
+  "value-no-vendor-prefix": null,
   
   // 属性值应该小写
   "value-keyword-case": "lower",

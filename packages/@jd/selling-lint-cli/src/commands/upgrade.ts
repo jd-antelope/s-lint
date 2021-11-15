@@ -98,9 +98,10 @@ const requireEslintType = async () => {
 
 export const updateEslintRC = async (targetDir: string) => {
   if (fs.existsSync(`${targetDir}/.eslintrc.js`)) {
-    const eslintRCContent = fs.readFileSync(`${targetDir}/.eslintrc.js`, 'utf-8')
-    const pName = eslintTypeList.find((item) => {
-      return eslintRCContent.indexOf(item) > -1
+    const eslintRCContent = require(`${targetDir}/.eslintrc.js`); // fs.readFileSync(`${targetDir}/.eslintrc.js`, 'utf-8')
+    const keyword = eslintRCContent && eslintRCContent.extends;
+    const pName = keyword && eslintTypeList.find((item) => {
+      return keyword.indexOf('@jd/selling/' + item) > -1
     })
 
     fs.removeSync(`${targetDir}/.eslintrc.js`)
@@ -139,7 +140,7 @@ export const updateGeneralRC = (srcFileName: string, targetFileName: string, tar
 const action = async (projectName, cmdArgs) => {
   try {
     const targetDir = cwd
-    
+
     await checkAndUpgradeLint(eslintPackageName, targetDir);
     await checkAndUpgradeLint(commitlintPackageName, targetDir);
     await checkAndUpgradeLint(stylelintPackageName, targetDir);
