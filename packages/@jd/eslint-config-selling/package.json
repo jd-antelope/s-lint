@@ -44,7 +44,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-vue": "^7.18.0"
   },
-  "gitHead": "dc852080846d2fe40f1a2bd8ade28a798f505429",
+  "gitHead": "7805f9086587487b0d882d89356650267c7386e5",
   "devDependencies": {
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3"
