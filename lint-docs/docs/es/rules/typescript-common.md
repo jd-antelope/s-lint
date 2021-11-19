@@ -53,8 +53,9 @@ module.exports = {
   /**
    * 优先使用 interface 而不是 type
    * @reason interface 可以 implement, extend 和 merge
+   * 使用起来很不方便，先去掉
    */
-  '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+  '@typescript-eslint/consistent-type-definitions': 'off',
   /**
    * 必须使用 import type 导入类型
    */

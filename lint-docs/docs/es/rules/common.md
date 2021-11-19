@@ -803,6 +803,10 @@ module.exports = {
    */
   'object-shorthand': 'off',
   /**
+   * 对象文字的大括号内执行一致的间距，解构赋值和导入/导出说明符
+   */
+  'object-curly-spacing': ['error', 'always'],
+  /**
    * 禁止变量申明时用逗号一次申明多个
    */
   'one-var': ['error', 'never'],
