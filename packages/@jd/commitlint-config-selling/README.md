@@ -2,9 +2,9 @@
 是商羚前端CommitLint规范
 #### 安装
 ```shell
-npm install @jd/commitlint-config-selling -D
+npm install commitlint-config-selling -D
 # OR
-yarn add @jd/commitlint-config-selling --dev
+yarn add commitlint-config-selling --dev
 ```
 #### 使用
 在你的工程根目录下创建一个`.commitlintrc.js`配置文件

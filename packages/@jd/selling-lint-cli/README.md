@@ -1,8 +1,8 @@
 先使用下列任一命令安装脚手架
 ```shell
-npm install -g @jd/selling-lint-cli
+npm install -g selling-lint-cli
 # OR
-yarn global add @jd/selling-lint-cli
+yarn global add selling-lint-cli
 ```
 安装之后，你就可以在命令行中访问`s-lint`命令。你可以通过简单运行`s-lint`，看看是否展示出了一份所有可用命令的帮助信息，来验证它是否安装成功。
 
@@ -10,12 +10,12 @@ yarn global add @jd/selling-lint-cli
 ```shell
 s-lint --version
 ```
-如需升级全局的@jd/selling-lint-cli包，请运行：
+如需升级全局的selling-lint-cli包，请运行：
 
 ```shell
-npm upgrade -g @jd/selling-lint-cli
+npm upgrade -g selling-lint-cli
 # OR
-yarn global upgrade --latest @jd/selling-lint-cli
+yarn global upgrade --latest selling-lint-cli
 ```
 
 s-lint提供了三个命令，init、init-git-hooks和upgrade，下面分别介绍这三个命令：

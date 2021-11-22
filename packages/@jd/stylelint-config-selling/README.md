@@ -2,9 +2,9 @@
 是商羚前端stylelint规范，目前支持`css|less`
 #### 安装
 ```shell
-npm install @jd/stylelint-config-selling -D
+npm install stylelint-config-selling -D
 # OR
-yarn add @jd/stylelint-config-selling --dev
+yarn add stylelint-config-selling --dev
 ```
 #### 使用
 在你的工程根目录下创建一个`.stylelintrc.js`配置文件
@@ -12,7 +12,7 @@ yarn add @jd/stylelint-config-selling --dev
 配置如下即可:
 ```js
 module.exports = {
-    "extends": "@jd/stylelint-config-selling"
+    "extends": "stylelint-config-selling"
 }
 ```
 

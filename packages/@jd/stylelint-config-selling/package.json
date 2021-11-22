@@ -1,7 +1,7 @@
 {
-  "name": "@jd/stylelint-config-selling",
-  "version": "1.1.5",
-  "description": "@jd/stylelint-config-selling",
+  "name": "stylelint-config-selling",
+  "version": "0.0.1",
+  "description": "stylelint-config-selling",
   "keywords": [
     "stylelint"
   ],
@@ -9,7 +9,7 @@
   "license": "ISC",
   "main": "index.js",
   "publishConfig": {
-    "registry": "http://registry.m.jd.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",

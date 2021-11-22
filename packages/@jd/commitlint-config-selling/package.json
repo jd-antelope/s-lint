@@ -1,6 +1,6 @@
 {
-  "name": "@jd/commitlint-config-selling",
-  "version": "1.1.5",
+  "name": "commitlint-config-selling",
+  "version": "0.0.1",
   "description": "commitlint config base version",
   "main": "index.js",
   "scripts": {},
@@ -14,7 +14,7 @@
   "author": "hawleyHuo",
   "license": "ISC",
   "publishConfig": {
-    "registry": "http://registry.m.jd.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
