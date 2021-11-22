@@ -1,6 +1,6 @@
-### selling-lint是什么
-selling-lint是**一个全面、通用的前端Lint规范解决方案**，
-与其他规范方案不同的是，业内流行的方案通常解决某一(JS或Style等)规范，如[eslint-config-airbnb](https://github.com/airbnb/javascript)、[eslint-config-standard](https://github.com/standard/eslint-config-standard)等，而selling-lint是一个规范集合，基本覆盖目前前端技术栈，另一方面，提供轻量的脚手架工具，使用简单
+### s-lint是什么
+s-lint是**一个全面、通用的前端Lint规范解决方案**，
+与其他规范方案不同的是，业内流行的方案通常解决某一(JS或Style等)规范，如[eslint-config-airbnb](https://github.com/airbnb/javascript)、[eslint-config-standard](https://github.com/standard/eslint-config-standard)等，而selling-lint是一个规范集合，基本覆盖目前前端技术栈，另一方面，提供轻量的脚手架工具，使用简单。
 
 ### 特点
 - 覆盖全面
@@ -12,6 +12,9 @@ selling-lint是**一个全面、通用的前端Lint规范解决方案**，
 - 易于扩展
 
     Lerna统一版本模式发包，便于基础包升级、扩展自定义paser、plugin等
+- 与时俱进
+
+    第一时间跟进最新的规则
 
 ### 架构图
 ![image.png](https://storage.360buyimg.com/hawley-common/lint.jpg)
