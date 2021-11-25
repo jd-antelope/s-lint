@@ -2,11 +2,11 @@ export const cwd = process.cwd()
 
 export const targetFile = 'private'
 
-export const eslintPackageName = '@jd/eslint-config-selling'
+export const eslintPackageName = 'eslint-config-selling'
 
-export const commitlintPackageName = '@jd/commitlint-config-selling'
+export const commitlintPackageName = 'commitlint-config-selling'
 
-export const stylelintPackageName = '@jd/stylelint-config-selling'
+export const stylelintPackageName = 'stylelint-config-selling'
 
 export const packageMap = {
   folderName: {

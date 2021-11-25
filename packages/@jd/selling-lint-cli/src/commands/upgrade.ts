@@ -27,7 +27,7 @@ import { PackageJson } from '../lib/type'
 import { eslintType as eslintTypeList } from '../lib/eslintType' 
 
 export const checkVersion = async (packageName: string, targetDir: string, targetVersion) => {
-  const manifest = await pacote.manifest(`@jd/selling-lint-cli@${targetVersion || 'latest'}`, {registry: 'http://registry.m.jd.com/'})
+  const manifest = await pacote.manifest(`selling-lint-cli@${targetVersion || 'latest'}`)
   const resultVersion = manifest.version
   let currentVersion = ''
 

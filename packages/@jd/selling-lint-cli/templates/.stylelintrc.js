@@ -1,3 +1,3 @@
 module.exports = {
-  "extends": "@jd/stylelint-config-selling"
+  "extends": "stylelint-config-selling"
 }

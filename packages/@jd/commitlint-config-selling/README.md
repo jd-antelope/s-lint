@@ -12,7 +12,7 @@ yarn add commitlint-config-selling --dev
 配置如下即可:
 ```js
 module.exports = {
-    "extends": "@jd/commitlint-config-selling"
+    "extends": "commitlint-config-selling"
 }
 ```
 
