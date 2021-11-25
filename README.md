@@ -21,30 +21,30 @@ s-lint是**一个全面、通用的前端Lint规范解决方案**，
 ### 基础包
 | 包名 | 功能 | jnpm
 |  ----  |  ----  | ---
-| @jd/eslint-config-selling | 提供eslint规范   | http://npm.jd.com/package/@jd/eslint-config-selling 
-| @jd/stylelint-config-selling | 提供stylelint规范 | http://npm.jd.com/package/@jd/stylelint-config-selling
-| @jd/commitlint-config-selling | 提供commitlint规范 |http://npm.jd.com/package/@jd/commitlint-config-selling
-| @jd/selling-lint-cli | 命令行工具 | http://npm.jd.com/package/@jd/selling-lint-cli
+| eslint-config-selling | 提供eslint规范   | https://www.npmjs.com/package/eslint-config-selling 
+| stylelint-config-selling | 提供stylelint规范 | https://www.npmjs.com/package/stylelint-config-selling
+| commitlint-config-selling | 提供commitlint规范 | https://www.npmjs.com/package/commitlint-config-selling
+| selling-lint-cli | 命令行工具 | https://www.npmjs.com/package/selling-lint-cli
 
 ### 使用
 > 提供两种使用方式，1、利用脚手架 2、在工程中安装相对的包。推荐方式1
 
 
 #### 1、使用脚手架
-见[CLI介绍](http://lint-doc.selling.local/docs/cli/guide)
+见[CLI介绍](packages/@jd/selling-lint-cli/README.md)
 
 #### 2、直接使用
 - **ESLint**
 
-    见[ESLint介绍](http://lint-doc.selling.local/docs/es/guide)
+    见[ESLint介绍](packages/@jd/eslint-config-selling/README.md)
 
 - **StyleLint**
 
-    见[StyleLint介绍](http://lint-doc.selling.local/docs/style/guide)
+    见[StyleLint介绍](packages/@jd/stylelint-config-selling/README.md)
 
 - **CommitLint**
 
-    见[CommitLint介绍](http://lint-doc.selling.local/docs/commit/guide)
+    见[CommitLint介绍](packages/@jd/commitlint-config-selling/README.md)
 
 ### 参与贡献
-遇到任何问题，欢迎提交[issue](http://coding.jd.com/selling-front/frontend-lint/issues/)
+遇到任何问题，欢迎提交[issue](https://github.com/jd-antelope/s-lint/issues)

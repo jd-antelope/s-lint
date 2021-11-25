@@ -6,9 +6,9 @@ sidebar_position: 1
 是商羚前端ESLint规范，目前支持`taro|vue|react`
 #### 安装
 ```shell
-npm install @jd/eslint-config-selling -D
+npm install eslint-config-selling -D
 # OR
-yarn add @jd/eslint-config-selling --dev
+yarn add eslint-config-selling --dev
 ```
 #### 使用
 在你的工程根目录下创建一个`.eslintrc.js`配置文件
@@ -18,21 +18,21 @@ yarn add @jd/eslint-config-selling --dev
 - **taro**
 ```js
 module.exports = {
-  extends: ['@jd/selling/taro'],
+  extends: ['selling/taro'],
 };
 ```
 
 - **vue**
 ```js
 module.exports = {
-  extends: ['@jd/selling/vue'],
+  extends: ['selling/vue'],
 };
 ```
 
 - **react**
 ```js
 module.exports = {
-  extends: ['@jd/selling/react'],
+  extends: ['selling/react'],
 };
 ```
 :::caution
