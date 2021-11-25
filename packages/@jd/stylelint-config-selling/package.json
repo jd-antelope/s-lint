@@ -5,12 +5,9 @@
   "keywords": [
     "stylelint"
   ],
-  "author": "zhengxiuyue <zhengxiuyue@jd.com>",
+  "author": "zxyue25",
   "license": "ISC",
   "main": "index.js",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "repository": {
     "type": "git",
     "url": "https://coding.jd.com/selling-front/frontend-lint.git"

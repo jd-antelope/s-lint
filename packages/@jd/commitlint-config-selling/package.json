@@ -13,9 +13,6 @@
   ],
   "author": "hawleyHuo",
   "license": "ISC",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "repository": {
     "type": "git",
     "url": "https://coding.jd.com/selling-front/frontend-lint.git"
