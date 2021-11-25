@@ -29,7 +29,7 @@ const start = () => {
   })
   execa.commandSync('git add .', execaCallback)
   execa.commandSync(`git commit -m package`, execaCallback)
-  execa.commandSync('git push origin master', execaCallback)
+  execa.commandSync('git push origin main', execaCallback)
   console.log('代码上传成功')
   execa.commandSync('npm run publish', execaCallback)
   console.log('代码发布成功')
