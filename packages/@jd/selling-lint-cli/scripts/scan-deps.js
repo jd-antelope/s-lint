@@ -1,8 +1,6 @@
-const cwd = process.cwd()
-const targetFile = 'private'
-const eslintPackageName = '@jd/eslint-config-selling'
-const commitlintPackageName = '@jd/commitlint-config-selling'
-const stylelintPackageName = '@jd/stylelint-config-selling'
+const eslintPackageName = 'eslint-config-selling'
+const commitlintPackageName = 'commitlint-config-selling'
+const stylelintPackageName = 'stylelint-config-selling'
 const packageMap = {
   folderName: {
     '@jd/eslint-config-selling': 'eslint-config-selling',

@@ -101,7 +101,7 @@ export const updateEslintRC = async (targetDir: string) => {
     const eslintRCContent = require(`${targetDir}/.eslintrc.js`); // fs.readFileSync(`${targetDir}/.eslintrc.js`, 'utf-8')
     const keyword = eslintRCContent && eslintRCContent.extends;
     const pName = keyword && eslintTypeList.find((item) => {
-      return keyword.indexOf('@jd/selling/' + item) > -1
+      return keyword.indexOf('selling/' + item) > -1
     })
 
     fs.removeSync(`${targetDir}/.eslintrc.js`)
