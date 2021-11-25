@@ -36,7 +36,7 @@ function resolveSafeDepList (jsonResult, key) {
 }
 
 function resolveIndirectDependencies (packageName) {
-  const jsonPath = path.resolve(__dirname, `../../${packageMap.folderName[packageName]}/package.json`)
+  const jsonPath = path.resolve(__dirname, `../../${packageMap.folderName['@jd/'+ packageName]}/package.json`)
   const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
   const jsonResult = JSON.parse(jsonContent)
 
