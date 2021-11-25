@@ -23,7 +23,7 @@ s-lint是**一个全面、通用的前端Lint规范解决方案**，
 ### 架构图
 ![image.png](https://storage.360buyimg.com/hawley-common/lint.jpg)
 ### 基础包
-| 包名 | 功能 | jnpm
+| 包名 | 功能 | npm
 |  ----  |  ----  | ---
 | eslint-config-selling | 提供eslint规范   | https://www.npmjs.com/package/eslint-config-selling 
 | stylelint-config-selling | 提供stylelint规范 | https://www.npmjs.com/package/stylelint-config-selling
