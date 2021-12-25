@@ -13,7 +13,7 @@
     "importHelpers": false,
     "strictNullChecks": false,
     "allowUnreachableCode": true,
-    "lib": ["es6"],
+    "lib": ["es6","es2017"],
     "typeRoots": ["./node_modules/@types"],
     "outDir": "./build",
     "rootDir": "./src"
