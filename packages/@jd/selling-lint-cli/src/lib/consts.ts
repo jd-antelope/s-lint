@@ -20,9 +20,9 @@ export const packageMap = {
     '@jd/stylelint-config-selling': 'stylelint'
   },
   depsName: {
-    '@jd/eslint-config-selling': 'eslintDeps',
-    '@jd/commitlint-config-selling': 'commitlintDeps',
-    '@jd/stylelint-config-selling': 'stylelintDeps'
+    'eslint-config-selling': 'eslintDeps',
+    'commitlint-config-selling': 'commitlintDeps',
+    'stylelint-config-selling': 'stylelintDeps'
   }
 }
 
