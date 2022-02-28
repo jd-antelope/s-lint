@@ -120,7 +120,7 @@ export const initLint = (packageName: string, srcFileName: string, targetFileNam
 export const installHusky = (targetDir: string) => {
   // startSpinner(`installing husky`)
   if (!hasPackage('husky', targetDir)) {
-    execa.commandSync(`npm install husky --save-dev`, {stdio: 'inherit'})
+    execa.commandSync(`npm install husky@4 lint-staged --save-dev`, {stdio: 'inherit'})
   }
 
   const jsonPath = `${targetDir}/package.json`
