@@ -10,14 +10,14 @@ export const stylelintPackageName = 'stylelint-config-selling'
 
 export const packageMap = {
   folderName: {
-    '@jd/eslint-config-selling': 'eslint-config-selling',
-    '@jd/commitlint-config-selling': 'commitlint-config-selling',
-    '@jd/stylelint-config-selling': 'stylelint-config-selling'
+    'eslint-config-selling': 'eslint-config-selling',
+    'commitlint-config-selling': 'commitlint-config-selling',
+    'stylelint-config-selling': 'stylelint-config-selling'
   },
   lintType: {
-    '@jd/eslint-config-selling': 'eslint',
-    '@jd/commitlint-config-selling': 'commitlint',
-    '@jd/stylelint-config-selling': 'stylelint'
+    'eslint-config-selling': 'eslint',
+    'commitlint-config-selling': 'commitlint',
+    'stylelint-config-selling': 'stylelint'
   },
   depsName: {
     'eslint-config-selling': 'eslintDeps',

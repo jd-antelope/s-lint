@@ -6,7 +6,7 @@ const execa = require('execa')
 const cwd = process.cwd()
 
 const getPackagePath = () => {
-  const packagePaths = globby.sync('../packages/@jd', {
+  const packagePaths = globby.sync('../packages', {
     cwd: __dirname,
     onlyDirectories: true,
     deep: 1,

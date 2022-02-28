@@ -16,7 +16,7 @@ const doc_sidebar_position = '---\nsidebar_position: 1\n---\n'
 
 // 获取子包路径
 const getPackagePath = () => {
-  const packagePaths = globby.sync(path.join(cwd, 'packages/@jd/'), {
+  const packagePaths = globby.sync(path.join(cwd, 'packages/'), {
     cwd: __dirname,
     onlyDirectories: true,
     deep: 1,

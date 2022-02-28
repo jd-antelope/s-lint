@@ -1,6 +1,6 @@
 /**
  * selling ESLint 规则
- * https://coding.jd.com/selling-front/frontend-lint.git
+ * https://github.com/jd-antelope/s-lint.git
  *
  * 贡献者：
  *   huozhongyi <huozhongyi@jd.com>
@@ -26,23 +26,6 @@
  *
  */
 
-const vueRules = require("./rules/vue-common.js");
-
 module.exports = {
-  root: true,
-  env: {
-    node: true
-  },
-  extends: [
-    'plugin:vue/essential',
-    '@vue/standard',
-    '@vue/typescript/recommended',
-    "./base.js", 
-    "./typescript.js"
-  ],
-  parserOptions: {
-    ecmaVersion: 2019,
-  },
-  plugins: ['vue'],
-  rules: Object.assign({}, vueRules)
-};
+  extends: ["taro/react", "plugin:react/recommended", "./react.js"],
+}

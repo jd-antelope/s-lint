@@ -35,20 +35,20 @@ s-lint是**一个全面、通用的前端Lint规范解决方案**，
 
 
 #### 1、使用脚手架
-见[CLI介绍](packages/@jd/selling-lint-cli/README.md)
+见[CLI介绍](packages/selling-lint-cli/README.md)
 
 #### 2、直接使用
 - **ESLint**
 
-    见[ESLint介绍](packages/@jd/eslint-config-selling/README.md)
+    见[ESLint介绍](packages/eslint-config-selling/README.md)
 
 - **StyleLint**
 
-    见[StyleLint介绍](packages/@jd/stylelint-config-selling/README.md)
+    见[StyleLint介绍](packages/stylelint-config-selling/README.md)
 
 - **CommitLint**
 
-    见[CommitLint介绍](packages/@jd/commitlint-config-selling/README.md)
+    见[CommitLint介绍](packages/commitlint-config-selling/README.md)
 
 ### 参与贡献
 遇到任何问题，欢迎提交[issue](https://github.com/jd-antelope/s-lint/issues)

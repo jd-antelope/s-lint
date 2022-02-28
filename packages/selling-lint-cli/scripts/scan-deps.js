@@ -3,14 +3,14 @@ const commitlintPackageName = 'commitlint-config-selling'
 const stylelintPackageName = 'stylelint-config-selling'
 const packageMap = {
   folderName: {
-    '@jd/eslint-config-selling': 'eslint-config-selling',
-    '@jd/commitlint-config-selling': 'commitlint-config-selling',
-    '@jd/stylelint-config-selling': 'stylelint-config-selling'
+    'eslint-config-selling': 'eslint-config-selling',
+    'commitlint-config-selling': 'commitlint-config-selling',
+    'stylelint-config-selling': 'stylelint-config-selling'
   },
   lintType: {
-    '@jd/eslint-config-selling': 'eslint',
-    '@jd/commitlint-config-selling': 'commitlint',
-    '@jd/stylelint-config-selling': 'stylelint'
+    'eslint-config-selling': 'eslint',
+    'commitlint-config-selling': 'commitlint',
+    'stylelint-config-selling': 'stylelint'
   },
   depNames: {
     'eslint-config-selling': 'eslintDeps',
@@ -36,7 +36,7 @@ function resolveSafeDepList (jsonResult, key) {
 }
 
 function resolveIndirectDependencies (packageName) {
-  const jsonPath = path.resolve(__dirname, `../../${packageMap.folderName['@jd/'+ packageName]}/package.json`)
+  const jsonPath = path.resolve(__dirname, `../../${packageMap.folderName[packageName]}/package.json`)
   const jsonContent = fs.readFileSync(jsonPath, 'utf-8')
   const jsonResult = JSON.parse(jsonContent)
 

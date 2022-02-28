@@ -1,6 +1,6 @@
 /**
  * selling ESLint 规则
- * https://coding.jd.com/selling-front/frontend-lint.git
+ * https://github.com/jd-antelope/s-lint.git
  *
  * 贡献者：
  *   huozhongyi <huozhongyi@jd.com>
@@ -26,16 +26,23 @@
  *
  */
 
-
-const typescriptRule = require("./rules/typescript-common.js");
+const vueRules = require("./rules/vue-common.js");
 
 module.exports = {
-  parserOptions: {
-    "ecmaVersion": 6,
+  root: true,
+  env: {
+    node: true
   },
-  parser: "@typescript-eslint/parser",
-  plugins: [
-    "@typescript-eslint",
+  extends: [
+    'plugin:vue/essential',
+    '@vue/standard',
+    '@vue/typescript/recommended',
+    "./base.js", 
+    "./typescript.js"
   ],
-  rules: Object.assign({}, typescriptRule)
-}
+  parserOptions: {
+    ecmaVersion: 2019,
+  },
+  plugins: ['vue'],
+  rules: Object.assign({}, vueRules)
+};

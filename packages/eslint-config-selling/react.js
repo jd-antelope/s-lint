@@ -1,6 +1,6 @@
 /**
  * selling ESLint 规则
- * https://coding.jd.com/selling-front/frontend-lint.git
+ * https://github.com/jd-antelope/s-lint.git
  *
  * 贡献者：
  *   huozhongyi <huozhongyi@jd.com>
@@ -26,6 +26,17 @@
  *
  */
 
+const react = require("./rules/react-common.js");
+const reactHooks = require("./rules/react-hooks-common.js");
+
 module.exports = {
-  extends: ["taro/react", "plugin:react/recommended", "./react.js"],
+  extends: ["./base.js", "./typescript.js"],
+  parserOptions: {
+    "ecmaVersion": 6,
+  },
+  plugins: [
+    "react",
+    "react-hooks"
+  ],
+  rules: Object.assign({}, react, reactHooks)
 }

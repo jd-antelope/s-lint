@@ -1,6 +1,6 @@
 /**
  * selling ESLint 规则
- * https://coding.jd.com/selling-front/frontend-lint.git
+ * https://github.com/jd-antelope/s-lint.git
  *
  * 贡献者：
  *   huozhongyi <huozhongyi@jd.com>
