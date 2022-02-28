@@ -103,7 +103,7 @@ export const initLint = (packageName: string, srcFileName: string, targetFileNam
   }
 
   startSpinner(`正在安装依赖: ${packageName}`)
-  execa.commandSync(`npm install ${ packageName } --save-dev`, {stdio: 'inherit'})
+  execa.commandSync(`npm install ${packageName}@latest --save-dev`, {stdio: 'inherit'})
   succeedSpiner(`${packageName}安装完成`)
   if (handlebarParams) {
     const content = fs.readFileSync(`${__dirname}/${srcFileName}`, 'utf-8')
@@ -119,7 +119,7 @@ export const initLint = (packageName: string, srcFileName: string, targetFileNam
 
 export const installHusky = (targetDir: string) => {
   // startSpinner(`installing husky`)
-  if (!hasPackage('husky', targetDir)) {
+  if (!hasPackage('husky', targetDir) || !hasPackage('lint-staged', targetDir)) {
     execa.commandSync(`npm install husky@4 lint-staged --save-dev`, {stdio: 'inherit'})
   }
 

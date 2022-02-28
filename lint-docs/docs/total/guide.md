@@ -27,9 +27,10 @@ s-lint是**一个全面、通用的前端Lint规范解决方案**，
 |  ----  |  ----  | ---
 | eslint-config-selling | 提供eslint规范   | https://www.npmjs.com/package/eslint-config-selling 
 | stylelint-config-selling | 提供stylelint规范 | https://www.npmjs.com/package/stylelint-config-selling
-| commitlint-config-selling | 提供commitlint规范 | https://www.npmjs.com/package/commitlint-config-selling
+| @jd-antelope/commitlint-config-selling | 提供commitlint规范 | https://www.npmjs.com/package/@jd-antelope/commitlint-config-selling
 | selling-lint-cli | 命令行工具 | https://www.npmjs.com/package/selling-lint-cli
 
+> 说明：commitlint之所以加scope，是因为commitlint在使用的时候extend不允许写无scope的包
 ### 使用
 > 提供两种使用方式，1、利用脚手架 2、在工程中安装相对的包。推荐方式1
 

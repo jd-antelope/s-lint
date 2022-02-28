@@ -1,20 +1,20 @@
 const eslintPackageName = 'eslint-config-selling'
-const commitlintPackageName = 'commitlint-config-selling'
+const commitlintPackageName = '@jd-antelope/commitlint-config-selling'
 const stylelintPackageName = 'stylelint-config-selling'
 const packageMap = {
   folderName: {
     'eslint-config-selling': 'eslint-config-selling',
-    'commitlint-config-selling': 'commitlint-config-selling',
+    '@jd-antelope/commitlint-config-selling': 'commitlint-config-selling',
     'stylelint-config-selling': 'stylelint-config-selling'
   },
   lintType: {
     'eslint-config-selling': 'eslint',
-    'commitlint-config-selling': 'commitlint',
+    '@jd-antelope/commitlint-config-selling': 'commitlint',
     'stylelint-config-selling': 'stylelint'
   },
   depNames: {
     'eslint-config-selling': 'eslintDeps',
-    'commitlint-config-selling': 'commitlintDeps',
+    '@jd-antelope/commitlint-config-selling': 'commitlintDeps',
     'stylelint-config-selling': 'stylelintDeps'
   }
 }

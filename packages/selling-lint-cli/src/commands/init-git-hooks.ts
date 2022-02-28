@@ -47,7 +47,7 @@ export const initLint = (packageName: string, srcFileName: string, targetFileNam
     fs.removeSync(`${targetDir}/${targetFileName}`)
   }
 
-  execa.commandSync(`npm install ${ packageName } --save-dev`, {stdio: 'inherit'})
+  execa.commandSync(`npm install ${packageName}@latest --save-dev`, {stdio: 'inherit'})
 
   const srcPath = path.join(__dirname, srcFileName)
   const tarPath = path.join(targetDir, targetFileName)
@@ -71,7 +71,7 @@ const action = async (projectName, cmdArgs) => {
 }
 
 export default {
-  command: 'init-git-hooks',
+  command: 'init-git-hooks1',
   description: '初始化git-hooks规范',
   action,
 }

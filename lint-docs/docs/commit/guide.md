@@ -6,9 +6,9 @@ sidebar_position: 1
 是商羚前端CommitLint规范
 #### 安装
 ```shell
-npm install commitlint-config-selling -D
+npm install @jd-antelope/commitlint-config-selling -D
 # OR
-yarn add commitlint-config-selling --dev
+yarn add @jd-antelope/commitlint-config-selling --dev
 ```
 #### 使用
 在你的工程根目录下创建一个`.commitlintrc.js`配置文件
@@ -16,7 +16,7 @@ yarn add commitlint-config-selling --dev
 配置如下即可:
 ```js
 module.exports = {
-    "extends": "commitlint-config-selling"
+    "extends": "@jd-antelope/commitlint-config-selling"
 }
 ```
 
