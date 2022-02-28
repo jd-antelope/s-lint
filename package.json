@@ -9,7 +9,7 @@
     "bootstrap": "lerna bootstrap",
     "clean": "lerna run clean",
     "publish:independent": "node scripts/publish.js",
-    "p": "cd packages/@jd/selling-lint-cli && yarn build && cd ../../../ && node scripts/package-publish.js",
+    "p": "cd packages/selling-lint-cli && yarn build && cd ../../../ && node scripts/package-publish.js",
     "publish": "lerna publish",
     "docs": "node ./scripts/docs/index.js"
   },
