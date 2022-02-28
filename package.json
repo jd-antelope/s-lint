@@ -18,7 +18,7 @@
     "@types/node": "^16.9.6",
     "commitlint": "^16.2.1",
     "doctrine": "^3.0.0",
-    "execa": "^5.1.1",
+    "execa": "^6.1.0",
     "fs-extra": "^10.0.0",
     "globby": "^11.0.4",
     "handlebars": "^4.7.7",
