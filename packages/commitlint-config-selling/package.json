@@ -1,5 +1,5 @@
 {
-  "name": "commitlint-config-selling",
+  "name": "@jd-antelope/commitlint-config-selling",
   "version": "0.0.3",
   "description": "commitlint config base version",
   "main": "index.js",
