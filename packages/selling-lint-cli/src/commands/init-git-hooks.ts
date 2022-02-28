@@ -25,7 +25,7 @@ import { checkAndRemoveOldPackage } from './init'
 export const installHusky = (targetDir: string) => {
   if (!hasPackage('husky', targetDir)) {
     startSpinner(`正在安装husky`)
-    execa.commandSync(`npm install husky --save-dev`, {stdio: 'inherit'})
+    execa.commandSync(`npm install husky@4 lint-staged --save-dev`, {stdio: 'inherit'})
     succeedSpiner('husky安装成功!')
   }
 
