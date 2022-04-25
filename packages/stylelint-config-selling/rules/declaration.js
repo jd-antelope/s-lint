@@ -65,9 +65,9 @@ module.exports = {
 
     // 内容必须以分号后分行进行显示
     "declaration-block-semicolon-newline-after": [
-        "always",
+        "always-multi-line",
         {
-            message: "内容必须以分号后分行进行显示"
+            message: "在多行规则中，分号后必须始终有一个换行符"
         }
     ],
 

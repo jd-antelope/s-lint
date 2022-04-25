@@ -11,3 +11,6 @@ sidebar_position: 2
 + StyleLint 关闭限制浏览器前缀校验 ([@linhongjing](timline://chat/?topin=linhongjing) [#C2021111988409](http://coding.jd.com/selling-front/frontend-lint/issues/C2021111988409))
 + s-lint命令行 修复升级规范脚本 ([@zhengxiuyue](timline://chat/?topin=zhengxiuyue) [#C2021111988208](http://coding.jd.com/selling-front/frontend-lint/issues/C2021111988208))
 
+### stylelint-config-selling 0.0.4
+`2022-04-25`
++ StyleLint `declaration-block-semicolon-newline-after`由`always`改为`always-multi-line`，解决内敛样式换行问题 ([issue23](https://github.com/jd-antelope/s-lint/issues/23))

@@ -71,7 +71,7 @@ const action = async (projectName, cmdArgs) => {
 }
 
 export default {
-  command: 'init-git-hooks1',
+  command: 'init-git-hooks',
   description: '初始化git-hooks规范',
   action,
 }
