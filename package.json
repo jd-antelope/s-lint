@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^16.2.1",
-    "@types/node": "^16.9.6",
+    "@types/node": "^18.0.0",
     "commitlint": "^16.2.1",
     "doctrine": "^3.0.0",
     "execa": "^5.1.1",
